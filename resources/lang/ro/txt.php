@@ -32,11 +32,14 @@ return [
     ],
 
     "header" => [
+
+        "help" => "HELP TO HELP UKRAINE",
         "home" => "Acasa",
         "about_project" => "Despre proiect",
-        "guides" => "Ghiduri",
-        "courses" => "Cursuri",
+        "services_map" => "Harta serviciilor",
+        "ngos" => "ONG-uri",
         "contact" => "Contact",
+        'code_for_romania' => 'Code 4 ro'
     ],
 
     "home" => [

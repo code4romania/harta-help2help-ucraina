@@ -9,14 +9,10 @@
 // @import 'tailwindcss/components';
 // @import 'tailwindcss/utilities';
 
-.qwerty {
-background-color: #f887b8;
-}
 // used by tailwind for defaults
 @layer base {
     body {
-        @apply relative;
-        @apply min-h-screen;
+        @apply relative min-h-screen;
     }
 
     main {
@@ -31,8 +27,28 @@ background-color: #f887b8;
         @apply w-full;
     }
 
+    .vl {
+        border-left: 2px solid #151926;
+        height: 1.5rem;
+      }
+
+    nav a:not(:first-child) {
+        border-bottom: 3px solid transparent;
+        padding: 12px 0;
+
+        &:hover{
+            color: #7CC1DF;
+            border-bottom: 3px solid #7CC1DF;
+            transition: color 0.3s linear 0.3s;
+            transition: border 0.3s linear 0.1s;
+        }
+        &:active{
+            color: #EBBB3F;
+            border-bottom: 3px solid #EBBB3F;
+        }
+        }
     a {
-        @apply no-underline hover:underline;
+        @apply no-underline ;
     }
 
     ul {
@@ -54,6 +70,7 @@ background-color: #f887b8;
 
 // used by tailwind for components
 @layer components {
+ 
     .card {
         color: #f887b8;
     }
