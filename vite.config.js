@@ -5,8 +5,17 @@ import sass from 'sass';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.scss', 'resources/js/app.js'],
+            input: ['resources/scss/app.scss', 'resources/js/app.js'],
             refresh: true,
         }),
     ],
+    css: {
+        postcss: {
+            plugins: [
+                require('tailwindcss')({
+                    config: './tailwind.config.js'
+                }),
+             ],
+        }
+    },
 });

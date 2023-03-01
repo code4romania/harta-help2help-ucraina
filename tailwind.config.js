@@ -1,20 +1,15 @@
-const colors = require("tailwindcss/colors");
+// const colors = require("tailwindcss/colors");
 
 module.exports = {
     content: [
         "app/**/*.php",
         "./resources/**/*.blade.php",
+        "./resources/**/*.js",
         "./vendor/filament/**/*.blade.php",
     ],
     darkMode: "class",
     theme: {
         extend: {
-            colors: {
-                danger: colors.rose,
-                primary: colors.cyan,
-                success: colors.emerald,
-                warning: colors.amber,
-            },
         },
     },
     plugins: [
