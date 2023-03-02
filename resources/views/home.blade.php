@@ -1,9 +1,9 @@
 <x-layout>
 
     {{-- individual title for each page in metatags --}}
-    <x-slot:title>
+    <x-slot:title> 
         Help2Help Home Page
-        </x-slot:title>
+    </x-slot>
 
     <x-search/>
 
@@ -37,7 +37,7 @@
             </div>
         </section>
         
-        <section class="-mt-24 flex-col  justify-start " id="domain-container">
+        <section class="-mt-24 flex-col  justify-start " id="domains-container">
             <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"> {{ __('txt.home.domains') }}</h2>
             <div class="w-full flex flex-wrap flex-col md:flex-row mt-4">
                 

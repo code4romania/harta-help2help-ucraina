@@ -12,7 +12,7 @@
 // used by tailwind for defaults
 @layer base {
     body {
-        @apply relative min-h-screen m-0 p-0 pb-96;
+        @apply relative min-h-screen m-0 p-0 pb-60 md:pb-72 lg:pb-80;
     }
 
     main {
@@ -63,6 +63,10 @@
         @apply font-bold text-3xl  mb-8;
     }
 
+    p {
+        @apply my-2
+    }
+
     // 'container_padding': 15px,
     // 'container_margin': 20px 0,
     // 'element_shadow': 0px 4px 4px rgba(0, 0, 0, 0.25)
@@ -81,10 +85,15 @@
    
 }
 .about {
-    // background-image: linear-gradient(180deg,   rgba(233, 215, 88, 0),  rgba(233, 216, 88, 0.375),#7CC1DF), url('../images/design/group.png');
     background: linear-gradient(180deg,   rgba(233, 215, 88, 0),  rgba(233, 216, 88, 0.375),#7CC1DF, #FBF9F4);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: center;
-   
+    &-page {
+       background: linear-gradient(180deg,   rgba(233, 215, 88, 0),  rgba(233, 216, 88, 0.375),#7CC1DF);
+       background-size: contain;
+       background-repeat: no-repeat;
+       background-position-y: center;
+
+   }
 }
