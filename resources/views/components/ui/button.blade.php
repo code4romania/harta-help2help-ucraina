@@ -1,3 +1,3 @@
-<div>
-    <!-- I have not failed. I've just found 10,000 ways that won't work. - Thomas Edison -->
-</div>
+<button class="button w-full bg-orange1 font-bold p-4 lg:w-2/12 my-1 lg:my-0">
+    {{ $slot }}
+</button>

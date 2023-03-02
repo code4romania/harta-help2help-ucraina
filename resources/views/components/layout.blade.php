@@ -16,10 +16,7 @@
 
 <body>
     <x-header />
-    <hr />
-    <h1>Layout <h1>
     {{ $slot }}
-    <hr />
     <x-footer />
 </body>
 
