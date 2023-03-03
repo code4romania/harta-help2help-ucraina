@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Cards;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Card extends Component
+class ngo_sm extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class Card extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.card');
+        return view('components.cards.ngo_sm');
     }
 }
