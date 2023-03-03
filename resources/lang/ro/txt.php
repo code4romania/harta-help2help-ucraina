@@ -5,11 +5,15 @@ return [
     "domains" => [
         "education" => "Educație",
         "protection" => "Protecție",
+        "youth" => "Tineret",
+        "research" => "Cercetare",
+
     ],
 
     "beneficiaries" => [
-        "child_teen" => "Copii, Tineri",
-        "child_adult" => "Copii, Adulți",
+        "child" => "Copii",
+        "young" => "Tineri",
+        "adult" => "Adulți",
     ],
 
     "buttons" => [
@@ -20,6 +24,10 @@ return [
         "see_more" => "Vezi mai mult",
         "services_list" => "Listă servicii",
         "services_map" => "Hartă servicii",
+        "ngos_list" => "Listă ONG-uri",
+        "ngos_map" => "Hartă ONG-uri",
+        "access_online" => "Accesează online",
+        "access_site" => "Accesează website",
     ],
 
     "placeholders" => [
@@ -85,21 +93,51 @@ return [
        "text6" => "Organizațiile și proiectele susținute prin CARE și implementate la nivel național de Fundația SERA România cu sprijinul CARE France și FONPC sunt: YouHub Association, Fundația FARA, Fundația ESTUAR, Asociația CARUSEL, Asociația ESPERANDO, Fundația Parada, Asociația de Ajutor AMURTEL România, Asoc Autism Baia Mare, Create Yourself Association, ECLER, The International Foundation for Child and Family, Asociația Q-ARTS, Asociația The Social Incubator, Asociația Buna Ziua Copii, Asociația ANAIS, Asociația Profesorii de Asistență Socială ASSOC, Asociația Civica Radauti, Asociația Hand across Romania, Fundația Inimă de Copil, Organizația Natională Cercetașii României, ALIAT, Society for Children and Parents, Federația Organizațiilor Neguvernamentale pentru Servicii Sociale, Federația Organizatiilor Neguvernamentale pentru Copii, Asociația Club Sportiv Olimpic Snagov, Fundația Serviciilor Sociale Bethany, Fundația de Ajutor Medical Profilaxis, Fundația Star of Hope Romania, Fundația ELIBERARE, DGASPC Sector 1, DGASMB, DGASPC Sector 3, DGASPC Tulcea, DGASPC Suceava, DGASPC Maramureș, DGASPC Brașov."
     ],
 
-    "service_sm" => [
+    "service_card" => [
         'page_title' => "servicii",
+        'ngos_services' => "Serviciile organizației",        
         'city_any' => "Oriunde în România",
         'project_name' => "Denumire proiect",
         'provided_by' => "Oferit de",
-        'domains' => "Domenii de intervenție",
+        'intervention_domains' => "Domenii de intervenție",
         'beneficiary_type' => "Tip beneficiar",
         'project_active' => "Proiect activ/în desfășurare",
         'project_finished' => "Proiect finalizat.",
         'project_period' => "Perioada desfășurare - 12.12.2021 - 15.12.2021",
         'service_access' => "Cum poate fi accesat serviciul",
-        'access_online' => "Online",
-        'access_email' => "Email sau telefon",
-        'access_location' => "La locație",
+        'online' => "Online",
+        'email' => "Email sau telefon",
+        'location' => "La locație",
+        'access_email' => "Prin e-mail sau telefon",
+        'access_location' => "Prin prezentare la adresa",
+        'access_online_explain' => "Lorem ipsum. Apasă butonul de mai jos și rezolvă problema.",
+        'access_email_explain' => "Pentru a solicita acest serviciu, trimite un e-mail pe adresa de mai jos, sau suna la numarul de telefon mentionat. Multumim!",
+        'access_location_explain' => "Ca sa beneficiezi de acest serviciu, trebuie doar sa te prezinti la locatia de mai jos.",
+        'service_name' => "Cercetașii pentru Ucraina",
+        'share' => "Distribuie",
+        'services_provided' => "Servicii oferite în cadrul proiectului: ",
+        'services_provided1' => "Centru educațional pentru tineri și copii, activități educaționale nonformale, soft skills si competente transversale.",
+        'services_provided2' => "Spațiu sigur - în regim open access pentru copii, adolescenți, tineri si parinti/tutori,  activitati nonformale in spirit cercetasesc.",
+        'services_provided3' => "
+        Spatiu pentru socializare in comunitate, ce pune la dispozitie gustari, ceai, cafea.",
+        'budget' => "Buget alocat",
+        'disponibility' => "Disponibil ",
+        'beneficiaries' => "Categorie beneficiar",
+        'phone' => "Telefon",
+        'address' => "Adresa",
+        'how_help' => "Vrei să vezi cum au reușit proiectele să ajute?",
+        'how_help_explain' => "Accesează materialele foto ale activităților mergând pe website-ul organizației.",
+
+       
     ],
-
-
+    
+    "ngo_card" => [
+        'page_title' => "organizatii",
+        'ngo_name' => "Denumire lunga ONG - asociatia pentru mame",
+        'ngo_description' => "Descriere scurta serviciu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id condimentum quam. Quisque imperdiet arcu id dignissim eleifend. Vestibulum euismod suscipit ex, eu dign...",       
+        "activity_domains" => "Domenii de activitate ",
+        "intervention_domains" => "Domenii de intrevenție ",
+        "beneficiaries_nr" => "Număr de beneficiari ai serviciilor",
+    ],
+    
 ];
