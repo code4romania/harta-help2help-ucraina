@@ -35,9 +35,8 @@
         height: 1.5rem;
       }
 
-    nav a:not(:first-child) {
+    nav a {
         border-bottom: 3px solid transparent;
-        padding: 12px 0;
 
         &:hover{
             color: #7CC1DF;

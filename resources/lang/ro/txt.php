@@ -16,6 +16,12 @@ return [
         'integration' => 'Integrare, Drepturile Omului, Coeziune Socială',
     ],
 
+    'activity_domains' => [
+        'education' => 'Educație',
+        'research' => 'Cercetare',
+        'youth' => 'Tineret',
+    ],
+    
     'beneficiaries' => [
         'child' => 'Copii',
         'young' => 'Tineri',

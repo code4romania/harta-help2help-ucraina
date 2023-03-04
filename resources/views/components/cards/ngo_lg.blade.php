@@ -16,10 +16,9 @@
             dezvoltare fizică, creativă, cognitivă și emoțională, activități tematice pentru copii sau evenimente pentru
             întreaga familie.</p>
         <p class="font-bold">{{ __('txt.ngo_card.activity_domains') }} <span
-                class="text-orange1">{{ __('txt.domains.education') }}, {{ __('txt.domains.youth') }},
-                {{ __('txt.domains.research') }} </span> </p>
+                class="text-orange1">{{ __('txt.activity_domains.education') }}, {{ __('txt.activity_domains.youth') }}, {{ __('txt.activity_domains.research') }} </span> </p>
         <p class="font-bold">{{ __('txt.ngo_card.intervention_domains') }} <span
-                class="text-orange1">{{ __('txt.domains.education') }} </span> </p>
+                class="text-orange1">{{ __('txt.intervention_domains.education') }} </span> </p>
         <p class="font-bold">{{ __('txt.ngo_card.beneficiaries_nr') }} <span class="text-orange1">13000</span> </p>
 
         <div class="flex flex-col sm:flex-row">

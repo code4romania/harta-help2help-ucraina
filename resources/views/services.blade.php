@@ -10,7 +10,7 @@
             <div class="mb-5 flex flex-col justify-between md:flex-row">
                 <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">1220 {{ __('txt.service_card.page_title') }}
                 </h2>
-                <div class="flex w-full justify-evenly md:w-1/3">
+                <div class="flex w-full justify-evenly md:w-1/2">
                     <button
                         class="h-12 w-2/5 flex items-center justify-center border border-slate-300  bg-white text-black hover:bg-blue1 active:bg-orange1">
                             <x-heroicon-o-map class="h-6 w-6 text-gray1 p-1" />
