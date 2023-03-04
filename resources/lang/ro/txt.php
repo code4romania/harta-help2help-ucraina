@@ -21,7 +21,7 @@ return [
         'research' => 'Cercetare',
         'youth' => 'Tineret',
     ],
-    
+
     'beneficiaries' => [
         'child' => 'Copii',
         'young' => 'Tineri',
@@ -40,6 +40,7 @@ return [
         'ngos_map' => 'Hartă ONG-uri',
         'access_online' => 'Accesează online',
         'access_site' => 'Accesează website',
+        'send' => 'Trimite',
     ],
 
     'placeholders' => [
@@ -53,6 +54,10 @@ return [
         'any_domain' => 'Orice domeniu de intervenție',
         'any_beneficiary' => 'Orice beneficiar',
         'project_status' => 'Statusul proiectului',
+        'full_name' => 'Nume complet:',
+        'email' => 'Email:',
+        'phone_opt' => 'Telefon (opțional):',
+        'message' => 'Mesajul tău:',
     ],
 
     'header' => [
@@ -150,5 +155,18 @@ return [
         'intervention_domains' => 'Domenii de intrevenție ',
         'beneficiaries_nr' => 'Număr de beneficiari ai serviciilor',
     ],
+    
+    'contact' => [
+        'page_title' => 'Contact',
+        'email_address' => 'Adresă de email',
+        'phone' => 'Telefon',
+        'gdpr' => 'Prin această bifă îți exprimi acordul ca datele furnizate de tine prin acest formular să fie procesate exclusiv in scopul de a fi contactat de echipa FONPC  în legătură cu această submisie. Aici puteți găsi ',
+        'gdpr_link' => 'regulamentul nostru cu privire la prelucrarea datelor cu caracter personal. ',
+        'contact_form' => 'Formular de contact',
+        'our_address' => 'Adresa noastră',
+        'open_gmap' => '(deschide în Google Maps)',
+      
 
+      
+    ],
 ];
