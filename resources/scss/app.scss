@@ -1,16 +1,19 @@
 
-@import "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap";
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/v4-shims.min.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-// @import 'tailwindcss/base';
-// @import 'tailwindcss/components';
-// @import 'tailwindcss/utilities';
-
 // used by tailwind for defaults
 @layer base {
+    html {
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
     body {
         @apply relative min-h-screen m-0 p-0 pb-60 md:pb-72 lg:pb-80;
     }
@@ -67,9 +70,10 @@
         @apply my-2
     }
 
-    // 'container_padding': 15px,
-    // 'container_margin': 20px 0,
-    // 'element_shadow': 0px 4px 4px rgba(0, 0, 0, 0.25)
+    .icon {
+        @apply absolute inset-y-0 left-0 flex items-center pl-5
+    }
+    
 }
 
 // used by tailwind for components
