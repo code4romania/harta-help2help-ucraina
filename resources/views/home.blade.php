@@ -5,7 +5,7 @@
         Help2Help Home Page
         </x-slot>
 
-        <x-search />
+        <x-search/>
 
         <section
             class="about h-[900px] flex-col items-center justify-start sm:h-[950px] md:h-[700px] lg:h-[1000px] xl:h-[1140px] 2xl:h-[1240px]"
@@ -36,17 +36,7 @@
                 </div>
             </div>
         </section>
+        <x-intervention-domains></x-intervention-domains>
 
-        <section class="-mt-24 flex-col justify-start" id="domains-container">
-            <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"> {{ __('txt.home.domains') }}</h2>
-            <div class="mt-4 flex w-full flex-col flex-wrap md:flex-row">
-                <x-ui.card_simple>Sanatate</x-ui.card_simple>
-                <x-ui.card_simple>Sanatate</x-ui.card_simple>
-                <x-ui.card_simple>Sanatate</x-ui.card_simple>
-                <x-ui.card_simple>Sanatate</x-ui.card_simple>
-                <x-ui.card_simple>Sanatate</x-ui.card_simple>
-                <x-ui.card_simple>Sanatate</x-ui.card_simple>
-            </div>
-        </section>
 
 </x-layout>

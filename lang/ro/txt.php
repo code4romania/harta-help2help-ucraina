@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 return [
 
-    'domains' => [
-        'education' => 'Educație',
+    'intervention_domains' => [
+        'health' =>'Sănătate',
+        'food' => 'Hrană',
+        'house' => 'Adăpost',
+        'hygiene' => 'Igienă',
+        'finance_support' => 'Ajutor Financiar',
         'protection' => 'Protecție',
-        'youth' => 'Tineret',
-        'research' => 'Cercetare',
-
+        'education' => 'Educație',
+        'management'=>'Coordonare & Management',
+        'integration' => 'Integrare, Drepturile Omului, Coeziune Socială',
     ],
 
     'beneficiaries' => [
