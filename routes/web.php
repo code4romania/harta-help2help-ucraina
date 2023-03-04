@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +34,3 @@ Route::get('/ngos', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-
-
