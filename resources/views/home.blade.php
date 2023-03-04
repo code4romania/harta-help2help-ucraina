@@ -12,9 +12,9 @@
             id="about-container">
             <div class="flex flex-col items-center justify-center md:flex-row">
                 <div class="w-3/4 md:w-1/2">
-                    <img class="w-full" src="{{ Vite::asset('resources/images/design/help-big.png') }}" alt="Logo">
+                    <img class="w-full p-5" src="{{ Vite::asset('resources/images/design/help-big.png') }}" alt="Logo">
                 </div>
-                <div class="md:w-1/2">
+                <div class="md:w-1/2 p-5">
                     <h2 class="text-2xl lg:text-6xl"> {{ __('txt.home.about_title') }}</h2>
                     <p class="text-base lg:text-2xl"> {{ __('txt.home.about_text') }} </p>
                     <a class="mt-10 block text-base font-bold underline lg:text-xl" href="#domains-container">
