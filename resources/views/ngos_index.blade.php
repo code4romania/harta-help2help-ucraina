@@ -26,7 +26,6 @@
                 <div class="w-full md:w-1/2 flex flex-col">
                     <p class="font-medium"> Social Media </p>
                     <p class="font-medium"> FB Instagram Twitter </p>
-
                 </div>
             </div>
         </div>
