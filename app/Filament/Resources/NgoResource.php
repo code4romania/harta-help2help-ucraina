@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\NgoResource\Pages;
+use App\Filament\Resources\ServiceResource\RelationManagers\ServicesRelationManager;
 use App\Models\Ngo;
 use Closure;
 use Filament\Forms;
@@ -80,7 +81,7 @@ class NgoResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+           ServicesRelationManager::class
         ];
     }
 
