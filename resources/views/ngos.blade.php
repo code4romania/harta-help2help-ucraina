@@ -22,18 +22,18 @@
                 </div>
             </div>
             <div class="flex flex-wrap">
-                <x-cards.ngo_sm />
-                <x-cards.ngo_sm />
-                <x-cards.ngo_sm />
+                @foreach($ngos->items() as $item)
+                    <x-cards.ngo_sm :ngo="$item" />
+                @endforeach
             </div>
-            <x-pagination />
+            {{$ngos->links()}}
         </section>
 
-        <x-cards.ngo_lg />
+
 
         <x-cards.service_lg />
 
-        
-     
+
+
 
 </x-layout>

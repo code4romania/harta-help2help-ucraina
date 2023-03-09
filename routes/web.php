@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +28,8 @@ Route::get('/services', function () {
     return view('services');
 })->name('services');
 
-Route::get('/ngos', function () {
-    return view('ngos');
-});
+Route::get('/ngos', [PageController::class, 'ngosPage'])->name('ngos');
+Route::get('/ngos/{slug}', [PageController::class, 'ngoPage'])->name('ngo.index');
 
 Route::get('/contact', function () {
     return view('contact');

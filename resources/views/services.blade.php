@@ -1,9 +1,8 @@
 <x-layout>
-
-    {{-- individual title for each page in metatags --}}
     <x-slot:title>
         Help2Help Services Page
-        </x-slot>
+    </x-slot:title>
+
 
         <x-search />
         <section class="flex-col">
@@ -26,6 +25,11 @@
                 <x-cards.service_sm />
                 <x-cards.service_sm />
             </div>
-            <x-pagination />
-        </section>
+        </div>
+        <div class="flex flex-wrap">
+            <x-cards.service_sm/>
+            <x-cards.service_sm/>
+            <x-cards.service_sm/>
+        </div>
+    </section>
 </x-layout>
