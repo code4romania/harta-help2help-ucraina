@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ServiceResource\Pages;
@@ -7,12 +9,10 @@ use App\Models\Service;
 use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-
 use Illuminate\Support\Str;
 
 class ServiceResource extends Resource
@@ -35,10 +35,10 @@ class ServiceResource extends Resource
                                 $set('slug', Str::slug($state));
                             }),
                         Forms\Components\TextInput::make('slug')->disabled(),
-                        Forms\Components\Select::make('n_g_o_id')->relationship('ngo','name'),
+                        Forms\Components\Select::make('n_g_o_id')->relationship('ngo', 'name'),
                         Forms\Components\RichEditor::make('description')->columnSpan(2)->required(),
                         Forms\Components\TextInput::make('budget'),
-                        Forms\Components\Select::make('activity_domain')->relationship('')
+                        Forms\Components\Select::make('activity_domain')->relationship(''),
 
                     ]),
                 Card::make()->columns(2)->schema([
