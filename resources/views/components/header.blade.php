@@ -13,19 +13,20 @@
 
         <div class="block cursor-pointer text-3xl md:hidden">
             <svg class="burger-btn" id="menuTrigger" width="60" height="52" viewBox="0 0 40 26"
-                xmlns="http://www.w3.org/2000/svg" fill="#7CC1DF">
-                <rect class="burger-btn--1" width="40" height="6" rx="3" ry="3" />
+                 xmlns="http://www.w3.org/2000/svg" fill="#7CC1DF">
+                <rect class="burger-btn--1" width="40" height="6" rx="3" ry="3"/>
                 <rect class="burger-btn--2" width="40" height="6" y="10" rx="3"
-                    ry="3" />
+                      ry="3"/>
                 <rect class="burger-btn--3" width="40" height="6" y="20" rx="3"
-                    ry="3" />
+                      ry="3"/>
             </svg>
         </div>
 
         <div class="hidden w-full items-center justify-center md:flex" id="sideNav">
-            <nav class="flex w-11/12 items-center  text-base font-bold lg:text-lg">
+            <nav class="flex w-11/12 items-center justify-between text-base font-bold lg:text-lg ">
 
-                <a class="mr-auto md:text-sm hover:border-b-transparent hover:text-inherit" href="https://helptohelpukraine.ro/">
+                <a class="mr-auto md:text-sm hover:border-b-transparent hover:text-inherit"
+                   href="https://helptohelpukraine.ro/">
                     <span class="text-[#20ACEA]">HELP</span>
                     <span class="text-[#EFE900]">TO HELP</span>
                     <span class="font-light">UKRAINE</span>
@@ -33,19 +34,17 @@
 
                 <a class="border-r-2 px-1 lg:px-3 text-center " href="{{ url('/') }}"> {{ __('txt.header.home') }} </a>
 
-                <a class="border-r-2 px-1 lg:px-3 text-center" href="{{ url('about') }}">{{ __('txt.header.about_project') }} </a>
+                <a class="border-r-2 px-1 lg:px-3 text-center"
+                   href="{{ url('about') }}">{{ __('txt.header.about_project') }} </a>
 
-                <a class="border-r-2 px-1 lg:px-3 text-center" href="{{ url('services') }}">{{ __('txt.header.services_map') }}</a>
+                <a class="border-r-2 px-1 lg:px-3 text-center"
+                   href="{{ url('services') }}">{{ __('txt.header.services_map') }}</a>
 
-                <a class="border-r-2 px-1 lg:px-3 text-center"  href="{{ url('ngos') }}">{{ __('txt.header.ngos') }}</a>
+                <a class="border-r-2 px-1 lg:px-3 text-center" href="{{ url('ngos') }}">{{ __('txt.header.ngos') }}</a>
 
-                <a class="border-r-2 px-1 lg:px-3 text-center"  href="{{ url('contact') }}"> {{ __('txt.header.contact') }} </a>
+                <a class="border-r-2 px-1 lg:px-3 text-center"
+                   href="{{ url('contact') }}"> {{ __('txt.header.contact') }} </a>
 
-                {{-- @foreach ($pages as $page)
-                            @if ($page->show_in_header)
-                            <a href=""> </a>
-                            @endif
-                            @endforeach --}}
 
             </nav>
             <form action="">
@@ -65,5 +64,4 @@
         </div>
     </div>
 
-    {{-- </div> --}}
 </header>

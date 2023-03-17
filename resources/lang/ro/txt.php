@@ -155,7 +155,7 @@ return [
         'intervention_domains' => 'Domenii de intrevenție ',
         'beneficiaries_nr' => 'Număr de beneficiari ai serviciilor',
     ],
-    
+
     'contact' => [
         'page_title' => 'Contact',
         'email_address' => 'Adresă de email',
@@ -165,8 +165,6 @@ return [
         'contact_form' => 'Formular de contact',
         'our_address' => 'Adresa noastră',
         'open_gmap' => '(deschide în Google Maps)',
-      
 
-      
     ],
 ];
