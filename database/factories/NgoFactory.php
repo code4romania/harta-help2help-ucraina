@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Models\ActivityDomain;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -22,6 +23,7 @@ class NgoFactory extends Factory
             ],
 
         ];
+        $activityDomains = ActivityDomain::inRandomOrder()->limit(4)->pluck('id');
         $name = fake()->name;
 
         return [
@@ -34,6 +36,7 @@ class NgoFactory extends Factory
             'address' => fake()->address,
             'website' => 'example.com',
             'social_icons' => $socialIcons,
+            'activity_domains' => $activityDomains->toArray(),
 
         ];
     }

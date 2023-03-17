@@ -18,9 +18,10 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(NGO::class)->constrained();
             $table->string('name');
+            $table->string('slug');
             $table->text('description');
             // @TODO add location
-            $table->json('intervention_domain');
+            $table->json('intervention_domains');
             $table->json('target_groups');
             $table->date('start');
             $table->date('end');

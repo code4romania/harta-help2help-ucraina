@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ServiceResource\Pages;
+use App\Models\ActivityDomain;
+use App\Models\BeneficiaryGroup;
+use App\Models\InterventionDomains;
 use App\Models\Service;
 use Closure;
 use Filament\Forms;
@@ -23,6 +26,8 @@ class ServiceResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $beneficiaryGroup = BeneficiaryGroup::pluck('name', 'id');
+        $interventionDomains = InterventionDomains::pluck('name', 'id');
         return $form
             ->schema([
 
@@ -33,12 +38,18 @@ class ServiceResource extends Resource
                         Forms\Components\TextInput::make('name')->required()
                             ->afterStateUpdated(function (Closure $set, $state) {
                                 $set('slug', Str::slug($state));
-                            }),
+                            })->reactive(),
                         Forms\Components\TextInput::make('slug')->disabled(),
-                        Forms\Components\Select::make('n_g_o_id')->relationship('ngo', 'name'),
+                        Forms\Components\Select::make('ngo_id')->relationship('ngo', 'name')
+                            ->searchable()
+                            ->preload(),
+                        Forms\Components\TextInput::make('website_project')->required(),
                         Forms\Components\RichEditor::make('description')->columnSpan(2)->required(),
+                        Forms\Components\DatePicker::make('start')->required(),
+                        Forms\Components\DatePicker::make('end')->required()->after('start'),
                         Forms\Components\TextInput::make('budget'),
-                        Forms\Components\Select::make('activity_domain')->relationship(''),
+                        Forms\Components\Select::make('intervention_domains')->options($interventionDomains)->multiple(),
+                        Forms\Components\Select::make('target_groups')->options($beneficiaryGroup)->multiple(),
 
                     ]),
                 Card::make()->columns(2)->schema([

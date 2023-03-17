@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>
-        Help2Help NGOs Page
+        {{$ngo->name}}
     </x-slot:title>
     <div class="container card flex-col md:flex-row my-2 p-5 sm:p-10  ">
         <div class=" w-4/5 sm:w-2/3 md:w-1/3 flex flex-col p-5 self-center items-center">
@@ -11,23 +11,53 @@
         <div class="w-full md:w-2/3 flex flex-col p-5">
             <h2 class="my-2  font-bold">{{$ngo->name}}</h2>
             <div>{!! $ngo->description !!}</div>
-            <p class="font-bold">{{ __('txt.ngo_card.activity_domains') }} <span class="text-orange1">{{ __('txt.domains.education') }}, {{ __('txt.domains.youth') }}, {{ __('txt.domains.research') }}   </span> </p>
-            <p class="font-bold">{{ __('txt.ngo_card.intervention_domains') }} <span class="text-orange1">{{ __('txt.domains.education') }}   </span> </p>
-            <p class="font-bold">{{ __('txt.ngo_card.beneficiaries_nr') }} <span class="text-orange1">13000</span> </p>
+            <p class="font-bold">{{ __('txt.ngo_card.activity_domains') }}
+
+                @foreach($ngo->activity_domains_name as $key=>$value)
+                    <span class="text-orange1">
+                        {{$value}}
+                        @if(!$loop->last)
+                            ,
+                        @endif
+                    </span>
+                @endforeach
+
+            </p>
+            <p class="font-bold">{{ __('txt.ngo_card.intervention_domains') }}
+                @foreach($ngo->intervention_domains as $key=>$value)
+                    <span class="text-orange1">
+                    {{ $value }}
+                        @if(!$loop->last)
+                            ,
+                        @endif
+                </span>
+                @endforeach
+
+            </p>
+            <p class="font-bold">{{ __('txt.ngo_card.beneficiaries_nr') }} <span
+                    class="text-orange1">{{$ngo->number_of_beneficiaries}}</span></p>
 
             <div class="flex flex-col sm:flex-row">
                 <div class="w-full md:w-1/2 flex flex-col">
                     <p class="font-medium"> Contact </p>
-                    <p class="font-medium"> 0712345678 </p>
-                    <p class="font-medium"> contact@organizatie.com </p>
-                    <p class="font-medium"> Turda, judetul Cluj </p>
-                    <p class="font-medium"> www.site-organizatie.ro </p>
+                    <p class="font-medium"> {{$ngo->phone}} </p>
+                    <p class="font-medium"> {{$ngo->contact_email}} </p>
+                    <p class="font-medium">{{$ngo->address}}</p>
+                    <p class="font-medium"> {{$ngo->website}} </p>
                 </div>
-                <div class="w-full md:w-1/2 flex flex-col">
-                    <p class="font-medium"> Social Media </p>
-                    <p class="font-medium"> FB Instagram Twitter </p>
-                </div>
+                {{--                @TODO get social media --}}
+                {{--                <div class="w-full md:w-1/2 flex flex-col">--}}
+                {{--                    <p class="font-medium"> Social Media </p>--}}
+                {{--                    <p class="font-medium"> FB Instagram Twitter </p>--}}
+                {{--                </div>--}}
             </div>
         </div>
     </div>
+    <div class="container justify-start mx-auto flex-col md:flex-row my-2 p-5 sm:p-10  ">
+        <h2 class="my-2  font-bold">{{ __('labels.ong_services') }}</h2>
+    </div>
+    @foreach($ngo->services as $service)
+        <x-cards.service_lg/>
+
+    @endforeach
 </x-layout>

@@ -6,6 +6,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\NgoResource\Pages;
 use App\Filament\Resources\ServiceResource\RelationManagers\ServicesRelationManager;
+use App\Models\ActivityDomain;
 use App\Models\Ngo;
 use Closure;
 use Filament\Forms;
@@ -25,6 +26,7 @@ class NgoResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $activityDomains = ActivityDomain::pluck('name', 'id');
         return $form
             ->schema([
                 Forms\Components\Grid::make()->schema([
@@ -38,6 +40,7 @@ class NgoResource extends Resource
                                 }),
                             Forms\Components\TextInput::make('slug')->disabled(),
                             Forms\Components\TextInput::make('number_of_beneficiaries')->integer()->required(),
+                            Forms\Components\Select::make('activity_domains')->options($activityDomains)->multiple(),
                             SpatieMediaLibraryFileUpload::make('logo')->conversion('thumb'),
                             Forms\Components\RichEditor::make('description')->columnSpan(2)->required(),
                         ]),
