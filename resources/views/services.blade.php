@@ -20,11 +20,22 @@
                     {{ __('txt.buttons.ngos_list') }}</button>
             </div>
         </div>
+        <div class="my-10 h-96 md:h-[40rem] w-full rounded-lg border border-main-color">
+            <div class=" h-full w-full overflow-hidden" id="map">
+
+            </div>
+        </div>
         <div class="flex flex-wrap">
             @foreach($services->items() as $service)
                 <x-cards.service_sm :service="$service"/>
             @endforeach
         </div>
-        </div>
     </section>
+    <x-slot:js>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&libraries=places&callback=initMap"
+            async defer></script>
+        {{--    <script>--}}
+    </x-slot:js>
 </x-layout>
+
