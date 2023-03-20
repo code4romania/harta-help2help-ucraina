@@ -21,8 +21,8 @@
         @endforeach</p>
     @if ($service->end<now())
         <p> {{__('txt.service_card.project_finished')}}</p>
-        @else
-           <p>{{__('txt.service_card.project_active')}}</p>
+    @else
+        <p>{{__('txt.service_card.project_active')}}</p>
         <p><span class="font-bold">{{ __('txt.service_card.service_access') }}  </span></p>
         <div class="w-full flex justify-between flex-wrap">
             @foreach($service->application_methods as $method)
@@ -32,7 +32,7 @@
 
             @endforeach
         </div>
-        @endif
-    <button
-        class="my-2 mt-3 h-12 w-full bg-orange1  text-black rounded-md hover:bg-blue1 md:mt-auto">{{ __('txt.buttons.see_more') }}</button>
+    @endif
+    <a href="{{route('ngo.index',$service->ngo->slug).'#'.$service->slug}}"
+       class="h-12 w-full flex justify-center  text-center items-center rounded-md bg-orange1 text-black hover:bg-blue1">{{ __('txt.buttons.see_more') }}</a>
 </div>
