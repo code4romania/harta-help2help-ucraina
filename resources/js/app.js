@@ -8,7 +8,10 @@ import.meta.glob([
 var map = null
 var markers = []
 var myLatLng = { lat: 46.218160, lng: 25.158008 };
-
+const switchLang = function(lang){
+    console.log(lang)
+}
+export default switchLang;
 window.initMap = () => {
 
     map = new google.maps.Map(document.getElementById("map"), {

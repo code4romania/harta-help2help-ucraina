@@ -47,14 +47,14 @@
 
 
             </nav>
-            <form action="">
 
-                <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg">
-                    <option value="romanian" lang="ro" selected>RO</option>
-                    <option value="english" lang="en">EN</option>
-                    <option value="uk" lang="en">Uk</option>
+                <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher" onchange=" function switchLang(value) {
+                    return window.location = `/${value}`;
+                }; switchLang(this.value)">
+                    <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
+                    <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
+                    <option value="uk" lang="uk" @if(app()->getLocale() == 'uk') selected @endif >UK</option>
                 </select>
-            </form>
         </div>
 
         <div class="ml-5 hidden w-24 md:block md:w-40 lg:ml-10">

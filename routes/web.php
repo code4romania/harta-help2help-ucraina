@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\PageController;
+use App\Http\Middleware\LanguageManager;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,19 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::group(['prefix' => '{locale?}', 'middleware' => [LanguageManager::class]], function () {
+    Route::get('/', function () {
+        return view('home');
+    });
 
-Route::get('/about', function () {
-    return view('about');
-});
+    Route::get('/about', function () {
+        return view('about');
+    });
 
-Route::get('/services', [PageController::class, 'services'])->name('services');
+    Route::get('/services', [PageController::class, 'services'])->name('services');
 
-Route::get('/ngos', [PageController::class, 'ngosPage'])->name('ngos');
-Route::get('/ngos/{slug}', [PageController::class, 'ngoPage'])->name('ngo.index');
+    Route::get('/ngos', [PageController::class, 'ngosPage'])->name('ngos');
+    Route::get('/ngos/{slug}', [PageController::class, 'ngoPage'])->name('ngo.index');
 
-Route::get('/contact', function () {
-    return view('contact');
+    Route::get('/contact', function () {
+        return view('contact');
+    });
 });
