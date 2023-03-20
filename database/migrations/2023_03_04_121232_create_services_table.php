@@ -1,8 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
-use App\Models\NGO;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(NGO::class)->constrained();
+            $table->foreignIdFor(\App\Models\Ngo::class)->constrained();
             $table->string('name');
             $table->string('slug');
             $table->text('description');
