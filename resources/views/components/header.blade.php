@@ -33,7 +33,7 @@
                 </a>
 
                 <a class="border-r-2 px-1 lg:px-3 text-center "
-                   href="{{ route('/',['local'=>app()->getLocale()]) }}"> {{ __('txt.header.home') }} </a>
+                   href="{{ route('home',['local'=>app()->getLocale()]) }}"> {{ __('txt.header.home') }} </a>
 
                 <a class="border-r-2 px-1 lg:px-3 text-center"
                    href="{{ route('about', ['local'=>app()->getLocale()]) }}">{{ __('txt.header.about_project') }} </a>
