@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => '{locale?}', 'middleware' => [LanguageManager::class]], function () {
+Route::group(['prefix' => '{local?}', 'middleware' => [LanguageManager::class]], function () {
     Route::get('/', function () {
         return view('home');
-    });
+    })->name('home');
 
     Route::get('/about', function () {
         return view('about');
-    });
+    })->name('about');
 
     Route::get('/services', [PageController::class, 'services'])->name('services');
 
@@ -33,5 +33,5 @@ Route::group(['prefix' => '{locale?}', 'middleware' => [LanguageManager::class]]
 
     Route::get('/contact', function () {
         return view('contact');
-    });
+    })->name('contact');
 });

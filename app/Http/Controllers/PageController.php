@@ -16,7 +16,7 @@ class PageController extends Controller
         return view('ngos', compact('ngos'));
     }
 
-    public function ngoPage(string $slug)
+    public function ngoPage(string $local, string $slug)
     {
         $ngo = Ngo::query()->where('slug', $slug)->firstOrFail();
 

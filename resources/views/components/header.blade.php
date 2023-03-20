@@ -32,29 +32,31 @@
                     <span class="font-light">UKRAINE</span>
                 </a>
 
-                <a class="border-r-2 px-1 lg:px-3 text-center " href="{{ url('/') }}"> {{ __('txt.header.home') }} </a>
+                <a class="border-r-2 px-1 lg:px-3 text-center "
+                   href="{{ route('home',['local'=>app()->getLocale()]) }}"> {{ __('txt.header.home') }} </a>
 
                 <a class="border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ url('about') }}">{{ __('txt.header.about_project') }} </a>
+                   href="{{ route('about', ['local'=>app()->getLocale()]) }}">{{ __('txt.header.about_project') }} </a>
 
                 <a class="border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ url('services') }}">{{ __('txt.header.services_map') }}</a>
-
-                <a class="border-r-2 px-1 lg:px-3 text-center" href="{{ url('ngos') }}">{{ __('txt.header.ngos') }}</a>
+                   href="{{ route('services', ['local'=>app()->getLocale()]) }}">{{ __('txt.header.services_map') }}</a>
 
                 <a class="border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ url('contact') }}"> {{ __('txt.header.contact') }} </a>
+                   href="{{ route('ngos',['local'=>app()->getLocale()]) }}">{{ __('txt.header.ngos') }}</a>
+
+                <a class="border-r-2 px-1 lg:px-3 text-center"
+                   href="{{ route('contact', ['local'=>app()->getLocale()]) }}"> {{ __('txt.header.contact') }} </a>
 
 
             </nav>
 
-                <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher" onchange=" function switchLang(value) {
+            <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher" onchange=" function switchLang(value) {
                     return window.location = `/${value}`;
                 }; switchLang(this.value)">
-                    <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
-                    <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
-                    <option value="ua" lang="ua" @if(app()->getLocale() == 'ua') selected @endif >UA</option>
-                </select>
+                <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
+                <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
+                <option value="uk" lang="uk" @if(app()->getLocale() == 'uk') selected @endif >UK</option>
+            </select>
         </div>
 
         <div class="ml-5 hidden w-24 md:block md:w-40 lg:ml-10">
