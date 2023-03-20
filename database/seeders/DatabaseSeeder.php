@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->seedInterventionDomains();
         $this->seedActivityDomains();
         Ngo::factory()->count(20)->create();
-
     }
 
     private function seedInterventionDomains()
@@ -98,7 +97,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Egalitate de șanse'],
             ['name' => 'Cultură'],
             ['name' => 'Mediu'],
-            ['name' => 'Dezvoltare locală']
+            ['name' => 'Dezvoltare locală'],
         ];
         ActivityDomain::insert($domainList);
     }

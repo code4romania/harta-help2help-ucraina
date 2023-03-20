@@ -33,6 +33,7 @@ class Ngo extends Model implements HasMedia
         'social_icons' => 'array',
         'activity_domains' => 'array',
     ];
+
     protected $appends = ['intervention_domains'];
 
     public function registerMediaConversions(Media $media = null): void
@@ -54,6 +55,7 @@ class Ngo extends Model implements HasMedia
         foreach ($this->services as $service) {
             $interventionDomains = array_merge($interventionDomains, $service->intervention_domains);
         }
+
         return InterventionDomains::whereIn('id', $interventionDomains)->pluck('name', 'id');
     }
 

@@ -33,8 +33,7 @@
                 @if(!$loop->last)
                     ,
                 @endif
-            @endforeach<span
-                class="font-normal">{{ __('txt.intervention_domains.education') }}</span></p>
+            @endforeach
     </div>
     <hr class="my-10 w-full">
     <div class="flex w-full flex-col justify-between md:flex-row">

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Enums;
 
 enum ServiceApplicationType: string
@@ -8,6 +10,7 @@ enum ServiceApplicationType: string
     case Phone = 'by_phone';
 
     case Physical = 'physical';
+
     public static function names(): array
     {
         return collect(self::cases())
@@ -25,7 +28,7 @@ enum ServiceApplicationType: string
     public static function selectable(): array
     {
         return collect(self::cases())
-            ->pluck('name','value')
+            ->pluck('name', 'value')
             ->all();
     }
 }

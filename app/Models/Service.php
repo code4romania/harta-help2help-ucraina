@@ -19,6 +19,7 @@ class Service extends Model
         'beneficiary_groups' => 'array',
         'application_methods' => 'array',
     ];
+
     protected $fillable = [
         'name',
         'description',
@@ -31,7 +32,7 @@ class Service extends Model
         'beneficiary_groups',
         'application_methods',
         'website_project',
-        'budget'
+        'budget',
     ];
 
     public function ngo(): BelongsTo
@@ -46,10 +47,11 @@ class Service extends Model
 
     public function getBeneficiaryGroupsNameAttribute()
     {
-        return BeneficiaryGroup::whereIn('id',$this->beneficiary_groups)->pluck('name','id');
+        return BeneficiaryGroup::whereIn('id', $this->beneficiary_groups)->pluck('name', 'id');
     }
+
     public function getInterventionsDomainsNameAttribute()
     {
-        return InterventionDomains::whereIn('id',$this->intervention_domains)->pluck('name','id');
+        return InterventionDomains::whereIn('id', $this->intervention_domains)->pluck('name', 'id');
     }
 }

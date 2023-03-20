@@ -27,6 +27,7 @@ class NgoResource extends Resource
     public static function form(Form $form): Form
     {
         $activityDomains = ActivityDomain::pluck('name', 'id');
+
         return $form
             ->schema([
                 Forms\Components\Grid::make()->schema([

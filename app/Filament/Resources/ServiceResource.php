@@ -6,7 +6,6 @@ namespace App\Filament\Resources;
 
 use App\Enums\ServiceApplicationType;
 use App\Filament\Resources\ServiceResource\Pages;
-use App\Models\ActivityDomain;
 use App\Models\BeneficiaryGroup;
 use App\Models\InterventionDomains;
 use App\Models\Service;
@@ -29,6 +28,7 @@ class ServiceResource extends Resource
     {
         $beneficiaryGroup = BeneficiaryGroup::pluck('name', 'id');
         $interventionDomains = InterventionDomains::pluck('name', 'id');
+
         return $form
             ->schema([
 

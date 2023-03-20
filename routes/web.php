@@ -24,9 +24,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
+Route::get('/services', [PageController::class, 'services'])->name('services');
 
 Route::get('/ngos', [PageController::class, 'ngosPage'])->name('ngos');
 Route::get('/ngos/{slug}', [PageController::class, 'ngoPage'])->name('ngo.index');

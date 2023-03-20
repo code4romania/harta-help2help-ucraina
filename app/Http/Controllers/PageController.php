@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\Ngo;
+use App\Models\Service;
 
 class PageController extends Controller
 {
@@ -20,5 +21,12 @@ class PageController extends Controller
         $ngo = Ngo::query()->where('slug', $slug)->firstOrFail();
 
         return view('ngos_index', compact('ngo'));
+    }
+
+    public function services()
+    {
+        $services = Service::query()->paginate();
+
+        return view('services', compact('services'));
     }
 }
