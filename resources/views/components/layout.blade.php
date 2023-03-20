@@ -14,7 +14,7 @@
     {{ $slot }}
     <x-footer />
 </body>
-{{$js}}
+{{$js ?? ''}}
 @vite('resources/js/app.js')
 
 </html>
