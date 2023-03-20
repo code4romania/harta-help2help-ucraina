@@ -57,7 +57,6 @@
         <h2 class="my-2  font-bold">{{ __('labels.ong_services') }}</h2>
     </div>
     @foreach($ngo->services as $service)
-        <x-cards.service_lg/>
-
+        <x-cards.service_lg :service="$service"/>
     @endforeach
 </x-layout>

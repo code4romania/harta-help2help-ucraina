@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('description');
             // @TODO add location
             $table->json('intervention_domains');
-            $table->json('target_groups');
+            $table->json('beneficiary_groups');
             $table->date('start');
             $table->date('end');
             $table->json('application_methods');

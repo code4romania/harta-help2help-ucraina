@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
+use App\Enums\ServiceApplicationType;
 use App\Filament\Resources\ServiceResource\Pages;
 use App\Models\ActivityDomain;
 use App\Models\BeneficiaryGroup;
@@ -49,14 +50,18 @@ class ServiceResource extends Resource
                         Forms\Components\DatePicker::make('end')->required()->after('start'),
                         Forms\Components\TextInput::make('budget'),
                         Forms\Components\Select::make('intervention_domains')->options($interventionDomains)->multiple(),
-                        Forms\Components\Select::make('target_groups')->options($beneficiaryGroup)->multiple(),
+                        Forms\Components\Select::make('beneficiary_groups')->options($beneficiaryGroup)->multiple(),
 
                     ]),
                 Card::make()->columns(2)->schema([
                     Forms\Components\Repeater::make('application_methods')->columnSpan(2)->schema([
-                        Forms\Components\TextInput::make('name')->disabled(),
-                        Forms\Components\TextInput::make('url')->url(),
-                    ])->disableItemCreation(),
+                        Forms\Components\Select::make('type')->options(ServiceApplicationType::selectable())->reactive()->required(),
+                        Forms\Components\RichEditor::make('description')->required(),
+                        Forms\Components\TextInput::make('application_url')->url()->hidden(fn (Closure $get) =>$get('type') !== ServiceApplicationType::Online->value)->required(),
+                        Forms\Components\TextInput::make('application_phone')->hidden(fn (Closure $get) =>$get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        Forms\Components\TextInput::make('application_email')->email()->hidden(fn (Closure $get) =>$get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        Forms\Components\TextInput::make('application_address')->hidden(fn (Closure $get) =>$get('type') !== ServiceApplicationType::Physical->value)->required(),
+                    ])->defaultItems(0),
                 ]),
             ]);
     }

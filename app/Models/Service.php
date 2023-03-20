@@ -16,7 +16,7 @@ class Service extends Model
     protected $casts = [
         'intervention_domains' => 'array',
         'activity_domains' => 'array',
-        'target_groups' => 'array',
+        'beneficiary_groups' => 'array',
         'application_methods' => 'array',
     ];
     protected $fillable = [
@@ -28,7 +28,7 @@ class Service extends Model
         'end',
         'intervention_domains',
         'activity_domains',
-        'target_groups',
+        'beneficiary_groups',
         'application_methods',
         'website_project',
         'budget'
@@ -42,5 +42,14 @@ class Service extends Model
     public function activityDomain(): HasManyThrough
     {
         return $this->hasManyThrough(ActivityDomain::class, ActivityDomainService::class);
+    }
+
+    public function getBeneficiaryGroupsNameAttribute()
+    {
+        return BeneficiaryGroup::whereIn('id',$this->beneficiary_groups)->pluck('name','id');
+    }
+    public function getInterventionsDomainsNameAttribute()
+    {
+        return InterventionDomains::whereIn('id',$this->intervention_domains)->pluck('name','id');
     }
 }
