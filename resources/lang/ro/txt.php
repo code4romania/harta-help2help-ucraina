@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
 
     'intervention_domains' => [
-        'title' => 'Domenii de intervenție',
+        'intervention_domains' => 'Domenii de intervenție',
         'food' => 'Hrană',
         'hygiene' => 'Igienă',
         'finance_support' => 'Ajutor Financiar',
@@ -84,6 +84,8 @@ return [
     ],
 
     'footer' => [
+
+        'partners' => 'Parteneri',
         'commit_txt' => 'Organizație neguvernamentală independentă, neafiliată politic și apolitică.',
         'project_by' => 'Un proiect dezvoltat de ',
         'supported_by' => 'Cu sprijinul',
@@ -107,14 +109,14 @@ return [
         'beneficiaries' => 'Beneficiari de servicii',
         'services_added' => 'Servicii adăugate pe platformă',
         'ngo_added' => 'ONG-uri active pe platformă',
-
-
         'about_title' => 'Despre proiect',
-        'about_text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.',
         'about_extra' => 'Vezi mai jos domeniile de intervenție',
         'beneficiars' => 'Beneficiari de servicii',
         'services_added' => 'Servicii adăugate pe platformă',
         'ngos_active' => 'ONG-uri active pe platformă',
+
+
+        'about_text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.',
         'domains' => 'Domeniile de intervenție',
     ],
     'about' => [
@@ -151,10 +153,10 @@ return [
         'access_location_explain' => 'Ca sa beneficiezi de acest serviciu, trebuie doar sa te prezinti la locatia de mai jos.',
         'how_help' => 'Vrei să vezi cum au reușit proiectele să ajute?',
         'how_help_explain' => 'Accesează materialele foto ale activităților mergând pe website-ul organizației.',
+        'page_title' => 'servicii',
         
 
 
-        'page_title' => 'servicii',
         'ngos_services' => 'Serviciile organizației',
         'city_any' => 'Oriunde în România',
         'project_name' => 'Denumire proiect',

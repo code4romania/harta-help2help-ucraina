@@ -5,14 +5,14 @@ declare(strict_types=1);
 return [
 
     'intervention_domains' => [
-        'food' => 'Області втручання',
+        'intervention_domains' => 'Області втручання',
         'food' => 'Харчування',
         'hygiene' => 'Гігієна',
         'finance_support' => 'Фінансова підтримка',
         'health' =>"Здоров'я",
         'house' => 'Притулок',
         'protection' => 'Захист',
-        'education' => 'Educație',
+        'education' => 'Освіта',
         'management'=>'Координація та управління',
         'integration' => 'Інтеграція/Права людини/Соціальна згуртованість',
     ],
@@ -47,12 +47,12 @@ return [
         'see_more' => 'Побачити більше',
         'access_online' => 'Доступ онлайн',
         'access_site' => 'Доступ до веб-сайту',
+        'ngos_map' => 'Карта НКО',
 
         'ngos_list' => 'Listă ONG-uri',
         'register' => 'Inscriere',
         'continue' => 'Continua',
         'details' => 'Detalii',
-        'ngos_map' => 'Hartă ONG-uri',
         'send' => 'Trimite',
     ],
 
@@ -80,11 +80,12 @@ return [
         'ngos' => 'НКО',
         'contact' => 'Контакт',
         'help' => 'HELP TO HELP UKRAINE',
-        'home' => 'Home',
+        'home' => 'Додому',
         'code_for_romania' => 'Code 4 ro',
     ],
 
     'footer' => [
+        'partners' => 'Партнери',
         'commit_txt' => 'Organizație neguvernamentală independentă, neafiliată politic și apolitică.',
         'project_by' => 'Un proiect dezvoltat de ',
         'supported_by' => 'Cu sprijinul',
@@ -108,14 +109,14 @@ return [
         'beneficiaries' => 'Бенефіціари',
         'services_added' => 'Сервіси, додані на платформі',
         'ngo_added' => 'НКО, активні на платформі',
+        'about_title' => 'Про проект',
+        'about_extra' => 'Дивіться нижче домени втручання',
+        'beneficiars' => 'Бенефіціари',
+        'services_added' => 'Сервіси, додані на платформі',
+        'ngos_active' => 'НКО, активні на платформі',
         
         
-        'about_title' => 'Despre proiect',
         'about_text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.',
-        'about_extra' => 'Vezi mai jos domeniile de intervenție',
-        'beneficiars' => 'Beneficiari de servicii',
-        'services_added' => 'Servicii adăugate pe platformă',
-        'ngos_active' => 'ONG-uri active pe platformă',
         'domains' => 'Domeniile de intervenție',
     ],
     'about' => [
@@ -151,10 +152,10 @@ return [
         'access_location_explain' => 'Щоб скористатися цією послугою, вам просто потрібно прийти до вказаного нижче місця.',
         'how_help' => 'Хочете побачити, як проекти допомогли?',
         'how_help_explain' => 'Отримайте доступ до фотографій заходів, перейшовши на веб-сайт організації.',
+        'page_title' => 'послуги',
 
 
 
-        'page_title' => 'servicii',
         'ngos_services' => 'Serviciile organizației',
         'city_any' => 'Oriunde în România',
         'project_name' => 'Denumire proiect',
