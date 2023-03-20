@@ -53,7 +53,7 @@
                 }; switchLang(this.value)">
                     <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
                     <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
-                    <option value="uk" lang="uk" @if(app()->getLocale() == 'uk') selected @endif >UK</option>
+                    <option value="ua" lang="ua" @if(app()->getLocale() == 'ua') selected @endif >UA</option>
                 </select>
         </div>
 

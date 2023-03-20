@@ -19,8 +19,8 @@ class LanguageManager
     {
         $locale = $request->segment(1);
 
-        $locals = ['ro', 'en', 'uk'];
-        if (! \in_array($locale, $locals)) {
+        $locals = ['ro', 'en', 'ua'];
+        if (!\in_array($locale, $locals)) {
             return redirect()->to(
                 collect($request->segments())
                     ->prepend('ro')
