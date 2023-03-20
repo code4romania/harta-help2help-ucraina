@@ -52,7 +52,7 @@
                 <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg">
                     <option value="romanian" lang="ro" selected>RO</option>
                     <option value="english" lang="en">EN</option>
-
+                    <option value="uk" lang="en">Uk</option>
                 </select>
             </form>
         </div>
