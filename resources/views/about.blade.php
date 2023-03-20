@@ -13,7 +13,7 @@
                     <img class="w-full p-3" src="{{ Vite::asset('resources/images/design/help-big.png') }}" alt="Logo">
                 </div>
                 <div class="container mx-auto flex w-full flex-col sm:p-5">
-                    <h4 class="mb-0 mt-5 self-center text-2xl">Parteneri</h4>
+                    <h4 class="mb-0 mt-5 self-center text-2xl"> {{ __('txt.footer.partners') }}</h4>
                     <div class="my-6 flex items-center lg:w-11/12 justify-evenly ">
                         <a class="mx-2 md:mx-4" href="https://fonpc.ro/">
                             <img class="h-8 md:h-10 lg:h-16" src="{{ Vite::asset('resources/images/design/fonpc.png') }}" alt="fonpc"
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl mt-5 "> {{ __('txt.about.title') }}</h2>
+            <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl mt-5 "> {{ __('txt.about.about_project') }}</h2>
             <p>{{ __('txt.about.text') }}</p>
             <p>{{ __('txt.about.text1') }}</p>
             <p>{{ __('txt.about.text2') }}</p>

@@ -121,7 +121,7 @@ return [
         'domains' => 'Domeniile de intervenție',
     ],
     'about' => [
-        'title' => 'Despre proiect',
+        'about_project' => 'About the project',
         'text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.
        Federația Organizațiilor Neguvernamentale pentru Copil (FONPC) sprijină implementarea unui program rețea de suport pentru ca aceste organizații să colaboreze între ele și să poată susține nevoile reale ale refugiaților pe tot parcursul drumului lor prin România. Intervenția colectivă este posibilă prin finanțarea venită din partea confederației globale CARE și coordonarea locală a Fundației SERA România cu sprijinul CARE France și FONPC.
       ',
@@ -180,8 +180,8 @@ return [
     'ngo_card' => [
         'activity_domains' => 'Activity domains',
         'intervention_domains' => 'Intervention domains',
+        'page_title' => ' organizations',
 
-        'page_title' => 'organizatii',
         'ngo_name' => 'Denumire lunga ONG - asociatia pentru mame',
         'ngo_description' => 'Descriere scurta serviciu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id condimentum quam. Quisque imperdiet arcu id dignissim eleifend. Vestibulum euismod suscipit ex, eu dign...',
         'beneficiaries_nr' => 'Număr de beneficiari ai serviciilor',
@@ -189,13 +189,14 @@ return [
 
     'contact' => [
         'page_title' => 'Contact',
-        'email_address' => 'Adresă de email',
-        'phone' => 'Telefon',
+        'email_address' => 'Email address',
+        'phone' => 'Phone',
         'gdpr' => 'Prin această bifă îți exprimi acordul ca datele furnizate de tine prin acest formular să fie procesate exclusiv in scopul de a fi contactat de echipa FONPC  în legătură cu această submisie. Aici puteți găsi ',
         'gdpr_link' => 'regulamentul nostru cu privire la prelucrarea datelor cu caracter personal. ',
-        'contact_form' => 'Formular de contact',
-        'our_address' => 'Adresa noastră',
-        'open_gmap' => '(deschide în Google Maps)',
+        'contact_form' => 'Contact form',
+        'our_address' => 'Our address',
+        'open_gmap' => '(Open in Google Maps)',
+        'not_robot' => "I'm not a robot",
 
     ],
 

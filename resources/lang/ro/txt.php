@@ -120,7 +120,7 @@ return [
         'domains' => 'Domeniile de intervenție',
     ],
     'about' => [
-        'title' => 'Despre proiect',
+        'about_project' => 'Despre proiect',
         'text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.
        Federația Organizațiilor Neguvernamentale pentru Copil (FONPC) sprijină implementarea unui program rețea de suport pentru ca aceste organizații să colaboreze între ele și să poată susține nevoile reale ale refugiaților pe tot parcursul drumului lor prin România. Intervenția colectivă este posibilă prin finanțarea venită din partea confederației globale CARE și coordonarea locală a Fundației SERA România cu sprijinul CARE France și FONPC.
       ',
@@ -179,8 +179,8 @@ return [
     'ngo_card' => [
         'activity_domains' => 'Domenii de activitate ',
         'intervention_domains' => 'Domenii de intrevenție ',
-
         'page_title' => 'organizatii',
+
         'ngo_name' => 'Denumire lunga ONG - asociatia pentru mame',
         'ngo_description' => 'Descriere scurta serviciu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id condimentum quam. Quisque imperdiet arcu id dignissim eleifend. Vestibulum euismod suscipit ex, eu dign...',
         'beneficiaries_nr' => 'Număr de beneficiari ai serviciilor',
@@ -195,6 +195,7 @@ return [
         'contact_form' => 'Formular de contact',
         'our_address' => 'Adresa noastră',
         'open_gmap' => '(deschide în Google Maps)',
+        'not_robot' => 'Nu sunt robot',
 
     ],
 

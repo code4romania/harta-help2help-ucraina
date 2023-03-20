@@ -48,12 +48,12 @@ return [
         'access_online' => 'Доступ онлайн',
         'access_site' => 'Доступ до веб-сайту',
         'ngos_map' => 'Карта НКО',
+        'ngos_list' => 'Перелік НКО',
+        'register' => 'Зареєструватися',
+        'continue' => 'Продовжувати',
+        'details' => 'Подробиці',
+        'send' => 'Надіслати',
 
-        'ngos_list' => 'Listă ONG-uri',
-        'register' => 'Inscriere',
-        'continue' => 'Continua',
-        'details' => 'Detalii',
-        'send' => 'Trimite',
     ],
 
     'placeholders' => [
@@ -120,7 +120,7 @@ return [
         'domains' => 'Domeniile de intervenție',
     ],
     'about' => [
-        'title' => 'Despre proiect',
+        'about_project' => 'Про проект',
         'text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.
        Federația Organizațiilor Neguvernamentale pentru Copil (FONPC) sprijină implementarea unui program rețea de suport pentru ca aceste organizații să colaboreze între ele și să poată susține nevoile reale ale refugiaților pe tot parcursul drumului lor prin România. Intervenția colectivă este posibilă prin finanțarea venită din partea confederației globale CARE și coordonarea locală a Fundației SERA România cu sprijinul CARE France și FONPC.
       ',
@@ -178,22 +178,23 @@ return [
     'ngo_card' => [
         'activity_domains' => 'Області діяльності',
         'intervention_domains' => 'Області втручання',
+        'page_title' => ' організації',
 
-        'page_title' => 'organizatii',
         'ngo_name' => 'Denumire lunga ONG - asociatia pentru mame',
         'ngo_description' => 'Descriere scurta serviciu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id condimentum quam. Quisque imperdiet arcu id dignissim eleifend. Vestibulum euismod suscipit ex, eu dign...',
         'beneficiaries_nr' => 'Număr de beneficiari ai serviciilor',
     ],
 
     'contact' => [
-        'page_title' => 'Contact',
-        'email_address' => 'Adresă de email',
-        'phone' => 'Telefon',
-        'gdpr' => 'Prin această bifă îți exprimi acordul ca datele furnizate de tine prin acest formular să fie procesate exclusiv in scopul de a fi contactat de echipa FONPC  în legătură cu această submisie. Aici puteți găsi ',
-        'gdpr_link' => 'regulamentul nostru cu privire la prelucrarea datelor cu caracter personal. ',
-        'contact_form' => 'Formular de contact',
-        'our_address' => 'Adresa noastră',
-        'open_gmap' => '(deschide în Google Maps)',
+        'page_title' => 'Контакт',
+        'email_address' => 'Адреса електронної пошти',
+        'phone' => 'Телефон',
+        'gdpr' => 'Поставляючи цей прапорець, ви погоджуєтеся, що дані, надані вами через цю форму, оброблятимуться виключно з метою зв’язку команди FONPC у зв’язку з цим поданням. Тут можна знайти ',
+        'gdpr_link' => 'наш регламент щодо обробки персональних даних. ',
+        'contact_form' => 'Контактний формуляр',
+        'our_address' => 'Наша адреса',
+        'open_gmap' => '(Відкрити в Google Maps)',
+        'not_robot' => "Я не робот",
 
     ],
 

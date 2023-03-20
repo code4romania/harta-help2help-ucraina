@@ -5,7 +5,7 @@
         Help2Help Contact Page
         </x-slot>
 
-        <section class="flex-col">
+        <section class="flex-col p-5">
             <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"> {{ __('txt.contact.page_title') }}
             </h2>
             <div class="flex w-full justify-evenly md:w-2/3">
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="mt-10 flex w-full flex-col md:flex-row md:justify-between">
+            <div class="mt-10 flex w-full flex-col md:flex-row md:justify-between ">
                 <div class="flex w-full  md:w-1/2 flex-col">
                     <h3 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"> {{ __('txt.contact.contact_form') }}
                     </h3>
@@ -57,7 +57,7 @@
                                     id="gdpr" name="gdpr" type="checkbox">
                             </div>
                             <div class="ml-3">
-                                <label class="text-sm font-medium leading-6 text-gray-900"
+                                <label class="text-sm font-medium leading-6 text-gray-900 ml-5"
                                     for="gdpr">{{ __('txt.contact.gdpr') }} <a class="text-orange1"
                                         href="#">{{ __('txt.contact.gdpr_link') }}</a></label>
                             </div>
@@ -68,14 +68,13 @@
                                     id="captcha" name="captcha" type="checkbox">
                             </div>
                             <div class="ml-3">
-                                <label class="text-sm font-medium leading-6 text-gray-900" for="captcha">I’m not a
-                                    robot</label>
+                                <label class="text-sm font-medium leading-6 text-gray-900 ml-5" for="captcha"> {{ __('txt.contact.not_robot') }}</label>
                             </div>
                         </div>
 
                         <x-ui.button class="mt-5 bg-blue1" type="submit"> {{ __('txt.buttons.send') }}</x-ui.button>
                 </div>
-                <div class="flex w-full md:w-2/5 flex-col mt-10 md:mt-0">
+                <div class="flex w-full md:w-2/5 flex-col mt-10 md:mt-0 px-5">
                     <h3 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"> {{ __('txt.contact.our_address') }}
                     </h3>
                     <p class="font-bold">Str. Occidentului 44Sector 1, București
