@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => '{locale?}', 'middleware' => [LanguageManager::class]], function () {
+Route::group(['prefix' => '{local?}', 'middleware' => [LanguageManager::class]], function () {
     Route::get('/', function () {
         return view('home');
     });
