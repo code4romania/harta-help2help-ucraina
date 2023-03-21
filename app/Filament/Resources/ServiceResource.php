@@ -12,6 +12,7 @@ use App\Models\Service;
 use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -20,6 +21,8 @@ use Illuminate\Support\Str;
 
 class ServiceResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Service::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -57,10 +60,10 @@ class ServiceResource extends Resource
                     Forms\Components\Repeater::make('application_methods')->columnSpan(2)->schema([
                         Forms\Components\Select::make('type')->options(ServiceApplicationType::selectable())->reactive()->required(),
                         Forms\Components\RichEditor::make('description')->required(),
-                        Forms\Components\TextInput::make('application_url')->url()->hidden(fn (Closure $get) =>$get('type') !== ServiceApplicationType::Online->value)->required(),
-                        Forms\Components\TextInput::make('application_phone')->hidden(fn (Closure $get) =>$get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        Forms\Components\TextInput::make('application_email')->email()->hidden(fn (Closure $get) =>$get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        Forms\Components\TextInput::make('application_address')->hidden(fn (Closure $get) =>$get('type') !== ServiceApplicationType::Physical->value)->required(),
+                        Forms\Components\TextInput::make('application_url')->url()->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
+                        Forms\Components\TextInput::make('application_phone')->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        Forms\Components\TextInput::make('application_email')->email()->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        Forms\Components\TextInput::make('application_address')->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)->required(),
                     ])->defaultItems(0),
                 ]),
             ]);
@@ -89,7 +92,6 @@ class ServiceResource extends Resource
 
         ];
     }
-
     public static function getPages(): array
     {
         return [

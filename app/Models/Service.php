@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
     use HasFactory;
-
+    use HasTranslations;
     protected $casts = [
         'intervention_domains' => 'array',
         'activity_domains' => 'array',
@@ -34,6 +35,17 @@ class Service extends Model
         'website_project',
         'budget',
     ];
+    public $translatable = [
+        'name',
+        'description',
+        'slug',
+        'intervention_domains',
+        'activity_domains',
+        'beneficiary_groups',
+        'application_methods',
+        'website_project',
+    ];
+
 
     public function ngo(): BelongsTo
     {

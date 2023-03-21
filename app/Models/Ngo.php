@@ -11,11 +11,13 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Translatable\HasTranslations;
 
 class Ngo extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
+    use HasTranslations;
 
     protected $fillable = [
         'name',
@@ -33,6 +35,12 @@ class Ngo extends Model implements HasMedia
         'social_icons' => 'array',
         'activity_domains' => 'array',
     ];
+    protected $translatable =[
+        'name',
+        'slug',
+        'description',
+    ];
+
 
     protected $appends = ['intervention_domains'];
 

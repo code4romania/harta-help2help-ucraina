@@ -12,6 +12,7 @@ use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -20,6 +21,8 @@ use Illuminate\Support\Str;
 
 class NgoResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Ngo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -87,6 +90,10 @@ class NgoResource extends Resource
         return [
             ServicesRelationManager::class,
         ];
+    }
+    public static function getTranslatableLocales(): array
+    {
+        return config('filament-spatie-laravel-translatable-plugin.default_locales');
     }
 
     public static function getPages(): array
