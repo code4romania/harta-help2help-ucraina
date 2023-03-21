@@ -105,10 +105,11 @@ class ServiceResource extends Resource
 
     public static function getLabel(): ?string
     {
-        return (__('filament.labels.singular.services'));
+        return __('filament.labels.singular.services');
     }
+
     public static function getPluralLabel(): ?string
     {
-        return (__('filament.labels.plural.services'));
+        return __('filament.labels.plural.services');
     }
 }

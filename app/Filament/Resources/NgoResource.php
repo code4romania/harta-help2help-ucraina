@@ -105,14 +105,14 @@ class NgoResource extends Resource
             'edit' => Pages\EditNgo::route('/{record}/edit'),
         ];
     }
+
     public static function getLabel(): ?string
     {
-        return (__('filament.labels.singular.ngos'));
+        return __('filament.labels.singular.ngos');
     }
-
 
     public static function getPluralLabel(): ?string
     {
-        return (__('filament.labels.plural.ngos'));
+        return __('filament.labels.plural.ngos');
     }
 }

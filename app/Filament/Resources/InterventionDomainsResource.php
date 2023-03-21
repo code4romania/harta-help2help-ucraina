@@ -62,10 +62,11 @@ class InterventionDomainsResource extends Resource
 
     public static function getLabel(): ?string
     {
-        return (__('filament.labels.singular.intervention_domains'));
+        return __('filament.labels.singular.intervention_domains');
     }
+
     public static function getPluralLabel(): ?string
     {
-        return (__('filament.labels.plural.intervention_domains'));
+        return __('filament.labels.plural.intervention_domains');
     }
 }

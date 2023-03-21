@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 return [
     'labels' => [
         'singular' => [
@@ -14,7 +17,7 @@ return [
             'intervention_domains' => 'domenii de interventie',
             'ngos' => 'onguri',
             'services' => 'servicii',
-        ]
+        ],
 
-    ]
+    ],
 ];

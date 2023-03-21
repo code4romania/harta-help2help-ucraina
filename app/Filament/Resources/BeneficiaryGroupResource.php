@@ -59,12 +59,14 @@ class BeneficiaryGroupResource extends Resource
             'edit' => Pages\EditBeneficiaryGroup::route('/{record}/edit'),
         ];
     }
+
     public static function getLabel(): ?string
     {
-        return (__('filament.labels.plural.beneficiary_group'));
+        return __('filament.labels.plural.beneficiary_group');
     }
+
     public static function getPluralLabel(): ?string
     {
-        return (__('filament.labels.plural.beneficiary_group'));
+        return __('filament.labels.plural.beneficiary_group');
     }
 }
