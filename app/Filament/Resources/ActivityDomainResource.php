@@ -19,6 +19,7 @@ class ActivityDomainResource extends Resource
 
     protected static ?string $model = ActivityDomain::class;
 
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -60,5 +61,15 @@ class ActivityDomainResource extends Resource
             'create' => Pages\CreateActivityDomain::route('/create'),
             'edit' => Pages\EditActivityDomain::route('/{record}/edit'),
         ];
+    }
+
+    public static function getLabel(): ?string
+    {
+        return (__('filament.labels.plural.activity_domains'));
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return (__('filament.labels.plural.activity_domains'));
     }
 }

@@ -6,10 +6,12 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BeneficiaryGroupResource\Pages;
 use App\Models\BeneficiaryGroup;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 
 class BeneficiaryGroupResource extends Resource
 {
@@ -21,7 +23,7 @@ class BeneficiaryGroupResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('name'),
             ]);
     }
 
@@ -29,7 +31,7 @@ class BeneficiaryGroupResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name'),
             ])
             ->filters([
                 //
@@ -56,5 +58,13 @@ class BeneficiaryGroupResource extends Resource
             'create' => Pages\CreateBeneficiaryGroup::route('/create'),
             'edit' => Pages\EditBeneficiaryGroup::route('/{record}/edit'),
         ];
+    }
+    public static function getLabel(): ?string
+    {
+        return (__('filament.labels.plural.beneficiary_group'));
+    }
+    public static function getPluralLabel(): ?string
+    {
+        return (__('filament.labels.plural.beneficiary_group'));
     }
 }
