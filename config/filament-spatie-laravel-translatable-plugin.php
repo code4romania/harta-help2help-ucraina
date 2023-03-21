@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     /*
@@ -13,7 +15,6 @@ return [
     |
     */
 
-    'default_locales' => [config('app.locale'),'en','uk'],
-
+    'default_locales' => [config('app.locale'), 'en', 'uk'],
 
 ];

@@ -30,6 +30,7 @@ class ServiceResource extends Resource
     public static function form(Form $form): Form
     {
         $beneficiaryGroup = BeneficiaryGroup::pluck('name', 'id');
+
         $interventionDomains = InterventionDomains::pluck('name', 'id');
 
         return $form
@@ -60,10 +61,10 @@ class ServiceResource extends Resource
                     Forms\Components\Repeater::make('application_methods')->columnSpan(2)->schema([
                         Forms\Components\Select::make('type')->options(ServiceApplicationType::selectable())->reactive()->required(),
                         Forms\Components\RichEditor::make('description')->required(),
-                        Forms\Components\TextInput::make('application_url')->url()->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
-                        Forms\Components\TextInput::make('application_phone')->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        Forms\Components\TextInput::make('application_email')->email()->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        Forms\Components\TextInput::make('application_address')->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)->required(),
+                        Forms\Components\TextInput::make('application_url')->url()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
+                        Forms\Components\TextInput::make('application_phone')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        Forms\Components\TextInput::make('application_email')->email()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        Forms\Components\TextInput::make('application_address')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)->required(),
                     ])->defaultItems(0),
                 ]),
             ]);
@@ -92,6 +93,7 @@ class ServiceResource extends Resource
 
         ];
     }
+
     public static function getPages(): array
     {
         return [

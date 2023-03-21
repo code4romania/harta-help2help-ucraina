@@ -12,6 +12,6 @@ class BeneficiaryGroup extends Model
 {
     use HasFactory;
     use HasTranslations;
-    protected $translatable =['name'];
 
+    protected $translatable = ['name'];
 }

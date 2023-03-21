@@ -115,8 +115,6 @@ return [
         'services_added' => 'Services added on the platform',
         'ngos_active' => 'NGOs active on the platform',
 
-       
-       
         'about_text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.',
         'domains' => 'Domeniile de intervenție',
     ],
@@ -155,9 +153,7 @@ return [
         'how_help' => 'Want to see how the projects have helped?',
         'how_help_explain' => "Access photos of the activities by going to the organisation's website.",
         'page_title' => 'services',
-        
-        
-        
+
         'ngos_services' => 'Serviciile organizației',
         'city_any' => 'Oriunde în România',
         'project_name' => 'Denumire proiect',
@@ -258,8 +254,6 @@ return [
         'legal_statute' => 'Information regarding rights and legal statute',
         'workshops' => 'Social activities and workshops',
         'hiring' => 'Support and assistance for getting hired',
-        
-        
 
     ],
 ];

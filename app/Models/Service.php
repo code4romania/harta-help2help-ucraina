@@ -14,6 +14,7 @@ class Service extends Model
 {
     use HasFactory;
     use HasTranslations;
+
     protected $casts = [
         'intervention_domains' => 'array',
         'activity_domains' => 'array',
@@ -35,6 +36,7 @@ class Service extends Model
         'website_project',
         'budget',
     ];
+
     public $translatable = [
         'name',
         'description',
@@ -45,7 +47,6 @@ class Service extends Model
         'application_methods',
         'website_project',
     ];
-
 
     public function ngo(): BelongsTo
     {

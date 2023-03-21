@@ -26,6 +26,7 @@ class Ngo extends Model implements HasMedia
         'number_of_beneficiaries',
         'phone',
         'contact_email',
+        'activity_domains',
         'address',
         'website',
         'social_icons',
@@ -35,12 +36,12 @@ class Ngo extends Model implements HasMedia
         'social_icons' => 'array',
         'activity_domains' => 'array',
     ];
-    protected $translatable =[
+
+    protected $translatable = [
         'name',
         'slug',
         'description',
     ];
-
 
     protected $appends = ['intervention_domains'];
 

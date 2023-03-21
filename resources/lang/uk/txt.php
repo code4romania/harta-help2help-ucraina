@@ -114,8 +114,7 @@ return [
         'beneficiars' => 'Бенефіціари',
         'services_added' => 'Сервіси, додані на платформі',
         'ngos_active' => 'НКО, активні на платформі',
-        
-        
+
         'about_text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.',
         'domains' => 'Domeniile de intervenție',
     ],
@@ -142,7 +141,7 @@ return [
         'access_email' => 'Електронною поштою або телефоном',
         'physical' => 'На місці',
         'services' => 'Послуги',
-        'access_location' => "Дивіться історію організації",
+        'access_location' => 'Дивіться історію організації',
         'services_provided' => 'Послуги, які надає організація',
         'services_project' => 'Послуги, які пропонуються в рамках проекту',
         'share' => 'Поділіться',
@@ -153,8 +152,6 @@ return [
         'how_help' => 'Хочете побачити, як проекти допомогли?',
         'how_help_explain' => 'Отримайте доступ до фотографій заходів, перейшовши на веб-сайт організації.',
         'page_title' => 'послуги',
-
-
 
         'ngos_services' => 'Serviciile organizației',
         'city_any' => 'Oriunde în România',
@@ -194,7 +191,7 @@ return [
         'contact_form' => 'Контактний формуляр',
         'our_address' => 'Наша адреса',
         'open_gmap' => '(Відкрити в Google Maps)',
-        'not_robot' => "Я не робот",
+        'not_robot' => 'Я не робот',
 
     ],
 
@@ -256,8 +253,6 @@ return [
         'legal_statute' => 'Інформація про права та правовий статус',
         'workshops' => 'Громадські заходи та майстер-класи',
         'hiring' => 'Підтримка та допомога при працевлаштуванні',
-        
-        
 
     ],
 ];

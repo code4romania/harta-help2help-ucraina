@@ -41,7 +41,7 @@ class NgoResource extends Resource
                             Forms\Components\TextInput::make('name')->required()
                                 ->afterStateUpdated(function (Closure $set, $state) {
                                     $set('slug', Str::slug($state));
-                                }),
+                                })->reactive(),
                             Forms\Components\TextInput::make('slug')->disabled(),
                             Forms\Components\TextInput::make('number_of_beneficiaries')->integer()->required(),
                             Forms\Components\Select::make('activity_domains')->options($activityDomains)->multiple(),
@@ -91,6 +91,7 @@ class NgoResource extends Resource
             ServicesRelationManager::class,
         ];
     }
+
     public static function getTranslatableLocales(): array
     {
         return config('filament-spatie-laravel-translatable-plugin.default_locales');

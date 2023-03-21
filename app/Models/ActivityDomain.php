@@ -16,5 +16,6 @@ class ActivityDomain extends Model
     protected $fillable = [
         'name',
     ];
-    protected $translatable =['name'];
+
+    protected $translatable = ['name'];
 }

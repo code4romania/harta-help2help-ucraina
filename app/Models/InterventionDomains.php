@@ -17,6 +17,6 @@ class InterventionDomains extends Model
         'name',
         'slug',
     ];
-    protected $translatable =['name'];
 
+    protected array $translatable = ['name'];
 }
