@@ -1,5 +1,5 @@
 <section class="-mt-24 flex-col justify-start" id="domains-container">
-    <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"> {{ __('txt.home.domains') }}</h2>
+    <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"> {{ __('txt.intervention_domains.intervention_domains') }}</h2>
     <div class="mt-4 flex w-full flex-col flex-wrap md:flex-row">
         @foreach($domains as $domain)
             <a href="{{route('services',['service'=>$domain['name']])}}"
