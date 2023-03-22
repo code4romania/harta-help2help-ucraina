@@ -43,7 +43,7 @@ class NgoResource extends Resource
                                     $set('slug', Str::slug($state));
                                 })->reactive(),
                             Forms\Components\TextInput::make('slug')->disabled(),
-                            Forms\Components\TextInput::make('number_of_beneficiaries')->integer()->required(),
+                            Forms\Components\TextInput::make('number_of_beneficiaries')->integer(),
                             Forms\Components\TextInput::make('story'),
                             Forms\Components\Select::make('activity_domains')->options($activityDomains)->multiple(),
                             SpatieMediaLibraryFileUpload::make('logo')->conversion('thumb'),

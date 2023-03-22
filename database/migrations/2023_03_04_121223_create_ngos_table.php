@@ -22,7 +22,7 @@ return new class extends Migration
             $table->json('activity_domains');
             $table->string('phone')->nullable();
             $table->string('contact_email')->nullable();
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('website');
             $table->string('story')->nullable();
             $table->json('social_icons');

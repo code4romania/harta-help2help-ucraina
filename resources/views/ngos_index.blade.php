@@ -36,7 +36,7 @@
 
             </p>
             <p class="font-bold">{{ __('txt.ngo_card.beneficiaries_nr') }} <span
-                    class="text-orange1">{{$ngo->number_of_beneficiaries}}</span></p>
+                    class="text-orange1">{{$ngo->number_of_beneficiaries ?:'N/A'}}</span></p>
 
             <div class="flex flex-col sm:flex-row">
                 <div class="w-full md:w-1/2 flex flex-col">
