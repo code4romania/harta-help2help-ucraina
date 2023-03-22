@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('contact_email')->nullable();
             $table->string('address');
             $table->string('website');
-            $table->string('story');
+            $table->string('story')->nullable();
             $table->json('social_icons');
             $table->timestamps();
         });

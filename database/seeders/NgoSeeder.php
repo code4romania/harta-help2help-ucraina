@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\Ngo;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -14,13 +15,11 @@ class NgoSeeder extends Seeder
      */
     public function run(): void
     {
-        if (($open = fopen("./database/seeders/data/ngo_contact.csv", "r")) !== FALSE) {
-            while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
-
+        if (($open = fopen('./database/seeders/data/ngo_contact.csv', 'r')) !== false) {
+            while (($data = fgetcsv($open, 1000, ',')) !== false) {
                 $ngos[] = collect($data)->map(function ($item) {
                     return trim($item);
-                })->toArray();;
-
+                })->toArray();
             }
             $insertArr = [];
             $translationArrayName = $this->getTranslationNames();
@@ -39,16 +38,14 @@ class NgoSeeder extends Seeder
                 $tmpArr['address'] = '';
                 $tmpArr['contact_email'] = $ngo[2];
                 $tmpArr['website'] = $ngo[3];
-                $tmpArr['social_icons'] =json_encode( ['name' => 'facebook', 'url' => $ngo[4]]);
+                $tmpArr['social_icons'] = json_encode(['name' => 'facebook', 'url' => $ngo[4]]);
                 $tmpArr['story'] = $ngo[5];
                 $insertArr[] = $tmpArr;
-
             }
 //            dd($insertArr);
             Ngo::insert($insertArr);
 
             fclose($open);
-
         }
     }
 
@@ -61,14 +58,13 @@ class NgoSeeder extends Seeder
 
     private function getTranslationDescription()
     {
-        $json = file_get_contents("./database/seeders/data/ngo_description.json");
-        return json_decode($json, true);
+        $json = file_get_contents('./database/seeders/data/ngo_description.json');
 
+        return json_decode($json, true);
     }
 
     private function getActivitiesDomains()
     {
         return [];
     }
-
 }

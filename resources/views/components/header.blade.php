@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="block w-24 md:hidden md:w-40">
-            <a class="logo-box" href="{{ url('contact') }}">
+            <a class="logo-box" href="{{ route('contact',['local'=>app()->getLocale()]) }}">
                 <img src="{{ Vite::asset('resources/images/design/fonpc.png') }}" alt="Logo">
             </a>
         </div>

@@ -44,6 +44,7 @@ class NgoResource extends Resource
                                 })->reactive(),
                             Forms\Components\TextInput::make('slug')->disabled(),
                             Forms\Components\TextInput::make('number_of_beneficiaries')->integer()->required(),
+                            Forms\Components\TextInput::make('story'),
                             Forms\Components\Select::make('activity_domains')->options($activityDomains)->multiple(),
                             SpatieMediaLibraryFileUpload::make('logo')->conversion('thumb'),
                             Forms\Components\RichEditor::make('description')->columnSpan(2)->required(),

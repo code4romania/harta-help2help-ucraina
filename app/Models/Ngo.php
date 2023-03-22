@@ -30,6 +30,7 @@ class Ngo extends Model implements HasMedia
         'address',
         'website',
         'social_icons',
+        'story',
     ];
 
     protected $casts = [
