@@ -23,11 +23,21 @@ class DatabaseSeeder extends Seeder
         if (App::environment(['local', 'staging'])) {
             $user = User::factory(['email' => 'admin@example.com'])
                 ->create();
+        } else {
+
+            User::create([
+                'name' => 'Gheorghe',
+                'email' => 'gheorghe.lupu@code4.ro',
+                'email_verified_at' => now(),
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                'remember_token' => Str::random(10),
+            ]);
         }
 
         $this->seedInterventionDomains();
         $this->seedActivityDomains();
         $this->seedBeneficiaryGroups();
+        (new NgoSeeder())->run();
     }
 
     private function seedInterventionDomains()

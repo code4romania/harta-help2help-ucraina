@@ -27,25 +27,18 @@ class Service extends Model
         'description',
         'slug',
         'ngo_id',
-        'start',
-        'end',
         'intervention_domains',
         'activity_domains',
+        'duration',
+        'status',
         'beneficiary_groups',
         'application_methods',
-        'website_project',
         'budget',
     ];
 
     public $translatable = [
         'name',
         'description',
-        'slug',
-        'intervention_domains',
-        'activity_domains',
-        'beneficiary_groups',
-        'application_methods',
-        'website_project',
     ];
 
     public function ngo(): BelongsTo

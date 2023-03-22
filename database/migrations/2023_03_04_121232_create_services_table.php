@@ -21,10 +21,9 @@ return new class extends Migration
             // @TODO add location
             $table->json('intervention_domains');
             $table->json('beneficiary_groups');
-            $table->date('start');
-            $table->date('end');
+            $table->string('duration');
+            $table->enum('status',['active','finished']);
             $table->json('application_methods');
-            $table->string('website_project');
             $table->string('budget')->nullable();
 
             $table->timestamps();

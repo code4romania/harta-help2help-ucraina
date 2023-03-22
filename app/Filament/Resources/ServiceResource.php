@@ -12,11 +12,16 @@ use App\Models\Service;
 use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
 class ServiceResource extends Resource
@@ -40,31 +45,31 @@ class ServiceResource extends Resource
                     ->columnSpan(2)
                     ->columns(2)
                     ->schema([
-                        Forms\Components\TextInput::make('name')->required()
+                        TextInput::make('name')->required()
                             ->afterStateUpdated(function (Closure $set, $state) {
                                 $set('slug', Str::slug($state));
                             })->reactive(),
-                        Forms\Components\TextInput::make('slug')->disabled(),
-                        Forms\Components\Select::make('ngo_id')->relationship('ngo', 'name')
+                        TextInput::make('slug')->disabled(),
+                        Select::make('ngo_id')->relationship('ngo', 'name')
                             ->searchable()
-                            ->preload(),
-                        Forms\Components\TextInput::make('website_project')->required(),
+                            ->preload()
+                            ->required(),
+                        TextInput::make('duration')->required(),
+                        Select::make('status')->options(['active'=>'În derulare/Activ','finished'=>'Finalizat'])->required(),
+                        TextInput::make('budget')->required(),
                         Forms\Components\RichEditor::make('description')->columnSpan(2)->required(),
-                        Forms\Components\DatePicker::make('start')->required(),
-                        Forms\Components\DatePicker::make('end')->required()->after('start'),
-                        Forms\Components\TextInput::make('budget'),
-                        Forms\Components\Select::make('intervention_domains')->options($interventionDomains)->multiple(),
-                        Forms\Components\Select::make('beneficiary_groups')->options($beneficiaryGroup)->multiple(),
+                        Select::make('intervention_domains')->options($interventionDomains)->multiple()->required(),
+                        Select::make('beneficiary_groups')->options($beneficiaryGroup)->multiple()->required(),
 
                     ]),
                 Card::make()->columns(2)->schema([
                     Forms\Components\Repeater::make('application_methods')->columnSpan(2)->schema([
-                        Forms\Components\Select::make('type')->options(ServiceApplicationType::selectable())->reactive()->required(),
+                        Select::make('type')->options(ServiceApplicationType::selectable())->reactive()->required(),
                         Forms\Components\RichEditor::make('description')->required(),
-                        Forms\Components\TextInput::make('application_url')->url()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
-                        Forms\Components\TextInput::make('application_phone')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        Forms\Components\TextInput::make('application_email')->email()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        Forms\Components\TextInput::make('application_address')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)->required(),
+                        TextInput::make('application_url')->url()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
+                        TextInput::make('application_phone')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        TextInput::make('application_email')->email()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        TextInput::make('application_address')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)->required(),
                     ])->defaultItems(0),
                 ]),
             ]);
@@ -74,8 +79,16 @@ class ServiceResource extends Resource
     {
         return $table
             ->columns([
-                //
-            ])
+                TextColumn::make('name'),
+                TextColumn::make('ngo.name'),
+                TextColumn::make('duration'),
+                IconColumn::make('status')
+                    ->options([
+                        'heroicon-o-badge-check' => 'active',
+                        'heroicon-o-x-circle' => 'finished',
+                    ])
+
+                ])
             ->filters([
                 //
             ])
