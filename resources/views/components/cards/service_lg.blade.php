@@ -18,7 +18,7 @@
     </p>
     <div class="flex w-full flex-col md:flex-row md:justify-between">
         <p class="mt-5 w-full font-bold md:w-1/4">{{ __('txt.service_card.disponibility') }} <span
-                class="font-normal">{{$service->start}} - {{$service->end}}</span></p>
+                class="font-normal">{{$service->duration}}</span></p>
         <p class="mt-5 w-full font-bold md:w-1/4">{{ __('txt.service_card.beneficiaries') }}
             @foreach($service->beneficiaryGroupsName as $id=>$group)
                 <span class="font-normal">{{$group}}</span>
@@ -55,7 +55,7 @@
 
     <h2 class="my-2 font-bold">{{ __('txt.service_card.how_help') }}</h2>
     <p>{{ __('txt.service_card.how_help_explain') }}</p>
-    <a href="{{$service->website_project}}"
+    <a href="{{$service->ngo->website}}" target="_blank"
         class="my-2 mt-3 h-12 w-1/2 rounded-sm flex justify-center  text-center items-center  bg-orange1 font-bold text-black hover:bg-blue1 md:w-1/4">{{ __('txt.buttons.access_site') }}</a>
 
 </div>

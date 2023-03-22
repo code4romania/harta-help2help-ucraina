@@ -19,7 +19,7 @@
                 ,
             @endif
         @endforeach</p>
-    @if ($service->end<now())
+    @if ($service->status=='finished')
         <p> {{__('txt.service_card.project_finished')}}</p>
     @else
         <p>{{__('txt.service_card.project_active')}}</p>

@@ -30,6 +30,7 @@
                 <x-cards.service_sm :service="$service"/>
             @endforeach
         </div>
+        {{$services->links()}}
     </section>
     <x-slot:js>
         <script
