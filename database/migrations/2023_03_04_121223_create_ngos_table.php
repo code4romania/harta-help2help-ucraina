@@ -15,15 +15,16 @@ return new class extends Migration
     {
         Schema::create('ngos', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->text('name');
             $table->string('slug');
             $table->text('description');
-            $table->integer('number_of_beneficiaries');
+            $table->integer('number_of_beneficiaries')->nullable();
             $table->json('activity_domains');
             $table->string('phone')->nullable();
             $table->string('contact_email')->nullable();
             $table->string('address');
             $table->string('website');
+            $table->string('story');
             $table->json('social_icons');
             $table->timestamps();
         });

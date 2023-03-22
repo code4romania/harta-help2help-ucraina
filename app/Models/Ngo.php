@@ -39,7 +39,6 @@ class Ngo extends Model implements HasMedia
 
     protected $translatable = [
         'name',
-        'slug',
         'description',
     ];
 
