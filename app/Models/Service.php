@@ -27,6 +27,7 @@ class Service extends Model
         'description',
         'slug',
         'ngo_id',
+        'project_name',
         'intervention_domains',
         'activity_domains',
         'duration',

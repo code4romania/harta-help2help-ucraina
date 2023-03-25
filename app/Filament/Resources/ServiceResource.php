@@ -50,6 +50,9 @@ class ServiceResource extends Resource
                                 $set('slug', Str::slug($state));
                             })->reactive(),
                         TextInput::make('slug')->disabled(),
+
+                        TextInput::make('project_name')->required(),
+
                         Select::make('ngo_id')->relationship('ngo', 'name')
                             ->searchable()
                             ->preload()

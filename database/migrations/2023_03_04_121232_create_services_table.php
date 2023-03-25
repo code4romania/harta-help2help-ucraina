@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Ngo::class)->constrained();
-            $table->string('name');
+            $table->foreignIdFor(\App\Models\Ngo::class)->constrained();
+            $table->text('project_name');
             $table->string('slug');
-            $table->text('description');
-            // @TODO add location
+            $table->text('name');
             $table->json('intervention_domains');
             $table->json('beneficiary_groups');
             $table->string('duration');

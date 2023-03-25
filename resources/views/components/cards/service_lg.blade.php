@@ -10,9 +10,9 @@
             {{ __('txt.service_card.share') }}
         </p>
     </div>
-    <h2 class="my-2 font-bold">{{$service->name}}</h2>
+    <h2 class="my-2 font-bold">{{$service->project_name}}</h2>
     <div class="text-xl">
-        {!! $service->description !!}
+        {{$service->name}}
     </div>
     <p class="mt-5 font-bold">{{ __('txt.service_card.budget') }} <span class="font-normal">{{$service->budget}}</span>
     </p>
