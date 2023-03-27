@@ -3,7 +3,7 @@
     <div class="flex w-full justify-between">
         <p class="my-2 flex">
             <x-heroicon-o-location-marker class="mr-3 h-5 w-5 text-gray1"/>
-            București
+            {{$service->city->name}}, {{$service->county->name}}
         </p>
         <p class="my-2 flex">
             <x-heroicon-o-share class="mr-3 h-5 w-5 text-gray1"/>

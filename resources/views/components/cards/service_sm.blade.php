@@ -3,7 +3,7 @@
     <img class="w-24" src="{{$service->ngo->getFirstMediaUrl()}}" alt="sera">
     <p class="my-2 flex">
         <x-heroicon-o-location-marker class="h-5 w-5 text-gray1 mr-3"/>
-        București
+        {{$service->city->name}}, {{$service->county->name}}
     </p>
     <h4 class="my-2 text-xl font-bold">{{$service->name}}</h4>
     <p>{{ __('txt.service_card.provided_by') }} <span class="font-bold">{{$service->ngo->name}}</span></p>

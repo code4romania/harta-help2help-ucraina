@@ -76,10 +76,12 @@ class ServiceResource extends Resource
                             )
                             ->searchable()
                             ->reactive(),
-                        TextInput::make('duration')->required(),
-                        Select::make('status')->options(['active'=>'În derulare/Activ','finished'=>'Finalizat'])->required(),
-                        TextInput::make('budget')->required(),
-                        Forms\Components\RichEditor::make('description')->columnSpan(2)->required(),
+                        Forms\Components\Grid::make()->schema([
+                            TextInput::make('duration')->required(),
+                            Select::make('status')->options(['active'=>'În derulare/Activ','finished'=>'Finalizat'])->required(),
+                            TextInput::make('budget')->required()
+                        ])->columns(3),
+
                         Select::make('intervention_domains')->options($interventionDomains)->multiple()->required(),
                         Select::make('beneficiary_groups')->options($beneficiaryGroup)->multiple()->required(),
 

@@ -43,7 +43,7 @@
                     <p class="font-medium"> Contact </p>
                     <p class="font-medium"> {{$ngo->phone}} </p>
                     <p class="font-medium"> {{$ngo->contact_email}} </p>
-                    <p class="font-medium">{{$ngo->address}}</p>
+                    <p class="font-medium">{{$ngo->address}}, {{$ngo->city?->name}}, {{$ngo->county?->name}}</p>
                     <p class="font-medium"> {{$ngo->website}} </p>
                 </div>
                 {{--                @TODO get social media --}}
