@@ -7,6 +7,7 @@ namespace App\Filament\Resources;
 use App\Enums\ServiceApplicationType;
 use App\Filament\Resources\ServiceResource\Pages;
 use App\Models\BeneficiaryGroup;
+use App\Models\County;
 use App\Models\InterventionDomains;
 use App\Models\Service;
 use Closure;
@@ -57,6 +58,24 @@ class ServiceResource extends Resource
                             ->searchable()
                             ->preload()
                             ->required(),
+                        Forms\Components\Select::make('county_id')
+                            ->label('County')
+                            ->options(County::pluck('name', 'id'))
+                            ->required()
+                            ->reactive()
+                            ->searchable()
+                            ->afterStateUpdated(fn (callable $set) => $set('city_id', null)),
+
+                        Forms\Components\Select::make('city_id')
+                            ->label('City')
+                            ->required()
+                            ->options(
+                                fn (callable $get) => County::find($get('county_id'))
+                                    ?->cities
+                                    ->pluck('name', 'id')
+                            )
+                            ->searchable()
+                            ->reactive(),
                         TextInput::make('duration')->required(),
                         Select::make('status')->options(['active'=>'În derulare/Activ','finished'=>'Finalizat'])->required(),
                         TextInput::make('budget')->required(),

@@ -7,6 +7,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\NgoResource\Pages;
 use App\Filament\Resources\ServiceResource\RelationManagers\ServicesRelationManager;
 use App\Models\ActivityDomain;
+use App\Models\County;
 use App\Models\Ngo;
 use Closure;
 use Filament\Forms;
@@ -45,6 +46,25 @@ class NgoResource extends Resource
                             Forms\Components\TextInput::make('slug')->disabled(),
                             Forms\Components\TextInput::make('number_of_beneficiaries')->integer(),
                             Forms\Components\TextInput::make('story'),
+
+                            Forms\Components\Select::make('county_id')
+                                ->label('County')
+                                ->options(County::pluck('name', 'id'))
+                                ->required()
+                                ->reactive()
+                                ->searchable()
+                                ->afterStateUpdated(fn (callable $set) => $set('city_id', null)),
+
+                            Forms\Components\Select::make('city_id')
+                                ->label('City')
+                                ->required()
+                                ->options(
+                                    fn (callable $get) => County::find($get('county_id'))
+                                        ?->cities
+                                        ->pluck('name', 'id')
+                                )
+                                ->searchable()
+                                ->reactive(),
                             Forms\Components\Select::make('activity_domains')->options($activityDomains)->multiple(),
                             SpatieMediaLibraryFileUpload::make('logo')->conversion('thumb'),
                             Forms\Components\RichEditor::make('description')->columnSpan(2)->required(),

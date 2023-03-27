@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 trait HasLocation
 {
+    public function initializeHasLocation(): void
+    {
+        $this->fillable = array_merge($this->fillable, ['county_id', 'city_id']);
+    }
+
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);

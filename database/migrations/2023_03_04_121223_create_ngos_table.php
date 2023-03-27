@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('ngos', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\City::class)->nullable()->constrained();
+            $table->foreignIdFor(\App\Models\County::class)->nullable()->constrained();
             $table->text('name');
             $table->string('slug');
             $table->text('description');
