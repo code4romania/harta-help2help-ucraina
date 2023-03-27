@@ -1,7 +1,7 @@
 @props(['service'])
 <div class=" card my-2 p-5 sm:p-10  md:w-[48%] lg:w-[32%]">
-    <img class="w-full" src="{{$ngo->getFirstMediaUrl()? $ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/help.png') }}"
-         alt="{{$ngo->name}}">
+    <img class="w-full" src="{{$service->ngo->getFirstMediaUrl()? $service->ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/help.png') }}"
+         alt="{{$service->ngo->name}}">
     <p class="my-2 flex">
         <x-heroicon-o-location-marker class="h-5 w-5 text-gray1 mr-3"/>
         {{$service->city->name}}, {{$service->county->name}}

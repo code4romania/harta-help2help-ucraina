@@ -11,6 +11,21 @@ let myLatLng = {lat: 46.218160, lng: 25.158008};
 
 
 function getInfoContent(point) {
+    return `
+ <div class="px-1.5 py-1.5 w-[250px]">
+ <div class="image"> logo</div>
+    <p class="my-2 flex ">
+            ${point.city.name}, ${point.county.name}
+        </p>
+        <p class="text-xl">${point.name.ro}</p>
+        <p class="text-xl"> ${point.project_name}</p>
+        <p class="text-sm">Oferit de: {point.ngo.name.ro}</p>
+        <p class="text-sm">Domenii de intervenție:  {point.ngo.name.ro}</p>
+        <p class="text-sm">Tip beneficiar: :  {point.ngo.name.ro}</p>
+        <p class="text-sm">${point.status}</p>
+        <p class="text-sm">Cum poate fi accesat serviciul:{point.status}</p>
+
+    `;
 
 }
 
@@ -25,7 +40,8 @@ window.initMap = () => {
     points.forEach((point) => {
         let infoWindow = new google.maps.InfoWindow({
             content: getInfoContent(point),
-            ariaLabel: point.service,
+            maxWidth: 400,
+            ariaLabel: point.project_name,
         });
         let marker = new google.maps.Marker({
             position: {lat: parseFloat(point.lat), lng: parseFloat(point.lng)},

@@ -35,10 +35,11 @@
     </section>
     <x-slot:js>
         <script>
-            const markActivePath ="{{Vite::asset('resources/images/icons/map-pin.png')}}";
-            const markDisabledPath ="{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
+            const markActivePath = "{{Vite::asset('resources/images/icons/map-pin.png')}}";
+            const markDisabledPath = "{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
 
-            let points = JSON.parse("{{collect($services->items())->toJson()}}");
+            let points = `@php echo $servicesJson; @endphp`;
+            points = JSON.parse(points);
         </script>
 
         <script

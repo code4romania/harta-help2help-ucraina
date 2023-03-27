@@ -37,12 +37,16 @@ class Service extends Model
         'beneficiary_groups',
         'application_methods',
         'budget',
+        'lat',
+        'lng'
     ];
 
     public $translatable = [
         'name',
         'description',
     ];
+
+//    public $appends = ['ngo_name','ngo_image'];
 
     public function ngo(): BelongsTo
     {
@@ -62,5 +66,15 @@ class Service extends Model
     public function getInterventionsDomainsNameAttribute()
     {
         return InterventionDomains::whereIn('id', $this->intervention_domains)->pluck('name', 'id');
+    }
+
+    public function getNgoNameAttribute()
+    {
+        return $this->ngo->name;
+    }
+
+    public function getNgoImageAttribute()
+    {
+        return $this->ngo->getFirstMediaUrl() ?: null;
     }
 }

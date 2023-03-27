@@ -27,6 +27,8 @@ class PageController extends Controller
     {
         $services = Service::query()->with(['city','county'])->paginate();
 
-        return view('services', compact('services'));
+        $servicesJson = Service::query()->with(['city','county'])->get()->toJson();
+
+        return view('services', compact('services','servicesJson'));
     }
 }

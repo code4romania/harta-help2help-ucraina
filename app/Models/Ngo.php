@@ -45,6 +45,7 @@ class Ngo extends Model implements HasMedia
         'name',
         'description',
     ];
+    protected $hidden=['description'];
 
     protected $appends = ['intervention_domains'];
 
