@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Ngo::class)->constrained();
             $table->foreignIdFor(\App\Models\City::class)->constrained();
             $table->foreignIdFor(\App\Models\County::class)->constrained();
+            $table->float('lat');
+            $table->float('lng');
             $table->text('project_name');
             $table->string('slug');
             $table->text('name');

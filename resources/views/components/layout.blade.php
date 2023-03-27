@@ -7,7 +7,6 @@
     <title>{{ $title ?? 'Help2Help' }}</title>
     <!-- Styles -->
     @vite(['resources/scss/app.scss'])
-    @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -16,6 +15,6 @@
     <x-footer />
 </body>
 {{$js ?? ''}}
-
+@vite('resources/js/app.js')
 
 </html>

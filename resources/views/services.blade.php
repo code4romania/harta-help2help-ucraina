@@ -11,11 +11,12 @@
             </h2>
             <div class="flex w-full justify-evenly md:w-1/2">
                 <button
-                    class="h-12 w-2/5 flex items-center justify-center border border-slate-300  bg-white text-black hover:bg-blue1 active:bg-orange1">
+                    class="h-12 w-2/5 flex items-center justify-center border border-slate-300 bg-orange1 text-black hover:bg-blue1">
                     <x-heroicon-o-map class="h-6 w-6 text-gray1 p-1"/>
                     {{ __('txt.buttons.ngos_map') }}</button>
                 <button
-                    class="h-12 w-2/5 flex items-center justify-center border border-slate-300 bg-orange1 text-black hover:bg-blue1">
+                    class="h-12 w-2/5 flex items-center justify-center border border-slate-300  bg-white text-black hover:bg-blue1 active:bg-orange1">
+
                     <x-heroicon-o-menu-alt-1 class="h-6 w-6 text-gray1 p-1"/>
                     {{ __('txt.buttons.ngos_list') }}</button>
             </div>
@@ -33,9 +34,17 @@
         {{$services->links()}}
     </section>
     <x-slot:js>
+        <script>
+            const markActivePath ="{{Vite::asset('resources/images/icons/map-pin.png')}}";
+            const markDisabledPath ="{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
+
+            let points = JSON.parse("{{collect($services->items())->toJson()}}");
+        </script>
+
         <script
             src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&libraries=places&callback=initMap"
             async defer></script>
+
         {{--    <script>--}}
     </x-slot:js>
 </x-layout>

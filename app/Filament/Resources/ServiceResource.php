@@ -64,13 +64,13 @@ class ServiceResource extends Resource
                             ->required()
                             ->reactive()
                             ->searchable()
-                            ->afterStateUpdated(fn (callable $set) => $set('city_id', null)),
+                            ->afterStateUpdated(fn(callable $set) => $set('city_id', null)),
 
                         Forms\Components\Select::make('city_id')
                             ->label('City')
                             ->required()
                             ->options(
-                                fn (callable $get) => County::find($get('county_id'))
+                                fn(callable $get) => County::find($get('county_id'))
                                     ?->cities
                                     ->pluck('name', 'id')
                             )
@@ -78,10 +78,20 @@ class ServiceResource extends Resource
                             ->reactive(),
                         Forms\Components\Grid::make()->schema([
                             TextInput::make('duration')->required(),
-                            Select::make('status')->options(['active'=>'În derulare/Activ','finished'=>'Finalizat'])->required(),
+                            Select::make('status')->options(['active' => 'În derulare/Activ', 'finished' => 'Finalizat'])->required(),
                             TextInput::make('budget')->required()
                         ])->columns(3),
 
+                        Forms\Components\TextInput::make('lat')
+                            ->numeric()
+                            ->minValue(-90)
+                            ->maxValue(90)
+                            ->required(),
+                        Forms\Components\TextInput::make('lng')
+                            ->numeric()
+                            ->minValue(-180)
+                            ->maxValue(180)
+                            ->required(),
                         Select::make('intervention_domains')->options($interventionDomains)->multiple()->required(),
                         Select::make('beneficiary_groups')->options($beneficiaryGroup)->multiple()->required(),
 
@@ -90,10 +100,10 @@ class ServiceResource extends Resource
                     Forms\Components\Repeater::make('application_methods')->columnSpan(2)->schema([
                         Select::make('type')->options(ServiceApplicationType::selectable())->reactive()->required(),
                         Forms\Components\RichEditor::make('description')->required(),
-                        TextInput::make('application_url')->url()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
-                        TextInput::make('application_phone')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        TextInput::make('application_email')->email()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        TextInput::make('application_address')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)->required(),
+                        TextInput::make('application_url')->url()->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
+                        TextInput::make('application_phone')->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        TextInput::make('application_email')->email()->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
+                        TextInput::make('application_address')->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)->required(),
                     ])->defaultItems(0),
                 ]),
             ]);
@@ -112,7 +122,7 @@ class ServiceResource extends Resource
                         'heroicon-o-x-circle' => 'finished',
                     ])
 
-                ])
+            ])
             ->filters([
                 //
             ])
