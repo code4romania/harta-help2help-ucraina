@@ -15,7 +15,8 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Ngo::class)->constrained();
-            $table->foreignIdFor(\App\Models\Ngo::class)->constrained();
+            $table->foreignIdFor(\App\Models\City::class)->constrained();
+            $table->foreignIdFor(\App\Models\County::class)->constrained();
             $table->text('project_name');
             $table->string('slug');
             $table->text('name');
