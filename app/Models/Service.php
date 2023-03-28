@@ -44,6 +44,8 @@ class Service extends Model
     public $translatable = [
         'name',
         'description',
+        'project_name',
+        'application_methods',
     ];
 
     public $appends = ['interventions_domains_name','beneficiary_groups_name'];
