@@ -146,6 +146,8 @@ return [
         'services_provided' => 'The services provided by the organization',
         'services_project' => 'Services offered within the project',
         'share' => 'Share',
+        'access_email_description' => 'To request this service, please send an e-mail to the address below, or call the phone number mentioned. Thank you!',
+        'access_location_description' => 'The services offered within the project can be accesed at the address:',
         'disponibility' => 'Available ',
         'beneficiaries' => 'Category of beneficiary',
         'access_email_explain' => 'To request this service, please send an e-mail to the address below, or call the phone number mentioned. Thank you!',

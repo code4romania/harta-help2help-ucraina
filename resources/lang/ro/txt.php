@@ -142,6 +142,8 @@ return [
         'physical' => 'La locație',
         'services' => 'Servicii',
         'access_location' => 'Prin prezentare la adresa',
+        'access_email_description' => 'Pentru a solicita acest serviciu, trimite un e-mail pe adresa de mai jos, sau suna la numarul de telefon mentionat. Multumim!',
+        'access_location_description' => 'Serviciile din cadrul proiectului pot fi accesate la adresa: ',
         'see_story' => 'Vezi povestea organizației',
         'services_provided' => 'Serviciile organizației',
         'services_project' => 'Servicii oferite în cadrul proiectului: ',
