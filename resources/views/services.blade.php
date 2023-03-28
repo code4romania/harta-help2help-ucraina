@@ -38,7 +38,7 @@
             const markActivePath = "{{Vite::asset('resources/images/icons/map-pin.png')}}";
             const markDisabledPath = "{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
 
-            let points = `@php echo $servicesJson; @endphp`;
+            let points = @json($servicesJson);
             points = JSON.parse(points);
         </script>
 
