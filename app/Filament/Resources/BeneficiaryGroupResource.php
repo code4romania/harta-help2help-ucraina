@@ -7,6 +7,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BeneficiaryGroupResource\Pages;
 use App\Models\BeneficiaryGroup;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -15,6 +16,7 @@ use Filament\Tables\Columns\TextColumn;
 
 class BeneficiaryGroupResource extends Resource
 {
+    use Translatable;
     protected static ?string $model = BeneficiaryGroup::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';

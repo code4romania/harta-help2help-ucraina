@@ -11,6 +11,7 @@ let myLatLng = {lat: 46.218160, lng: 25.158008};
 
 
 function getInfoContent(point) {
+    console.log(point);
     return `
  <div class="px-1.5 py-1.5 w-[250px]">
  <div class="image"> logo</div>

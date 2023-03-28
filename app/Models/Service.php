@@ -46,7 +46,7 @@ class Service extends Model
         'description',
     ];
 
-//    public $appends = ['ngo_name','ngo_image'];
+    public $appends = ['interventions_domains_name','beneficiary_groups_name'];
 
     public function ngo(): BelongsTo
     {

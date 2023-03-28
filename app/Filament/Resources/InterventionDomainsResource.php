@@ -6,15 +6,19 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\InterventionDomainsResource\Pages;
 use App\Models\InterventionDomains;
+use Closure;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Illuminate\Support\Str;
 
 class InterventionDomainsResource extends Resource
 {
+    use Translatable;
     protected static ?string $model = InterventionDomains::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -23,7 +27,10 @@ class InterventionDomainsResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name'),
+                TextInput::make('name') ->afterStateUpdated(function (Closure $set, $state) {
+                    $set('slug', Str::slug($state));
+                })->reactive(),
+                 TextInput::make('slug')->disabled(),
             ]);
     }
 
@@ -32,6 +39,7 @@ class InterventionDomainsResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name'),
+
             ])
             ->filters([
                 //
