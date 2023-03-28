@@ -17,6 +17,7 @@ use Filament\Tables\Columns\TextColumn;
 class BeneficiaryGroupResource extends Resource
 {
     use Translatable;
+
     protected static ?string $model = BeneficiaryGroup::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';

@@ -38,7 +38,7 @@ class Service extends Model
         'application_methods',
         'budget',
         'lat',
-        'lng'
+        'lng',
     ];
 
     public $translatable = [
@@ -47,7 +47,7 @@ class Service extends Model
         'project_name',
     ];
 
-    public $appends = ['interventions_domains_name','beneficiary_groups_name'];
+    public $appends = ['interventions_domains_name', 'beneficiary_groups_name'];
 
     public function ngo(): BelongsTo
     {

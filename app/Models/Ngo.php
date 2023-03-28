@@ -7,7 +7,6 @@ namespace App\Models;
 use App\Concerns\HasLocation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
@@ -45,7 +44,8 @@ class Ngo extends Model implements HasMedia
         'name',
         'description',
     ];
-    protected $hidden=['description'];
+
+    protected $hidden = ['description'];
 
     protected $appends = ['intervention_domains'];
 

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->json('intervention_domains');
             $table->json('beneficiary_groups');
             $table->string('duration');
-            $table->enum('status',['active','finished']);
+            $table->enum('status', ['active', 'finished']);
             $table->json('application_methods');
             $table->string('budget')->nullable();
 

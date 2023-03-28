@@ -19,6 +19,7 @@ use Illuminate\Support\Str;
 class InterventionDomainsResource extends Resource
 {
     use Translatable;
+
     protected static ?string $model = InterventionDomains::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -27,10 +28,10 @@ class InterventionDomainsResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name') ->afterStateUpdated(function (Closure $set, $state) {
+                TextInput::make('name')->afterStateUpdated(function (Closure $set, $state) {
                     $set('slug', Str::slug($state));
                 })->reactive(),
-                 TextInput::make('slug')->disabled(),
+                TextInput::make('slug')->disabled(),
             ]);
     }
 
