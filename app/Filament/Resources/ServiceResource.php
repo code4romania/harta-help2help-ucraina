@@ -99,7 +99,6 @@ class ServiceResource extends Resource
                 Card::make()->columns(2)->schema([
                     Forms\Components\Repeater::make('application_methods')->columnSpan(2)->schema([
                         Select::make('type')->options(ServiceApplicationType::selectable())->reactive()->required(),
-                        Forms\Components\RichEditor::make('description')->required(),
                         TextInput::make('application_url')->url()->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
                         TextInput::make('application_phone')->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
                         TextInput::make('application_email')->email()->hidden(fn(Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
