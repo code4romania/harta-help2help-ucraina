@@ -57,5 +57,7 @@ window.initMap = () => {
             });
         });
         markers.push(marker)
+
     })
+    const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
 }

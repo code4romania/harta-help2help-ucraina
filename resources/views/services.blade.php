@@ -39,12 +39,12 @@
             const markDisabledPath = "{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
 
             let points = @json($servicesJson);
-            points = JSON.parse(points);
         </script>
 
         <script
-            src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&libraries=places&callback=initMap"
+            src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&v=3.exp&sensor=false&libraries=places&callback=initMap"
             async defer></script>
+        <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 
         {{--    <script>--}}
     </x-slot:js>
