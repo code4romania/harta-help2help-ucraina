@@ -36,7 +36,8 @@ class PageController extends Controller
     {
         $totalServices = Service::count();
         $totalNgos = Ngo::count();
+        $totalBeneficiaries= Ngo::sum('number_of_beneficiaries');
 
-        return view('home', compact('totalNgos', 'totalServices'));
+        return view('home', compact('totalNgos', 'totalServices','totalBeneficiaries'));
     }
 }

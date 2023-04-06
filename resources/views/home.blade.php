@@ -23,15 +23,15 @@
             </div>
             <div class="mt-10 flex w-full justify-evenly lg:mt-20">
                 <div class="w-1/5 justify-center">
-                    <h3 class="text-center text-3xl font-bold lg:text-8xl">3500+</h3>
+                    <h3 class="text-center text-3xl font-bold lg:text-8xl">{{$totalBeneficiaries}}+</h3>
                     <p class="mt-8 text-center text-base lg:text-2xl"> {{ __('txt.home.beneficiars') }} </p>
                 </div>
                 <div class="w-1/5 justify-center">
-                    <h3 class="text-center text-3xl font-bold lg:text-8xl">3500+</h3>
+                    <h3 class="text-center text-3xl font-bold lg:text-8xl">{{$totalServices}}+</h3>
                     <p class="mt-8 text-center text-base lg:text-2xl"> {{ __('txt.home.services_added') }} </p>
                 </div>
                 <div class="w-1/5 justify-center">
-                    <h3 class="text-center text-3xl font-bold lg:text-8xl">500+</h3>
+                    <h3 class="text-center text-3xl font-bold lg:text-8xl">{{$totalNgos}}+</h3>
                     <p class="mt-8 text-center text-base lg:text-2xl"> {{ __('txt.home.ngos_active') }} </p>
                 </div>
             </div>
