@@ -1,4 +1,8 @@
-<section class="search h-[600px] flex-col items-center justify-center px-3 lg:h-[700px]" id="search-container"">
+<section
+    class="py-64 search"
+    id="search-container""
+>
+    <div class="container flex flex-col items-center justify-center">
 <h2 class="text-center text-xl lg:text-2xl"> {{ __('txt.home.search_title') }}</h2>
 <p class="text-base lg:text-xl"> {{ __('txt.home.search_text') }} <span class="font-bold underline"> <a
             href="{{ url('services') }}">{{ __('txt.home.search_text_span') }} </a>
@@ -72,5 +76,6 @@
 
     <x-ui.button>
         {{ __('txt.buttons.search') }}</x-ui.button>
+</div>
 </div>
 </section>
