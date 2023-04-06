@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => '{local?}', 'middleware' => [LanguageManager::class]], function () {
-    Route::get('/', function () {
-        return view('home');
-    })->name('home');
+    Route::get('/', [PageController::class, 'home'])->name('home');
 
     Route::get('/about', function () {
         return view('about');

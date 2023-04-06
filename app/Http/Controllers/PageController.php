@@ -31,4 +31,12 @@ class PageController extends Controller
 
         return view('services', compact('services', 'servicesJson'));
     }
+
+    public function home()
+    {
+        $totalServices = Service::count();
+        $totalNgos = Ngo::count();
+
+        return view('home', compact('totalNgos', 'totalServices'));
+    }
 }
