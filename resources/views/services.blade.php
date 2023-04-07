@@ -5,7 +5,7 @@
 
 
     <x-search/>
-    <section class="flex-col">
+    <section class="flex-col container">
         <div class="mb-5 flex flex-col justify-between md:flex-row">
             <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">{{$services->total()}} {{ __('txt.service_card.page_title') }}
             </h2>

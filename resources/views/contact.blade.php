@@ -5,7 +5,7 @@
         Help2Help Contact Page
         </x-slot>
 
-        <section class="flex-col p-5">
+        <section class=" container flex-col p-5">
             <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl"> {{ __('txt.contact.page_title') }}
             </h2>
             <div class="flex w-full justify-evenly md:w-2/3">
