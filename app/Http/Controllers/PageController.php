@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ngo;
 use App\Models\Service;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -23,12 +24,11 @@ class PageController extends Controller
         return view('ngos_index', compact('ngo'));
     }
 
-    public function services()
+    public function services(Request $request)
     {
-        $services = Service::query()->with(['city', 'county'])->paginate();
 
+        $services = Service::query()->filter(collect($request->all()))->with(['city', 'county'])->paginate();
         $servicesJson = Service::query()->with(['city', 'county'])->get();
-
         return view('services', compact('services', 'servicesJson'));
     }
 
