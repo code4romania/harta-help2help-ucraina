@@ -2,39 +2,61 @@
     <x-slot:title>
         Help2Help Services Page
     </x-slot:title>
-
-
     <x-search/>
     <section class="flex-col container">
         <div class="mb-5 flex flex-col justify-between md:flex-row">
             <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">{{$services->total()}} {{ __('txt.service_card.page_title') }}
             </h2>
             <div class="flex w-full justify-evenly md:w-1/2">
-                <button
+                <button id="show-services-map" onclick="showMap()"
                     class="h-12 w-2/5 flex items-center justify-center border border-slate-300 bg-orange1 text-black hover:bg-blue1">
                     <x-heroicon-o-map class="h-6 w-6 text-gray1 p-1"/>
                     {{ __('txt.buttons.ngos_map') }}</button>
-                <button
+                <button id="show-services-list" onclick="showList()"
                     class="h-12 w-2/5 flex items-center justify-center border border-slate-300  bg-white text-black hover:bg-blue1 active:bg-orange1">
 
                     <x-heroicon-o-menu-alt-1 class="h-6 w-6 text-gray1 p-1"/>
                     {{ __('txt.buttons.ngos_list') }}</button>
             </div>
         </div>
-        <div class="my-10 h-96 md:h-[40rem] w-full rounded-lg border border-main-color">
+        <div class="my-10 h-96 md:h-[40rem] w-full rounded-lg border border-main-color" id="services-map">
             <div class=" h-full w-full overflow-hidden" id="map">
-
             </div>
         </div>
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap hidden" id="services-list">
             @foreach($services->items() as $service)
                 <x-cards.service_sm :service="$service"/>
             @endforeach
+                {{$services->links()}}
         </div>
-        {{$services->links()}}
+
     </section>
     <x-slot:js>
         <script>
+            function showList()
+            {
+                let showListButton = document.getElementById('show-services-list');
+                let showMapButton = document.getElementById('show-services-map');
+                let mapEl = document.getElementById('services-map')
+                let el = document.getElementById('services-list')
+                el.classList.remove('hidden')
+                mapEl.classList.add('hidden');
+                showMapButton.classList.remove('bg-orange1')
+                showListButton.classList.remove('bg-white')
+                showListButton.classList.add('bg-orange1')
+            }
+            function showMap()
+            {
+                let showListButton = document.getElementById('show-services-list');
+                let showMapButton = document.getElementById('show-services-map');
+                let mapEl = document.getElementById('services-map')
+                let el = document.getElementById('services-list')
+                el.classList.add('hidden')
+                mapEl.classList.remove('hidden');
+                showMapButton.classList.add('bg-orange1')
+                showListButton.classList.add('bg-white')
+                showListButton.classList.remove('bg-orange1')
+            }
             const markActivePath = "{{Vite::asset('resources/images/icons/map-pin.png')}}";
             const markDisabledPath = "{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
 

@@ -69,7 +69,7 @@
                     <select
                         class="w-full rounded-sm border border-slate-300 bg-white p-3 pl-10 pr-4 text-gray1 focus:outline-none lg:mx-1 lg:mx-1 lg:my-0 lg:h-20 lg:text-lg"
                         id="county-select" name="status">
-                        <option> {{ __('txt.placeholders.project_status') }} </option>
+                        <option value=""> {{ __('txt.placeholders.project_status') }} </option>
                         <option value="active" @if(request()->get('status')=='active') selected @endif>{{__('txt.service_card.project_active')}}</option>
                         <option value="finished" @if(request()->get('status')=='finished') selected @endif>{{__('txt.service_card.project_finished')}}</option>
                     </select>

@@ -45,6 +45,7 @@ return [
         'services_map' => 'Services map',
         'services_list' => 'List of services',
         'see_more' => 'See more',
+        'see_story' => 'See story',
         'access_online' => 'Access online',
         'access_site' => 'Access the website',
         'ngos_map' => 'NGOs map',

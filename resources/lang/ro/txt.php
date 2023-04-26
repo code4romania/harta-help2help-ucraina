@@ -44,6 +44,7 @@ return [
         'services_map' => 'Hartă servicii',
         'services_list' => 'Listă servicii',
         'see_more' => 'Vezi mai mult',
+        'see_story' => 'Vezi povestea',
         'access_online' => 'Accesează online',
         'access_site' => 'Accesează website',
 

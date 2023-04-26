@@ -7,7 +7,7 @@
             <img class="w-full" src="{{$ngo->getFirstMediaUrl()? $ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/help.png') }}"
                  alt="{{$ngo->name}}">
             <a href="{{$ngo->story?: '#'}}" target="_blank"
-               class="my-2 mt-3 h-12 flex justify-center  text-center items-center  w-full bg-orange1  text-black rounded-md hover:bg-blue1">{{ __('txt.buttons.see_more') }}</a>
+               class="my-2 mt-3 h-12 flex justify-center  text-center items-center  w-full bg-orange1  text-black rounded-md hover:bg-blue1">{{ __('txt.buttons.see_story') }}</a>
         </div>
         <div class="w-full md:w-2/3 flex flex-col p-5">
             <h2 class="my-2  font-bold">{{$ngo->name}}</h2>
@@ -43,13 +43,13 @@
                     <p class="font-medium"> Contact </p>
                     <p class="font-medium"> {{$ngo->phone}} </p>
                     <p class="font-medium"> {{$ngo->contact_email}} </p>
-                    <p class="font-medium">{{$ngo->address}}, {{$ngo->city?->name}}, {{$ngo->county?->name}}</p>
+                    <p class="font-medium">{{$ngo->address}} {{$ngo->city?->name}} {{$ngo->county?->name}}</p>
                     <p class="font-medium"> {{$ngo->website}} </p>
                 </div>
-                                <div class="w-full md:w-1/2 flex flex-col">
-                                    <p class="font-medium"> Social Media </p>
-                                    <p class="font-medium">  Instagram Twitter </p>
-                                </div>
+{{--                                <div class="w-full md:w-1/2 flex flex-col">--}}
+{{--                                    <p class="font-medium"> Social Media </p>--}}
+{{--                                    <p class="font-medium">  Instagram Twitter </p>--}}
+{{--                                </div>--}}
             </div>
         </div>
     </div>
