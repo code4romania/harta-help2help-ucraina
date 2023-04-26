@@ -26,9 +26,9 @@ class PageController extends Controller
 
     public function services(Request $request)
     {
-
         $services = Service::query()->filter(collect($request->all()))->with(['city', 'county'])->paginate();
         $servicesJson = Service::query()->with(['city', 'county'])->get();
+
         return view('services', compact('services', 'servicesJson'));
     }
 
@@ -36,8 +36,8 @@ class PageController extends Controller
     {
         $totalServices = Service::count();
         $totalNgos = Ngo::count();
-        $totalBeneficiaries= Ngo::sum('number_of_beneficiaries');
+        $totalBeneficiaries = Ngo::sum('number_of_beneficiaries');
 
-        return view('home', compact('totalNgos', 'totalServices','totalBeneficiaries'));
+        return view('home', compact('totalNgos', 'totalServices', 'totalBeneficiaries'));
     }
 }

@@ -84,7 +84,7 @@ class Service extends Model
     public function scopeFilter(Builder $query, Collection $filters): Builder
     {
         foreach ($filters as $key => $value) {
-            if (!empty($value)) {
+            if (! empty($value)) {
                 match ($key) {
                     'intervention_domain' => $query->whereJsonContains('intervention_domains', $value),
                     'beneficiary' => $query->whereJsonContains('beneficiary_groups', $value),
@@ -98,6 +98,7 @@ class Service extends Model
                 };
             }
         }
+
         return $query;
     }
 }
