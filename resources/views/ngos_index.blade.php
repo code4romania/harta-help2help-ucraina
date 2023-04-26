@@ -46,11 +46,10 @@
                     <p class="font-medium">{{$ngo->address}}, {{$ngo->city?->name}}, {{$ngo->county?->name}}</p>
                     <p class="font-medium"> {{$ngo->website}} </p>
                 </div>
-                {{--                @TODO get social media --}}
-                {{--                <div class="w-full md:w-1/2 flex flex-col">--}}
-                {{--                    <p class="font-medium"> Social Media </p>--}}
-                {{--                    <p class="font-medium"> FB Instagram Twitter </p>--}}
-                {{--                </div>--}}
+                                <div class="w-full md:w-1/2 flex flex-col">
+                                    <p class="font-medium"> Social Media </p>
+                                    <p class="font-medium">  Instagram Twitter </p>
+                                </div>
             </div>
         </div>
     </div>
