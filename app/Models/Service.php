@@ -94,7 +94,7 @@ class Service extends Model
                         $query->orWhere('name', 'LIKE', '%' . $value . '%');
                     }),
                     'county' => $query->where('county_id', $value),
-                    'default' => $query,
+                    default => $query,
                 };
             }
         }
