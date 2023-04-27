@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <div class="my-5 flex w-full md:w-2/3 justify-between self-center">
+    <div class="my-5 flex w-full md:w-2/3 justify-between self-center mx-auto">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
             <span aria-disabled="true" aria-label="{{ __('pagination.previous') }}">

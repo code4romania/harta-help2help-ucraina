@@ -4,10 +4,10 @@
     </x-slot:title>
     <div class="container card flex-col md:flex-row my-2 p-5 sm:p-10  ">
         <div class=" w-4/5 sm:w-2/3 md:w-1/3 flex flex-col p-5 self-center items-center">
-            <img class="w-full" src="{{$ngo->getFirstMediaUrl()? $ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/help.png') }}"
+            <img class="w-full" src="{{$ngo->getFirstMediaUrl()? $ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/placeholder.png') }}"
                  alt="{{$ngo->name}}">
             <a href="{{$ngo->story?: '#'}}" target="_blank"
-               class="my-2 mt-3 h-12 flex justify-center  text-center items-center  w-full bg-orange1  text-black rounded-md hover:bg-blue1">{{ __('txt.buttons.see_more') }}</a>
+               class="my-2 mt-3 h-12 flex justify-center  text-center items-center  w-full bg-orange1  text-black rounded-md hover:bg-blue1">{{ __('txt.buttons.see_story') }}</a>
         </div>
         <div class="w-full md:w-2/3 flex flex-col p-5">
             <h2 class="my-2  font-bold">{{$ngo->name}}</h2>
@@ -43,14 +43,13 @@
                     <p class="font-medium"> Contact </p>
                     <p class="font-medium"> {{$ngo->phone}} </p>
                     <p class="font-medium"> {{$ngo->contact_email}} </p>
-                    <p class="font-medium">{{$ngo->address}}, {{$ngo->city?->name}}, {{$ngo->county?->name}}</p>
+                    <p class="font-medium">{{$ngo->address}} {{$ngo->city?->name}} {{$ngo->county?->name}}</p>
                     <p class="font-medium"> {{$ngo->website}} </p>
                 </div>
-                {{--                @TODO get social media --}}
-                {{--                <div class="w-full md:w-1/2 flex flex-col">--}}
-                {{--                    <p class="font-medium"> Social Media </p>--}}
-                {{--                    <p class="font-medium"> FB Instagram Twitter </p>--}}
-                {{--                </div>--}}
+{{--                                <div class="w-full md:w-1/2 flex flex-col">--}}
+{{--                                    <p class="font-medium"> Social Media </p>--}}
+{{--                                    <p class="font-medium">  Instagram Twitter </p>--}}
+{{--                                </div>--}}
             </div>
         </div>
     </div>

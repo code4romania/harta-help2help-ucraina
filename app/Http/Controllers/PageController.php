@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ngo;
 use App\Models\Service;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -23,11 +24,11 @@ class PageController extends Controller
         return view('ngos_index', compact('ngo'));
     }
 
-    public function services()
+    public function services(Request $request)
     {
-        $services = Service::query()->with(['city', 'county'])->paginate();
-
-        $servicesJson = Service::query()->with(['city', 'county'])->get();
+        $query =  Service::query()->filter(collect($request->all()))->with(['city', 'county']);
+        $services = $query->paginate();
+        $servicesJson = $query->get();
 
         return view('services', compact('services', 'servicesJson'));
     }
@@ -36,8 +37,8 @@ class PageController extends Controller
     {
         $totalServices = Service::count();
         $totalNgos = Ngo::count();
-        $totalBeneficiaries= Ngo::sum('number_of_beneficiaries');
+        $totalBeneficiaries = Ngo::sum('number_of_beneficiaries');
 
-        return view('home', compact('totalNgos', 'totalServices','totalBeneficiaries'));
+        return view('home', compact('totalNgos', 'totalServices', 'totalBeneficiaries'));
     }
 }

@@ -38,47 +38,47 @@ class InterventionDomains extends Component
         return [
             [
                 'name' => 'health',
-                'icon' => 'heroicon-o-heart',
+                'icon' => 'icon-health',
                 'url' => '#',
             ],
             [
                 'name' => 'food',
-                'icon' => 'heroicon-o-cake',
+                'icon' => 'icon-food',
                 'url' => '#',
             ],
             [
                 'name' => 'house',
-                'icon' => 'heroicon-o-home',
+                'icon' => 'icon-house',
                 'url' => '#',
             ],
             [
                 'name' => 'hygiene',
-                'icon' => 'heroicon-o-heart',
+                'icon' => 'icon-hygiene',
                 'url' => '#',
             ],
             [
                 'name' => 'finance_support',
-                'icon' => 'heroicon-o-check',
+                'icon' => 'icon-finance_support',
                 'url' => '#',
             ],
             [
                 'name' => 'protection',
-                'icon' => 'heroicon-o-shield-check',
+                'icon' => 'icon-protection',
                 'url' => '#',
             ],
             [
                 'name' => 'education',
-                'icon' => 'heroicon-o-academic-cap',
+                'icon' => 'icon-education',
                 'url' => '#',
             ],
             [
                 'name' => 'management',
-                'icon' => 'heroicon-o-bookmark',
+                'icon' => 'icon-management',
                 'url' => '#',
             ],
             [
                 'name' => 'integration',
-                'icon' => 'heroicon-o-user-group',
+                'icon' => 'icon-integration',
                 'url' => '#',
             ],
 

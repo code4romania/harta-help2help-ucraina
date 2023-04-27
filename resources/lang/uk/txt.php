@@ -45,6 +45,7 @@ return [
         'services_map' => 'Карта послуг',
         'services_list' => 'Перелік послуг',
         'see_more' => 'Побачити більше',
+        'see_story' => 'Vezi povestea',
         'access_online' => 'Доступ онлайн',
         'access_site' => 'Доступ до веб-сайту',
         'ngos_map' => 'Карта НКО',

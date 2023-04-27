@@ -51,7 +51,11 @@
             </nav>
 
             <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher" onchange=" function switchLang(value) {
-                    return window.location = `/${value}`;
+                    let currentUrl =  window.location.pathname;
+                    let elements =currentUrl.split('/');
+                    elements[1] = value;
+                    let newUrl=elements.join('/')+window.location.search;
+                    return window.location = newUrl;
                 }; switchLang(this.value)">
                 <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
                 <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
