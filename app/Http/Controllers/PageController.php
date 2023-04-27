@@ -30,7 +30,6 @@ class PageController extends Controller
         $servicesJson = $query->get();
         $services = $query->paginate();
 
-//        dd(count($servicesJson));
         return view('services', compact('services', 'servicesJson'));
     }
 
