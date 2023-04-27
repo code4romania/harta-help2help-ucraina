@@ -38,78 +38,16 @@
     <x-slot:js>
         <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
         <script>
-            function showList()
-            {
-                let showListButton = document.getElementById('show-services-list');
-                let showMapButton = document.getElementById('show-services-map');
-                let mapEl = document.getElementById('services-map')
-                let el = document.getElementById('services-list')
-                el.classList.remove('hidden')
-                mapEl.classList.add('hidden');
-                showMapButton.classList.remove('bg-orange1')
-                showListButton.classList.remove('bg-white')
-                showListButton.classList.add('bg-orange1')
-            }
-            function showMap()
-            {
-                let showListButton = document.getElementById('show-services-list');
-                let showMapButton = document.getElementById('show-services-map');
-                let mapEl = document.getElementById('services-map')
-                let el = document.getElementById('services-list')
-                el.classList.add('hidden')
-                mapEl.classList.remove('hidden');
-                showMapButton.classList.add('bg-orange1')
-                showListButton.classList.add('bg-white')
-                showListButton.classList.remove('bg-orange1')
-            }
-            function hideAllPoints(){
-                let pointElements = [...document.getElementsByClassName('point-services')]
-                pointElements.forEach(el=>{
-                    el.classList.add('hidden')
-                })
-                let mapEl = document.getElementById('map')
-                mapEl.scrollIntoView();
-            }
+            let points = @json($servicesJson);
+                let map = null
+            let markers = []
+            let myLatLng = {lat: 46.218160, lng: 25.158008};
             const markActivePath = "{{Vite::asset('resources/images/icons/map-pin.png')}}";
             const markDisabledPath = "{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
 
-            let points = @json($servicesJson);
-            let map = null
-            let markers = []
-            let myLatLng = {lat: 46.218160, lng: 25.158008};
-
-            window.initMap = () => {
-
-                map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 7,
-                    center: myLatLng,
-                });
-
-
-                points.forEach((point) => {
-                    let marker = new google.maps.Marker({
-                        position: {lat: parseFloat(point.lat), lng: parseFloat(point.lng)},
-                        map,
-                        title: point.title,
-                        icon: (point.status === 'active') ? markActivePath : markDisabledPath,
-                    });
-                    marker.addListener("click", () => {
-                        hideAllPoints()
-                        let elementToShow=document.getElementById(point.slug)
-                        elementToShow.classList.remove('hidden')
-                        elementToShow.scrollIntoView()
-                    });
-                    markers.push(marker)
-
-                })
-                const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
-            }
-
         </script>
-
-
         <script
-            src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&libraries=places&callback=initMap"></script>
+            src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&libraries=places&callback=initMap" defer></script>
 
 
         {{--    <script>--}}

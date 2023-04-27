@@ -2,7 +2,7 @@
     'point'
 ])
 
-<div class="card mx-2 w-full md:w-1/2 point-services hidden" id="{{$point->slug}}">
+<div class="card mx-2 w-full md:w-1/2 point-services hidden" id="point-id-{{$point->id}}">
     <x-heroicon-o-x class="h-5 w-5 end-0 text-gray1" onclick="hideAllPoints()"/>
     <img class="w-64 mx-auto" src="{{$point->ngo->getFirstMediaUrl()? $point->ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/placeholder.png') }}"
          alt="{{$point->ngo->name}}">
