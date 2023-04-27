@@ -19,12 +19,11 @@
                     {{ __('txt.buttons.ngos_list') }}</button>
             </div>
         </div>
-        <div class="my-10 md:h-[40rem] w-full rounded-lg flex sm:flex-wrap border border-main-color" id="services-map">
-            <div class="  sm:h-96  w-full overflow-hidden" id="map">
+        <div class="my-10 md:h-[55rem] w-full rounded-lg flex flex-wrap md:flex-nowrap" id="services-map">
+            <div class=" h-96  md:h-[55rem]  w-full  border border-main-color overflow-hidden" id="map">
             </div>
             @foreach($servicesJson as $point)
                 <x-cards.service_point :point="$point"></x-cards.service_point>
-
             @endforeach
 
         </div>
@@ -63,6 +62,14 @@
                 showListButton.classList.add('bg-white')
                 showListButton.classList.remove('bg-orange1')
             }
+            function hideAllPoints(){
+                let pointElements = [...document.getElementsByClassName('point-services')]
+                pointElements.forEach(el=>{
+                    el.classList.add('hidden')
+                })
+                let mapEl = document.getElementById('map')
+                mapEl.scrollIntoView();
+            }
             const markActivePath = "{{Vite::asset('resources/images/icons/map-pin.png')}}";
             const markDisabledPath = "{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
 
@@ -87,14 +94,10 @@
                         icon: (point.status === 'active') ? markActivePath : markDisabledPath,
                     });
                     marker.addListener("click", () => {
-                        let pointElements = [...document.getElementsByClassName('point-services')]
-                        console.log(pointElements);
-                        pointElements.forEach(el=>{
-                            console.log(el);
-                            el.classList.add('hidden')
-                        })
+                        hideAllPoints()
                         let elementToShow=document.getElementById(point.slug)
                         elementToShow.classList.remove('hidden')
+                        elementToShow.scrollIntoView()
                     });
                     markers.push(marker)
 
