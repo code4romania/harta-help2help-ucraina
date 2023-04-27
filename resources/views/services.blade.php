@@ -19,9 +19,14 @@
                     {{ __('txt.buttons.ngos_list') }}</button>
             </div>
         </div>
-        <div class="my-10 h-96 md:h-[40rem] w-full rounded-lg border border-main-color" id="services-map">
-            <div class=" h-full w-full overflow-hidden" id="map">
+        <div class="my-10 md:h-[40rem] w-full rounded-lg flex sm:flex-wrap border border-main-color" id="services-map">
+            <div class="  sm:h-96  w-full overflow-hidden" id="map">
             </div>
+            @foreach($servicesJson as $point)
+                <x-cards.service_point :point="$point"></x-cards.service_point>
+
+            @endforeach
+
         </div>
         <div class="flex flex-wrap hidden" id="services-list">
             @foreach($services->items() as $service)
@@ -32,6 +37,7 @@
 
     </section>
     <x-slot:js>
+        <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
         <script>
             function showList()
             {
@@ -61,12 +67,47 @@
             const markDisabledPath = "{{Vite::asset('resources/images/icons/map-pin-disabled.png')}}";
 
             let points = @json($servicesJson);
+            let map = null
+            let markers = []
+            let myLatLng = {lat: 46.218160, lng: 25.158008};
+
+            window.initMap = () => {
+
+                map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 7,
+                    center: myLatLng,
+                });
+
+
+                points.forEach((point) => {
+                    let marker = new google.maps.Marker({
+                        position: {lat: parseFloat(point.lat), lng: parseFloat(point.lng)},
+                        map,
+                        title: point.title,
+                        icon: (point.status === 'active') ? markActivePath : markDisabledPath,
+                    });
+                    marker.addListener("click", () => {
+                        let pointElements = [...document.getElementsByClassName('point-services')]
+                        console.log(pointElements);
+                        pointElements.forEach(el=>{
+                            console.log(el);
+                            el.classList.add('hidden')
+                        })
+                        let elementToShow=document.getElementById(point.slug)
+                        elementToShow.classList.remove('hidden')
+                    });
+                    markers.push(marker)
+
+                })
+                const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
+            }
+
         </script>
 
 
         <script
-            src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&libraries=places&callback=initMap" async defer></script>
-        <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+            src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&libraries=places&callback=initMap"></script>
+
 
         {{--    <script>--}}
     </x-slot:js>
