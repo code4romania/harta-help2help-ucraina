@@ -27,9 +27,10 @@ class PageController extends Controller
     public function services(Request $request)
     {
         $query =  Service::query()->filter(collect($request->all()))->with(['city', 'county']);
-        $services = $query->paginate();
         $servicesJson = $query->get();
+        $services = $query->paginate();
 
+//        dd(count($servicesJson));
         return view('services', compact('services', 'servicesJson'));
     }
 
