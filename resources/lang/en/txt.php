@@ -18,9 +18,9 @@ return [
     ],
 
     'activity_domains' => [
-        'education' => 'Educație',
-        'research' => 'Cercetare',
-        'youth' => 'Tineret',
+        'education' => 'Education',
+        'research' => 'Research',
+        'youth' => 'Youth',
     ],
 
     'beneficiaries' => [
@@ -58,20 +58,20 @@ return [
     ],
 
     'placeholders' => [
-        'county' => 'Judet',
-        'city' => 'Oras',
-        'find_address' => 'Caută adresă',
-        'course_type' => 'Tip de curs',
-        'date_start' => 'Data de început',
-        'search_services' => 'Caută servicii...',
-        'anywhere_country' => 'Toată România',
-        'any_domain' => 'Orice domeniu de intervenție',
-        'any_beneficiary' => 'Orice beneficiar',
-        'project_status' => 'Statusul proiectului',
-        'full_name' => 'Nume complet:',
+        'county' => 'County',
+        'city' => 'City',
+        'find_address' => 'Search address',
+        'course_type' => 'Course type',
+        'date_start' => 'Start date',
+        'search_services' => 'Search services',
+        'anywhere_country' => 'Anywhere in the country',
+        'any_domain' => 'Any intervention domain',
+        'any_beneficiary' => 'Any beneficiary',
+        'project_status' => 'Project status',
+        'full_name' => 'Full name',
         'email' => 'Email:',
-        'phone_opt' => 'Telefon (opțional):',
-        'message' => 'Mesajul tău:',
+        'phone_opt' => 'Phone (optional):',
+        'message' => 'Message',
     ],
 
     'header' => [
@@ -86,17 +86,7 @@ return [
     ],
 
     'footer' => [
-        'partners' => 'Partners',
-        'commit_txt' => 'Organizație neguvernamentală independentă, neafiliată politic și apolitică.',
-        'project_by' => 'Un proiect dezvoltat de ',
-        'supported_by' => 'Cu sprijinul',
-        'source_code' => 'Codul sursa',
-        'util_links' => 'Link-uri utile',
-        'legal_info' => 'Informații legale',
-        'policy' => 'Politică de confidențialitate',
-        'donate' => 'Doneaza',
-        'about_project' => 'Despre proiect',
-        'terms' => 'Termeni și condiții',
+        'partners' => 'Partners'
     ],
 
     'home' => [
@@ -108,29 +98,24 @@ return [
         'project_status' => 'Status of the project',
         'see_domains' => 'See below the intervention domains',
         'beneficiaries' => 'Beneficiaries',
-        'services_added' => 'Services added on the platform',
         'ngo_added' => 'NGOs active on the platform',
         'about_title' => 'About the project',
         'about_extra' => 'See below the intervention domains',
-        'beneficiars' => 'Beneficiaries',
+        'beneficiary' => 'Beneficiaries',
         'services_added' => 'Services added on the platform',
         'ngos_active' => 'NGOs active on the platform',
-
-        'about_text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.',
-        'domains' => 'Domeniile de intervenție',
+        'about_text' => '29 non-governmental organisations form the core of a collective intervention providing integrated support to those fleeing war, mostly women and children, who have entered the country confused and frightened, with very little with them.',
+        'domains' => 'Intervention domains',
     ],
     'about' => [
         'about_project' => 'About the project',
-        'text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.
-       Federația Organizațiilor Neguvernamentale pentru Copil (FONPC) sprijină implementarea unui program rețea de suport pentru ca aceste organizații să colaboreze între ele și să poată susține nevoile reale ale refugiaților pe tot parcursul drumului lor prin România. Intervenția colectivă este posibilă prin finanțarea venită din partea confederației globale CARE și coordonarea locală a Fundației SERA România cu sprijinul CARE France și FONPC.
-      ',
-        'text1' => 'Pe această platformă vei găsi poveștile profesioniștilor în asistență umanitară și ale oamenilor pe care-i asistă. Te vom ține la curent cu victoriile, dificultățile și provocările întâmpinate pe tot parcursul intervenției și te vom ajuta să înțelegi mai bine importanța sprijinului și empatiei de care am dat cu toții dovadă în această perioadă și de ce contează atât de mult să continuăm. O parte dintre echipele membrilor FONPC și voluntarii acestora acționează pe teren, la punctele de trecere ale frontierei, pentru a acorda sprijin imediat copiilor și familiilor marcate de experiența traumatică a războiului. Suportul oferit include: alimente neperisabile, mese calde, produse de igienă, medicamente, haine, cazare gratuită, consiliere juridică, psihologică, traducere, transport, orientare.',
-        'text2' => 'O altă parte a membrilor FONPC primesc refugiați în centrele și spațiile amenajate în București / Ilfov și din țară: Tulcea, Galați, Baia Mare, Sighetul Marmației, Târgul Lăpuș, Suceava, Iași, Vaslui, Bacău, Satu-Mare și Timișoara, acordând cazare și masă, transport, suport medical, psihologic, juridic sau de prevenire a traficului de persoane, precum și servicii de educație și asistență socială.
-       Numărul mare de copii și tineri, care au trecut granița din Ucraina și au rămas în România, au forțat găsirea unor soluții pentru o mai bună integrarea socială și educațională a lor. Astfel, pe lângă serviciile de cazare și masă, au fost dezvoltate o serie de servicii care să îi ajute să învețe limba română pentru a se putea înscrie în învățământul românesc (școli de vară, cursuri de limbă), dar și care să îi ajute să depășească trauma provocată de război (servicii de sănătate mintală). ONG-urile care oferă servicii copiilor au fost printre cele mai active în această criză a refugiaților.',
-        'text3' =>'Din echipa proiectului Help to Help Ukraine face parte și ucraineanca vorbitoare de limba română, Nataliya Petrovici, a cărei viață s-a schimbat radical în ultimele luni când a decis să se implice în coordonarea unor grupuri imense de Telegram, de mii de refugiați care au ajuns în România. Ea face legătura între serviciile oferite de rețeaua colaborativă de ONG-uri sprijinită de FONPC și miile de mesaje care vin pe grupul de Telegram de la ucrainence care își caută joburi, case, locuri unde să-și lase în siguranță, traducători, servicii medicale sau sprijin legal.',
-        'text4' => '„Ca să poți ajuta cu adevărat, trebuie să înțelegi cultura din care vin acești oameni. Și neapărat să-i simți, nu doar să-i înțelegi. Nu faptul că vorbesc ucraineană mă ajută să ajut, ci faptul că sunt ucraineancă. Nu am găsit încă, nici după atâtea luni, un kit de servicii de ajutor care să funcționeze pe termen lung. Pentru că oamenii sunt diferiți, dar mai ales diferiți de ei înșiși față de momentul când au ajuns în România. E nevoie de cineva care să stea lângă ei și să le adapteze oferta de servicii pe măsură ce nevoile lor se schimbă”, spune Nataliya Petrovici, interpret și mediator Help to Help Ukraine.',
-        'text5' => 'Federația Organizațiilor Neguvernamentale pentru Copil (FONPC) este principalul interlocutor specializat al statului în vederea elaborării şi redefinirii politicilor publice pentru asigurarea bunăstării copilului din perspectiva drepturilor copilului. Înființată în anul 1997, FONPC există cu și pentru membrii săi, aproximativ 100 de ONG-uri, și lucrează în strâns parteneriat cu donatorii, finanţatorii, cu autorităţile locale şi naţionale şi organizaţii neguvernamentale, organizaţii internaţionale, instituţii europene, societatea civilă, comunitatea şi cu alţi actori implicaţi în promovarea respectării Drepturilor Copilului.',
-        'text6' => 'Organizațiile și proiectele susținute prin CARE și implementate la nivel național de Fundația SERA România cu sprijinul CARE France și FONPC sunt: YouHub Association, Fundația FARA, Fundația ESTUAR, Asociația CARUSEL, Asociația ESPERANDO, Fundația Parada, Asociația de Ajutor AMURTEL România, Asoc Autism Baia Mare, Create Yourself Association, ECLER, The International Foundation for Child and Family, Asociația Q-ARTS, Asociația The Social Incubator, Asociația Buna Ziua Copii, Asociația ANAIS, Asociația Profesorii de Asistență Socială ASSOC, Asociația Civica Radauti, Asociația Hand across Romania, Fundația Inimă de Copil, Organizația Natională Cercetașii României, ALIAT, Society for Children and Parents, Federația Organizațiilor Neguvernamentale pentru Servicii Sociale, Federația Organizatiilor Neguvernamentale pentru Copii, Asociația Club Sportiv Olimpic Snagov, Fundația Serviciilor Sociale Bethany, Fundația de Ajutor Medical Profilaxis, Fundația Star of Hope Romania, Fundația ELIBERARE, DGASPC Sector 1, DGASMB, DGASPC Sector 3, DGASPC Tulcea, DGASPC Suceava, DGASPC Maramureș, DGASPC Brașov.',
+        'text' => '29 non-governmental organisations form the core of a collective intervention providing integrated support to those fleeing war, mostly women and children, who have entered the country confused and frightened, with very little with them.',
+        'text1' => "On this platform you will find the stories of aid professionals and the people they assist. We'll keep you up to date with the victories, difficulties and challenges encountered throughout the response and help you better understand the importance of the support and empathy we've all shown during this time and why it matters so much to keep going. Some of FONPC's member teams and their volunteers are working on the ground at border crossings to provide immediate support to children and families scarred by the traumatic experience of war. The support provided includes: non-perishable food, hot meals, hygiene products, medicines, clothing, free accommodation, legal and psychological counselling, translation, transport, orientation.",
+        'text2' => "Another part of FONPC members receive refugees in centres and spaces set up in Bucharest / Ilfov and in the country: Tulcea, Galați, Baia Mare, Sighetul Marmației, Târgul Lăpuș, Suceava, Iași, Vaslui, Bacău, Satu-Mare and Timișoara, providing accommodation and meals, transport, medical, psychological, legal or trafficking prevention support, as well as education and social assistance services. The large number of children and young people, who crossed the border from Ukraine and stayed in Romania, forced to find solutions for a better social and educational integration of them. Thus, in addition to accommodation and meal services, a series of services have been developed to help them learn Romanian in order to enrol in Romanian education (summer schools, language courses), but also to help them overcome the trauma caused by the war (mental health services). NGOs providing services to children have been among the most active in the refugee crisis.",
+        'text3' =>"The Help to Help Ukraine team includes Romanian-speaking Ukrainian Nataliya Petrovici, whose life has changed dramatically in recent months when she decided to get involved in coordinating huge Telegram groups of thousands of refugees who have arrived in Romania. She links the services offered by the collaborative network of NGOs supported by FONPC to the thousands of messages coming into the Telegram group from Ukrainian women looking for jobs, homes, places to stay, translators, medical services or legal support.",
+        'text4' => '"To really help, you have to understand the culture these people come from. And you have to feel them, not just understand them. It\'s not the fact that I speak Ukrainian that helps me to help, it\'s the fact that I\'m Ukrainian. I still haven\'t found, even after so many months, a kit of aid services that works in the long term. Because people are different, but mostly different from themselves than when they arrived in Romania. You need someone to stand by them and adapt the service offer as their needs change," says Nataliya Petrovich, interpreter and Help to Help Ukraine mediator.',
+        'text5' => "The Federation of Non-Governmental Organizations for Children (FONPC) is the main specialized interlocutor of the State in order to elaborate and redefine public policies to ensure child welfare from a child rights perspective. Founded in 1997, FONPC exists with and for its members, some 100 NGOs, and works in close partnership with donors, funders, local and national authorities and non-governmental organisations, international organisations, European institutions, civil society, the community and other actors involved in promoting respect for the Rights of the Child.",
+        'text6' => "The organizations and projects supported by CARE and implemented at national level by SERA Romania Foundation with the support of CARE France and FONPC are: YouHub Association, FARA Foundation, ESTUAR Foundation, CARUSEL Association, ESPERANDO Association, Parada Foundation, AMURTEL Romania Aid Association, Asoc Autism Baia Mare, Create Yourself Association, ECLER, The International Foundation for Child and Family, Q-ARTS Association, The Social Incubator Association, Buna Ziua Copii Association, ANAIS Association, ASSOC Social Work Teachers Association, Civica Radauti Association, Hand across Romania Association, Inimă de Copil Foundation, Romanian Scouts National Organization, ALIAT, Society for Children and Parents, Federation of Non-Governmental Organizations for Social Services, Federation of Non-Governmental Organizations for Children, Snagov Olympic Sports Club Association, Bethany Social Services Foundation, Profilaxis Medical Aid Foundation, Star of Hope Romania Foundation, ELIBERARE Foundation, DGASPC Sector 1, DGASMB, DGASPC Sector 3, DGASPC Tulcea, DGASPC Suceava, DGASPC Maramures, DGASPC Brasov.",
     ],
 
     'service_card' => [
@@ -157,46 +142,38 @@ return [
         'how_help_explain' => "Access photos of the activities by going to the organisation's website.",
         'page_title' => 'services',
 
-        'ngos_services' => 'Serviciile organizației',
-        'city_any' => 'Oriunde în România',
-        'project_name' => 'Denumire proiect',
-        'provided_by' => 'Oferit de: ',
-        'intervention_domains' => 'Domenii de intervenție: ',
+        'ngos_services' => 'Services offered by the organization',
+        'city_any' => 'Any city',
+        'project_name' => 'Project name: ',
+        'provided_by' => 'Provided by: ',
+        'intervention_domains' => 'Intervention domains: ',
         'beneficiary_type' => 'Tip beneficiar: ',
-        'by_phone' => 'Email sau telefon: ',
-        'access_online_explain' => 'Lorem ipsum. Apasă butonul de mai jos și rezolvă problema.',
-        'service_name' => 'Cercetașii pentru Ucraina',
-        'services_provided1' => 'Centru educațional pentru tineri și copii, activități educaționale nonformale, soft skills si competente transversale.',
-        'services_provided2' => 'Spațiu sigur - în regim open access pentru copii, adolescenți, tineri si parinti/tutori,  activitati nonformale in spirit cercetasesc.',
-        'services_provided3' => '
-        Spatiu pentru socializare in comunitate, ce pune la dispozitie gustari, ceai, cafea.',
-        'budget' => 'Buget alocat',
-        'phone' => 'Telefon',
-        'address' => 'Adresa',
-
+        'by_phone' => "By phone or email: ",
+        'access_online_explain' => 'To benefit from this service, you just need to access the link below.',
+        'budget' => 'Budget: ',
+        'phone' => 'Phone: ',
+        'address' => 'Address: ',
     ],
 
     'ngo_card' => [
         'activity_domains' => 'Activity domains',
         'intervention_domains' => 'Intervention domains',
         'page_title' => ' organizations',
-
-        'ngo_name' => 'Denumire lunga ONG - asociatia pentru mame',
-        'ngo_description' => 'Descriere scurta serviciu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id condimentum quam. Quisque imperdiet arcu id dignissim eleifend. Vestibulum euismod suscipit ex, eu dign...',
-        'beneficiaries_nr' => 'Număr de beneficiari ai serviciilor',
+        'ngo_name' => 'Name of the organization',
+        'ngo_description' => 'Description of the organization',
+        'beneficiaries_nr' => 'Number of beneficiaries',
     ],
 
     'contact' => [
         'page_title' => 'Contact',
         'email_address' => 'Email address',
         'phone' => 'Phone',
-        'gdpr' => 'Prin această bifă îți exprimi acordul ca datele furnizate de tine prin acest formular să fie procesate exclusiv in scopul de a fi contactat de echipa FONPC  în legătură cu această submisie. Aici puteți găsi ',
-        'gdpr_link' => 'regulamentul nostru cu privire la prelucrarea datelor cu caracter personal. ',
+        'gdpr' => 'By sending this message, you agree to the processing of your personal data in accordance with',
+        'gdpr_link' => 'GDPR',
         'contact_form' => 'Contact form',
         'our_address' => 'Our address',
         'open_gmap' => '(Open in Google Maps)',
         'not_robot' => "I'm not a robot",
-
     ],
 
     'activities' => [

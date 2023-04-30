@@ -1,12 +1,12 @@
 <header class="flex h-28 min-h-fit w-full items-center bg-header">
     <div class="container mx-auto flex h-16 items-center justify-between px-2 md:h-24">
         <div class="mr-5 w-16 md:w-24 lg:mr-10">
-            <a class="logo-box" href="{{ url('contact') }}">
+            <a class="logo-box" href="https://helptohelpukraine.ro">
                 <img src="{{ Vite::asset('resources/images/design/help.png') }}" alt="Logo">
             </a>
         </div>
         <div class="block w-24 md:hidden md:w-40">
-            <a class="logo-box" href="{{ route('contact',['local'=>app()->getLocale()]) }}">
+            <a class="logo-box" href="https://helptohelpukraine.ro">
                 <img src="{{ Vite::asset('resources/images/design/fonpc.png') }}" alt="Logo">
             </a>
         </div>
@@ -50,13 +50,7 @@
 
             </nav>
 
-            <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher" onchange=" function switchLang(value) {
-                    let currentUrl =  window.location.pathname;
-                    let elements =currentUrl.split('/');
-                    elements[1] = value;
-                    let newUrl=elements.join('/')+window.location.search;
-                    return window.location = newUrl;
-                }; switchLang(this.value)">
+            <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher" onchange="switchLang(this.value)">
                 <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
                 <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
                 <option value="uk" lang="uk" @if(app()->getLocale() == 'uk') selected @endif >UK</option>

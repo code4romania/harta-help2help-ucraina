@@ -18,9 +18,9 @@ return [
     ],
 
     'activity_domains' => [
-        'education' => 'Educație',
-        'research' => 'Cercetare',
-        'youth' => 'Tineret',
+        'education' => 'Освіта',
+        'research' => 'Дослідження',
+        'youth' => 'Молодь',
     ],
 
     'beneficiaries' => [
@@ -45,7 +45,7 @@ return [
         'services_map' => 'Карта послуг',
         'services_list' => 'Перелік послуг',
         'see_more' => 'Побачити більше',
-        'see_story' => 'Vezi povestea',
+        'see_story' => 'Побачити історію',
         'access_online' => 'Доступ онлайн',
         'access_site' => 'Доступ до веб-сайту',
         'ngos_map' => 'Карта НКО',
@@ -58,20 +58,20 @@ return [
     ],
 
     'placeholders' => [
-        'county' => 'Judet',
-        'city' => 'Oras',
-        'find_address' => 'Caută adresă',
-        'course_type' => 'Tip de curs',
-        'date_start' => 'Data de început',
-        'search_services' => 'Caută servicii...',
-        'anywhere_country' => 'Toată România',
-        'any_domain' => 'Orice domeniu de intervenție',
-        'any_beneficiary' => 'Orice beneficiar',
-        'project_status' => 'Statusul proiectului',
-        'full_name' => 'Nume complet:',
-        'email' => 'Email:',
-        'phone_opt' => 'Telefon (opțional):',
-        'message' => 'Mesajul tău:',
+        'county' => 'Область',
+        'city' => 'Місто',
+        'find_address' => 'Знайти адресу',
+        'course_type' => 'Тип курсу',
+        'date_start' => 'Дата початку',
+        'search_services' => 'Пошук послуг...',
+        'anywhere_country' => 'Будь-де в Romania',
+        'any_domain' => 'Будь-який домен втручання',
+        'any_beneficiary' => 'Будь-який тип бенефіціара',
+        'project_status' => 'Статус проекту',
+        'full_name' => 'Повне ім\'я:',
+        'email' => 'Електронна пошта:',
+        'phone_opt' => 'Телефон (необов\'язково):',
+        'message' => 'Повідомлення:',
     ],
 
     'header' => [
@@ -87,16 +87,8 @@ return [
 
     'footer' => [
         'partners' => 'Партнери',
-        'commit_txt' => 'Organizație neguvernamentală independentă, neafiliată politic și apolitică.',
-        'project_by' => 'Un proiect dezvoltat de ',
-        'supported_by' => 'Cu sprijinul',
-        'source_code' => 'Codul sursa',
-        'util_links' => 'Link-uri utile',
-        'legal_info' => 'Informații legale',
-        'policy' => 'Politică de confidențialitate',
-        'donate' => 'Doneaza',
-        'about_project' => 'Despre proiect',
-        'terms' => 'Termeni și condiții',
+        'about_project' => 'Про проект',
+        'terms' => 'Умови використання',
     ],
 
     'home' => [
@@ -112,18 +104,14 @@ return [
         'ngo_added' => 'НКО, активні на платформі',
         'about_title' => 'Про проект',
         'about_extra' => 'Дивіться нижче домени втручання',
-        'beneficiars' => 'Бенефіціари',
-        'services_added' => 'Сервіси, додані на платформі',
+        'beneficiary' => 'Бенефіціари',
         'ngos_active' => 'НКО, активні на платформі',
-
-        'about_text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.',
-        'domains' => 'Domeniile de intervenție',
+        'about_text' => '29 неурядових організацій формують ядро колективного втручання, що надає інтегровану підтримку тим, хто тікає від війни, переважно жінкам і дітям, які прибули в країну збентежені та налякані, маючи з собою дуже мало.',
+        'domains' => 'Домени втручання',
     ],
     'about' => [
         'about_project' => 'Про проект',
-        'text' => '29 de organizații non-guvernamentale formează nucleul unei intervenții colective ce acordă sprijin integrat celor care fug din calea războiului, majoritatea femei și copii, care au intrat în țară confuzi și speriați, cu foarte puține lucruri asupra lor.
-       Federația Organizațiilor Neguvernamentale pentru Copil (FONPC) sprijină implementarea unui program rețea de suport pentru ca aceste organizații să colaboreze între ele și să poată susține nevoile reale ale refugiaților pe tot parcursul drumului lor prin România. Intervenția colectivă este posibilă prin finanțarea venită din partea confederației globale CARE și coordonarea locală a Fundației SERA România cu sprijinul CARE France și FONPC.
-      ',
+        'text' => '29 неурядових організацій формують ядро колективного втручання, що надає інтегровану підтримку тим, хто тікає від війни, переважно жінкам і дітям, які прибули в країну збентежені та налякані, маючи з собою дуже мало.',
         'text1' => 'Pe această platformă vei găsi poveștile profesioniștilor în asistență umanitară și ale oamenilor pe care-i asistă. Te vom ține la curent cu victoriile, dificultățile și provocările întâmpinate pe tot parcursul intervenției și te vom ajuta să înțelegi mai bine importanța sprijinului și empatiei de care am dat cu toții dovadă în această perioadă și de ce contează atât de mult să continuăm. O parte dintre echipele membrilor FONPC și voluntarii acestora acționează pe teren, la punctele de trecere ale frontierei, pentru a acorda sprijin imediat copiilor și familiilor marcate de experiența traumatică a războiului. Suportul oferit include: alimente neperisabile, mese calde, produse de igienă, medicamente, haine, cazare gratuită, consiliere juridică, psihologică, traducere, transport, orientare.',
         'text2' => 'O altă parte a membrilor FONPC primesc refugiați în centrele și spațiile amenajate în București / Ilfov și din țară: Tulcea, Galați, Baia Mare, Sighetul Marmației, Târgul Lăpuș, Suceava, Iași, Vaslui, Bacău, Satu-Mare și Timișoara, acordând cazare și masă, transport, suport medical, psihologic, juridic sau de prevenire a traficului de persoane, precum și servicii de educație și asistență socială.
        Numărul mare de copii și tineri, care au trecut granița din Ucraina și au rămas în România, au forțat găsirea unor soluții pentru o mai bună integrarea socială și educațională a lor. Astfel, pe lângă serviciile de cazare și masă, au fost dezvoltate o serie de servicii care să îi ajute să învețe limba română pentru a se putea înscrie în învățământul românesc (școli de vară, cursuri de limbă), dar și care să îi ajute să depășească trauma provocată de război (servicii de sănătate mintală). ONG-urile care oferă servicii copiilor au fost printre cele mai active în această criză a refugiaților.',
@@ -156,22 +144,17 @@ return [
         'how_help_explain' => 'Отримайте доступ до фотографій заходів, перейшовши на веб-сайт організації.',
         'page_title' => 'послуги',
 
-        'ngos_services' => 'Serviciile organizației',
-        'city_any' => 'Oriunde în România',
-        'project_name' => 'Denumire proiect',
-        'provided_by' => 'Oferit de',
-        'intervention_domains' => 'Domenii de intervenție',
-        'beneficiary_type' => 'Tip beneficiar',
-        'by_phone' => 'Email sau telefon',
-        'access_online_explain' => 'Lorem ipsum. Apasă butonul de mai jos și rezolvă problema.',
-        'service_name' => 'Cercetașii pentru Ucraina',
-        'services_provided1' => 'Centru educațional pentru tineri și copii, activități educaționale nonformale, soft skills si competente transversale.',
-        'services_provided2' => 'Spațiu sigur - în regim open access pentru copii, adolescenți, tineri si parinti/tutori,  activitati nonformale in spirit cercetasesc.',
-        'services_provided3' => '
-        Spatiu pentru socializare in comunitate, ce pune la dispozitie gustari, ceai, cafea.',
-        'budget' => 'Buget alocat',
-        'phone' => 'Telefon',
-        'address' => 'Adresa',
+        'ngos_services' => 'Послуги, які надає організація',
+        'city_any' => 'Будь-яке місто',
+        'project_name' => 'Назва проекту:',
+        'provided_by' => 'Пропонує:',
+        'intervention_domains' => 'Області втручання:',
+        'beneficiary_type' => 'Бенефіціари',
+        'by_phone' => 'Електронною поштою або телефоном',
+        'access_online_explain' => 'Щоб скористатися цією послугою, вам просто потрібно прийти до вказаного нижче місця.',
+        'budget' => 'Бюджет:',
+        'phone' => 'Телефон:',
+        'address' => 'Адреса:',
 
     ],
 
@@ -179,10 +162,7 @@ return [
         'activity_domains' => 'Області діяльності',
         'intervention_domains' => 'Області втручання',
         'page_title' => ' організації',
-
-        'ngo_name' => 'Denumire lunga ONG - asociatia pentru mame',
-        'ngo_description' => 'Descriere scurta serviciu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id condimentum quam. Quisque imperdiet arcu id dignissim eleifend. Vestibulum euismod suscipit ex, eu dign...',
-        'beneficiaries_nr' => 'Număr de beneficiari ai serviciilor',
+        'beneficiaries_nr' => 'Кількість бенефіціарів',
     ],
 
     'contact' => [
