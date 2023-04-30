@@ -39,47 +39,47 @@ class InterventionDomains extends Component
             [
                 'name' => 'health',
                 'icon' => 'icon-health',
-                'url' => '#',
+                'url' => 10,
             ],
             [
                 'name' => 'food',
                 'icon' => 'icon-food',
-                'url' => '#',
+                'url' => 2,
             ],
             [
                 'name' => 'house',
                 'icon' => 'icon-house',
-                'url' => '#',
+                'url' => 3,
             ],
             [
                 'name' => 'hygiene',
                 'icon' => 'icon-hygiene',
-                'url' => '#',
+                'url' => 4,
             ],
             [
                 'name' => 'finance_support',
                 'icon' => 'icon-finance_support',
-                'url' => '#',
+                'url' => 5,
             ],
             [
                 'name' => 'protection',
                 'icon' => 'icon-protection',
-                'url' => '#',
+                'url' => 6,
             ],
             [
                 'name' => 'education',
                 'icon' => 'icon-education',
-                'url' => '#',
+                'url' => 7,
             ],
             [
                 'name' => 'management',
                 'icon' => 'icon-management',
-                'url' => '#',
+                'url' => 8,
             ],
             [
                 'name' => 'integration',
                 'icon' => 'icon-integration',
-                'url' => '#',
+                'url' => 9,
             ],
 
         ];
