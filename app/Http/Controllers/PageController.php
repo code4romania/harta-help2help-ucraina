@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function ngosPage()
+    public function ngosPage(Request $request)
     {
-        $ngos = Ngo::query()->paginate(6);
+        $ngos = Ngo::query()->filter(collect($request->all()))->paginate(6);
 
         return view('ngos', compact('ngos'));
     }

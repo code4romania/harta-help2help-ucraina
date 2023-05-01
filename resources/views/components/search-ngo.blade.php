@@ -3,14 +3,14 @@
     id="search-container"
 >
     <div class="pb-64 flex flex-col items-center justify-center">
-        <h2 class="text-center text-xl lg:text-3xl"> {{ __('txt.home.search_title') }}</h2>
-        <p class="text-base lg:text-2xl"> {{ __('txt.home.search_text') }} <span class="font-bold underline"> <a
-                >{{ __('txt.home.search_text_span') }} </a>
+        <h2 class="text-center text-xl lg:text-3xl"> {{ __('txt.search_ngo.search_title') }}</h2>
+        <p class="text-base lg:text-2xl"> {{ __('txt.search_ngo.search_text') }} <span class="font-bold underline"> <a
+                >{{ __('txt.search_ngo.search_text_span') }} </a>
         </span>
         </p>
     </div>
     <div class="container flex flex-col items-center justify-center">
-        <form class=" w-4/5   mx-auto" action="{{ route('services', ['local'=>app()->getLocale()]) }}">
+        <form class=" w-4/5   mx-auto" action="{{ route('ngos', ['local'=>app()->getLocale()]) }}">
             <div class="mt-10 flex flex-col lg:h-20 lg:flex-row">
                 <label class="relative block w-full lg:w-3/4">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">

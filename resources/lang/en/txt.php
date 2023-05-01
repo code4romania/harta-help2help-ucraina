@@ -107,6 +107,11 @@ return [
         'about_text' => '29 non-governmental organisations form the core of a collective intervention providing integrated support to those fleeing war, mostly women and children, who have entered the country confused and frightened, with very little with them.',
         'domains' => 'Intervention domains',
     ],
+    'search_ngo' => [
+        'search_title' => 'Search an ngo',
+        'search_text' => 'Caută o organizație care oferă un serviciu specific în funcție de nevoile tale, sau Descoperă toate organizațiile.',
+        'search_text_span' => ' Search for ngos...',
+   ],
     'about' => [
         'about_project' => 'About the project',
         'text' => '29 non-governmental organisations form the core of a collective intervention providing integrated support to those fleeing war, mostly women and children, who have entered the country confused and frightened, with very little with them.',
