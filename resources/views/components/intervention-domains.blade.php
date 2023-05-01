@@ -3,7 +3,7 @@
     <div class="grid gap-x-0 gap-y-8 md:grid-cols-3 sm:grid-cols-1 ">
         @foreach($domains as $domain)
 
-                <a href="{{route('services',['service'=>$domain['name']])}}"
+                <a href="{{route('services',['local'=>app()->getLocale(), 'intervention_domain'=>$domain['url']])}}"
                    class="group card my-2 bg-gray2 p-10 text-gray1 hover:bg-blue3 hover:text-white  w-64 hover:stroke:text-blue1 aspect-square justify-center items-center">
                     <div>
                         @if($domain['icon']==='icon-finance_support')

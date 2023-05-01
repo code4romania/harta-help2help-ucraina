@@ -37,7 +37,12 @@ window.hideAllPoints=function (){
     let mapEl = document.getElementById('map')
     mapEl.scrollIntoView();
 }
-
+window.switchLang = value => {
+    let currentUrl =  window.location.pathname;
+    let elements =currentUrl.split('/');
+    elements[1] = value;
+    window.location = elements.join('/') + window.location.search;
+};
 window.initMap = () => {
 
     map = new google.maps.Map(document.getElementById("map"), {

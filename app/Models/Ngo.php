@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Concerns\HasLocation;
+use App\Concerns\InteractsWithSearch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -20,6 +21,7 @@ class Ngo extends Model implements HasMedia
     use InteractsWithMedia;
     use HasTranslations;
     use HasLocation;
+    use InteractsWithSearch;
 
     protected $fillable = [
         'name',

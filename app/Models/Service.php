@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Concerns\HasLocation;
+use App\Concerns\InteractsWithSearch;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,7 @@ class Service extends Model
     use HasFactory;
     use HasTranslations;
     use HasLocation;
+    use InteractsWithSearch;
 
     protected $casts = [
         'intervention_domains' => 'array',
@@ -79,26 +81,5 @@ class Service extends Model
     public function getNgoImageAttribute()
     {
         return $this->ngo->getFirstMediaUrl() ?: null;
-    }
-
-    public function scopeFilter(Builder $query, Collection $filters): Builder
-    {
-        foreach ($filters as $key => $value) {
-            if (! empty($value)) {
-                match ($key) {
-                    'intervention_domain' => $query->whereJsonContains('intervention_domains', $value),
-                    'beneficiary' => $query->whereJsonContains('beneficiary_groups', $value),
-                    'status' => $query->where('status', $value),
-                    'search' => $query->where(function ($query) use ($value) {
-                        $query->where('project_name', 'LIKE', '%' . $value . '%');
-                        $query->orWhere('name', 'LIKE', '%' . $value . '%');
-                    }),
-                    'county' => $query->where('county_id', $value),
-                    default => $query,
-                };
-            }
-        }
-
-        return $query;
     }
 }
