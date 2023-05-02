@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Concerns;
 
 use App\Models\Ngo;
@@ -8,11 +10,10 @@ use Illuminate\Support\Collection;
 
 trait InteractsWithSearch
 {
-
     public function scopeFilter(Builder $query, Collection $filters): Builder
     {
         foreach ($filters as $key => $value) {
-            if (!empty($value)) {
+            if (! empty($value)) {
                 if ($this->getModel() === Ngo::getModel()) {
                     $query->with('services');
                     match ($key) {
@@ -22,7 +23,6 @@ trait InteractsWithSearch
                         'county' => $query->where('county_id', $value),
                         default => $query,
                     };
-
                 } else {
                     match ($key) {
                         'intervention_domain' => $query->whereJsonContains('intervention_domains', $value),

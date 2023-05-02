@@ -17,7 +17,6 @@ class LanguageManager
      */
     public function handle(Request $request, Closure $next): Response
     {
-
         $locale = $request->segment(1);
 
         $locals = ['ro', 'en', 'uk'];
