@@ -12,6 +12,6 @@
                 <x-cards.ngo_sm :ngo="$item"/>
             @endforeach
         </div>
-        {{$ngos->links()}}
+        {{$ngos->withQueryString()->links()}}
     </section>
 </x-layout>

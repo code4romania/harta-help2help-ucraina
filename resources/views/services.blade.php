@@ -31,7 +31,7 @@
             @foreach($services->items() as $service)
                 <x-cards.service_sm :service="$service"/>
             @endforeach
-                {{$services->links()}}
+            {{$services->withQueryString()->links()}}
         </div>
 
     </section>
