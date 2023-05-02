@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\LanguageManager;
 use Illuminate\Support\Facades\Route;
+use Spatie\ResponseCache\Middlewares\CacheResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => '{local?}', 'middleware' => [LanguageManager::class]], function () {
+Route::group([
+    'prefix' => '{local?}',
+    'middleware' => [
+        LanguageManager::class,
+        CacheResponse::class,
+    ],
+], function () {
     Route::get('/', [PageController::class, 'home'])->name('home');
 
     Route::get('/about', function () {
