@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Concerns\ClearsResponseCache;
 use App\Concerns\HasLocation;
 use App\Concerns\InteractsWithSearch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,6 +15,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
+    use ClearsResponseCache;
     use HasFactory;
     use HasTranslations;
     use HasLocation;

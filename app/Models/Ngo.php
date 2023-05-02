@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Concerns\ClearsResponseCache;
 use App\Concerns\HasLocation;
 use App\Concerns\InteractsWithSearch;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,6 +18,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Ngo extends Model implements HasMedia
 {
+    use ClearsResponseCache;
     use HasFactory;
     use InteractsWithMedia;
     use HasTranslations;
