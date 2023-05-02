@@ -30,7 +30,7 @@ Route::group([
     Route::view('/about', 'about')->name('about');
     Route::view('/contact', 'contact')->name('contact');
 
-    Route::get('/services', [PageController::class, 'services'])->name('services');
+    Route::get('/services', [PageController::class, 'services'])->name('services')->middleware('throttle:services');
 
     Route::get('/ngos', [PageController::class, 'ngosPage'])->name('ngos');
     Route::get('/ngos/{slug}', [PageController::class, 'ngoPage'])->name('ngo.index');
