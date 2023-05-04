@@ -23,6 +23,7 @@ Route::group([
     'middleware' => [
         LanguageManager::class,
         CacheResponse::class,
+        'throttle:web',
     ],
 ], function () {
     Route::get('/', [PageController::class, 'home'])->name('home');
