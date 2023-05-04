@@ -71,6 +71,7 @@ COPY --from=assets --chown=www-data:www-data /build/public/build /var/www/public
 ENV APP_ENV production
 ENV APP_DEBUG false
 ENV LOG_CHANNEL stderr
+ENV RESPONSE_CACHE_ENABLED true
 
 ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
 
