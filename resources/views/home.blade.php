@@ -22,18 +22,18 @@
                             {{ __('txt.home.about_extra') }} </a>
                     </div>
                 </div>
-                <div class="mt-10 flex w-full justify-evenly my-64">
-                    <div class="w-1/5 justify-center">
-                        <h3 class="text-center text-3xl text-gray-700 font-bold lg:text-8xl">{{$totalBeneficiaries}}
+                <div class="mt-10 flex-wrap flex w-full justify-evenly my-32 md:my-64">
+                    <div class="w-full md:w-1/5 justify-center">
+                        <h3 class="text-center text-3xl text-gray-700 font-bold lg:text-7xl">{{($totalBeneficiaries==0)?'968548':$totalBeneficiaries}}
                             +</h3>
                         <p class="mt-8 text-center text-base text-gray-700 lg:text-2xl"> {{ __('txt.home.beneficiary') }} </p>
                     </div>
-                    <div class="w-1/5 justify-center">
-                        <h3 class="text-center text-3xl text-gray-700 font-bold lg:text-8xl">{{$totalServices}}+</h3>
+                    <div class="w-full md:w-1/5  justify-center">
+                        <h3 class="text-center text-3xl text-gray-700 font-bold lg:text-7xl">{{$totalServices}}+</h3>
                         <p class="mt-8 text-center text-base text-gray-700 lg:text-2xl"> {{ __('txt.home.services_added') }} </p>
                     </div>
-                    <div class="w-1/5 justify-center">
-                        <h3 class="text-center text-3xl text-gray-700 font-bold lg:text-8xl">{{$totalNgos}}+</h3>
+                    <div class="w-full md:w-1/5  justify-center">
+                        <h3 class="text-center text-3xl text-gray-700 font-bold lg:text-7xl">{{$totalNgos}}+</h3>
                         <p class="mt-8 text-center text-base text-gray-700 lg:text-2xl"> {{ __('txt.home.ngos_active') }} </p>
                     </div>
                 </div>

@@ -80,7 +80,7 @@ return [
         'ngos' => 'ONG-uri',
         'contact' => 'Contact',
         'help' => 'HELP TO HELP UKRAINE',
-        'home' => 'Acasa',
+        'home' => 'Acasă',
         'code_for_romania' => 'Code 4 ro',
     ],
 
