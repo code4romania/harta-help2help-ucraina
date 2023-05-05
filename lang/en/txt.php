@@ -72,6 +72,9 @@ return [
         'email' => 'Email:',
         'phone_opt' => 'Phone (optional):',
         'message' => 'Message',
+        'social_media' => 'Social media:',
+        'contact'=>'Contact:',
+        'ong_services' => 'NGO services',
     ],
 
     'header' => [
@@ -124,7 +127,7 @@ return [
     ],
 
     'service_card' => [
-        'project_active' => 'Active project',
+        'project_active' => 'Ongoing project',
         'project_finished' => 'Finished project',
         'project_period' => 'Duration',
         'service_access' => 'How can the service be accesed?',

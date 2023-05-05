@@ -71,6 +71,9 @@ return [
         'email' => 'Email:',
         'phone_opt' => 'Telefon (opțional):',
         'message' => 'Mesajul tău:',
+        'social_media' => 'Social media:',
+        'contact'=>'Contact:',
+        'ong_services' => 'Serviciile organizației:',
     ],
 
     'header' => [
@@ -80,7 +83,7 @@ return [
         'ngos' => 'ONG-uri',
         'contact' => 'Contact',
         'help' => 'HELP TO HELP UKRAINE',
-        'home' => 'Acasa',
+        'home' => 'Acasă',
         'code_for_romania' => 'Code 4 ro',
     ],
 
@@ -132,8 +135,8 @@ return [
     ],
 
     'service_card' => [
-        'project_active' => 'Proiect activ/în desfășurare',
-        'project_finished' => 'Proiect finalizat.',
+        'project_active' => 'Proiect în desfășurare',
+        'project_finished' => 'Proiect finalizat',
         'project_period' => 'Perioada desfășurare',
         'service_access' => 'Cum poate fi accesat serviciul',
         'online' => 'Online',
@@ -141,7 +144,7 @@ return [
         'physical' => 'La locație',
         'services' => 'Servicii',
         'access_location' => 'Prin prezentare la adresa',
-        'access_email_description' => 'Pentru a solicita acest serviciu, trimite un e-mail pe adresa de mai jos, sau suna la numarul de telefon mentionat. Multumim!',
+        'access_email_description' => 'Pentru a solicita acest serviciu, trimite un e-mail pe adresa de mai jos, sau sună la numărul de telefon menționat. Mulțumim!',
         'access_location_description' => 'Serviciile din cadrul proiectului pot fi accesate la adresa: ',
         'see_story' => 'Vezi povestea organizației',
         'services_provided' => 'Serviciile organizației',
@@ -149,7 +152,7 @@ return [
         'share' => 'Distribuie',
         'disponibility' => 'Disponibil ',
         'beneficiaries' => 'Categorie beneficiar',
-        'access_email_explain' => 'Pentru a solicita acest serviciu, trimite un e-mail pe adresa de mai jos, sau suna la numarul de telefon mentionat. Multumim!',
+        'access_email_explain' => 'Pentru a solicita acest serviciu, trimite un e-mail pe adresa de mai jos, sau sună la numărul de telefon menționat. Mulțumim!',
         'access_location_explain' => 'Ca sa beneficiezi de acest serviciu, trebuie doar sa te prezinti la locatia de mai jos.',
         'how_help' => 'Vrei să vezi cum au reușit proiectele să ajute?',
         'how_help_explain' => 'Accesează materialele foto ale activităților mergând pe website-ul organizației.',
