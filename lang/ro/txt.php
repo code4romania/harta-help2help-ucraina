@@ -71,6 +71,9 @@ return [
         'email' => 'Email:',
         'phone_opt' => 'Telefon (opțional):',
         'message' => 'Mesajul tău:',
+        'social_media' => 'Social media:',
+        'contact'=>'Contact:',
+        'ong_services' => 'Serviciile organizației:',
     ],
 
     'header' => [
@@ -132,8 +135,8 @@ return [
     ],
 
     'service_card' => [
-        'project_active' => 'Proiect activ/în desfășurare',
-        'project_finished' => 'Proiect finalizat.',
+        'project_active' => 'Proiect în desfășurare',
+        'project_finished' => 'Proiect finalizat',
         'project_period' => 'Perioada desfășurare',
         'service_access' => 'Cum poate fi accesat serviciul',
         'online' => 'Online',

@@ -72,6 +72,9 @@ return [
         'email' => 'Електронна пошта:',
         'phone_opt' => 'Телефон (необов\'язково):',
         'message' => 'Повідомлення:',
+        'social_media' => 'Соціальні медіа:',
+        'contact'=>'Контакт',
+        'ong_services' => 'Послуги НКО',
     ],
 
     'header' => [
@@ -122,7 +125,7 @@ return [
     ],
 
     'service_card' => [
-        'project_active' => 'Активний проект',
+        'project_active' => 'Поточний проект',
         'project_finished' => 'Готовий проект',
         'project_period' => 'Тривалість',
         'service_access' => 'Як отримати доступ до послуги?',
