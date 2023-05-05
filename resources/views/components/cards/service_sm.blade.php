@@ -6,7 +6,7 @@
         <x-heroicon-o-location-marker class="h-5 w-5 text-gray1 mr-3"/>
         {{$service->city->name}}, {{$service->county->name}}
     </p>
-    <h4 class="my-2 text-xl font-bold">{{$service->name}}</h4>
+    <h4 class="my-2 text-xl font-bold">{{Str::limit($service->name,60,'...')}}</h4>
     <p>{{ __('txt.service_card.provided_by') }} <span class="font-bold">{{$service->ngo->name}}</span></p>
     <p>{{ __('txt.service_card.intervention_domains') }}  @foreach($service->interventionsDomainsName  as $id=>$domain)
             <span class="font-normal">{{$domain}}</span>

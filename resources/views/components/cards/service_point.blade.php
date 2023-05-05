@@ -3,14 +3,14 @@
 ])
 
 <div class="card mx-2 w-full md:w-1/2 point-services hidden" id="point-id-{{$point->id}}">
-    <x-heroicon-o-x class="h-5 w-5 end-0 text-gray1" onclick="hideAllPoints()"/>
+    <x-heroicon-o-x class="h-10 w-10 end-0  text-gray1" onclick="hideAllPoints()"/>
     <img class="w-64 mx-auto" src="{{$point->ngo->getFirstMediaUrl()? $point->ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/placeholder.png') }}"
          alt="{{$point->ngo->name}}">
     <p class="my-2 flex">
         <x-heroicon-o-location-marker class="h-5 w-5 text-gray1 mr-3"/>
         {{$point->city->name}}, {{$point->county->name}}
     </p>
-    <h4 class="my-2 text-xl font-bold">{{$point->name}}</h4>
+    <h4 class="my-2 text-xl font-bold">{{Str::limit($point->name,220,'...')}}</h4>
     <p><span class="font-bold">{{ __('txt.service_card.provided_by') }} </span>{{$point->ngo->name}}</p>
     <p><span class="font-bold">{{ __('txt.service_card.intervention_domains') }}</span>  @foreach($point->interventionsDomainsName  as $id=>$domain)
             <span class="font-normal">{{$domain}}</span>
