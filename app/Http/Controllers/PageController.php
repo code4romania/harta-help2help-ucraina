@@ -22,8 +22,19 @@ class PageController extends Controller
     public function ngoPage(string $local, string $slug)
     {
         $ngo = Ngo::query()->where('slug', $slug)->with(['city', 'county'])->firstOrFail();
+        $breadcrumbs =
+            [
+                [
+                    'name' => __('txt.header.ngos'),
+                    'url' => route('ngos', app()->getLocale()),
+                ],
+                [
+                    'name' => $ngo->name,
+                ],
 
-        return view('ngos_index', compact('ngo'));
+            ];
+
+        return view('ngos_index', compact('ngo','breadcrumbs'));
     }
 
     public function services(Request $request)
@@ -31,6 +42,7 @@ class PageController extends Controller
         $query = Service::query()->filter(collect($request->all()))->with(['city', 'county']);
         $servicesJson = $query->get();
         $services = $query->paginate();
+
 
         return view('services', compact('services', 'servicesJson'));
     }

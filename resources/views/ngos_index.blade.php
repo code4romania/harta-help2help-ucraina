@@ -2,7 +2,15 @@
     <x-slot:title>
         {{$ngo->name}}
     </x-slot:title>
+    <div class=" md:ml-32 md:my-4">
+        <x-breadcrumbs
+            :items="$breadcrumbs"
+            class="container md:col-span-2"
+        />
+    </div>
+
     <div class="container card flex-col md:flex-row my-2 p-5 sm:p-10  ">
+
         <div class=" w-4/5 sm:w-2/3 md:w-1/3 flex flex-col p-5 self-center items-center">
             <img class="w-full"
                  src="{{$ngo->getFirstMediaUrl()? $ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/placeholder.png') }}"

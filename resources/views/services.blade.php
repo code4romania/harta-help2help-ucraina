@@ -3,6 +3,7 @@
         Help2Help Services Page
     </x-slot:title>
     <x-search/>
+    <div class="flex flex-col-reverse justify-between gap-8 md:col-span-2 md:flex-row">
     <section class="flex-col container">
         <div class="mb-5 flex flex-col justify-between md:flex-row">
             <h2 class="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">{{$services->total()}} {{ __('txt.service_card.page_title') }}

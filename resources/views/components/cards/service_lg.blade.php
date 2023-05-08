@@ -5,10 +5,10 @@
             <x-heroicon-o-location-marker class="mr-3 h-5 w-5 text-gray1"/>
             {{$service->city->name}}, {{$service->county->name}}
         </p>
-        <p class="my-2 flex">
+        <div class="my-2 flex"  onclick="copyToClipboard(this)" data-url = '{{ URL::current().'#'.$service->slug}}'>
             <x-heroicon-o-share class="mr-3 h-5 w-5 text-gray1"/>
             {{ __('txt.service_card.share') }}
-        </p>
+        </div>
     </div>
     <h2 class="my-2 font-bold">{{$service->project_name}}</h2>
     <div class="text-xl">

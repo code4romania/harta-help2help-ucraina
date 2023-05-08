@@ -71,3 +71,7 @@ window.initMap = () => {
     })
     const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
 }
+window.copyToClipboard = function (el) {
+    navigator.clipboard.writeText( el.dataset.url);
+    alert("Copied: " + el.dataset.url);
+}
