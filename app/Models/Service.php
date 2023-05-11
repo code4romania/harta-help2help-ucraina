@@ -51,7 +51,8 @@ class Service extends Model
         'project_name',
     ];
 
-    public $appends = ['interventions_domains_name', 'beneficiary_groups_name'];
+    protected $with = ['interventionDomain', 'beneficiaryGroup', 'ngo', 'city', 'county'];
+
 
     public function ngo(): BelongsTo
     {
@@ -63,14 +64,14 @@ class Service extends Model
         return $this->hasManyThrough(ActivityDomain::class, ActivityDomainService::class);
     }
 
-    public function getBeneficiaryGroupsNameAttribute()
+    public function beneficiaryGroup(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return BeneficiaryGroup::whereIn('id', $this->beneficiary_groups)->pluck('name', 'id');
+        return $this->belongsToMany(BeneficiaryGroup::class);
     }
 
-    public function getInterventionsDomainsNameAttribute()
+    public function interventionDomain(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return InterventionDomains::whereIn('id', $this->intervention_domains)->pluck('name', 'id');
+        return $this->belongsToMany(InterventionDomains::class);
     }
 
     public function getNgoNameAttribute()

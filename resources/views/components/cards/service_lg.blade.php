@@ -20,16 +20,16 @@
         <p class="mt-5 w-full font-bold md:w-1/4">{{ __('txt.service_card.disponibility') }} <span
                 class="font-normal">{{$service->duration}}</span></p>
         <p class="mt-5 w-full font-bold md:w-1/4">{{ __('txt.service_card.beneficiaries') }}
-            @foreach($service->beneficiaryGroupsName as $id=>$group)
-                <span class="font-normal">{{$group}}</span>
+            @foreach($service->beneficiaryGroup as $id=>$group)
+                <span class="font-normal">{{$group->name}}</span>
                 @if(!$loop->last)
                     ,
                 @endif
             @endforeach
         </p>
         <p class="mt-5 w-full font-bold md:w-1/4">{{ __('txt.service_card.intervention_domains') }}
-            @foreach($service->interventionsDomainsName  as $id=>$domain)
-                <span class="font-normal">{{$domain}}</span>
+            @foreach($service->interventionDomain  as $id=>$domain)
+                <span class="font-normal">{{$domain->name}}</span>
                 @if(!$loop->last)
                     ,
                 @endif

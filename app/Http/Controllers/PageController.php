@@ -34,7 +34,7 @@ class PageController extends Controller
 
             ];
 
-        return view('ngos_index', compact('ngo','breadcrumbs'));
+        return view('ngos_index', compact('ngo', 'breadcrumbs'));
     }
 
     public function services(Request $request)

@@ -8,14 +8,14 @@
     </p>
     <h4 class="my-2 text-xl font-bold">{{Str::limit($service->name,60,'...')}}</h4>
     <p>{{ __('txt.service_card.provided_by') }} <span class="font-bold">{{$service->ngo->name}}</span></p>
-    <p>{{ __('txt.service_card.intervention_domains') }}  @foreach($service->interventionsDomainsName  as $id=>$domain)
-            <span class="font-normal">{{$domain}}</span>
+    <p>{{ __('txt.service_card.intervention_domains') }}  @foreach($service->interventionDomain  as $id=>$domain)
+            <span class="font-normal">{{$domain->name}}</span>
             @if(!$loop->last)
                 ,
             @endif
         @endforeach</p>
-    <p>{{ __('txt.service_card.beneficiary_type') }}  @foreach($service->beneficiaryGroupsName as $id=>$group)
-            <span class="font-normal">{{$group}}</span>
+    <p>{{ __('txt.service_card.beneficiary_type') }}  @foreach($service->beneficiaryGroup as $id=>$group)
+            <span class="font-normal">{{$group->name}}</span>
             @if(!$loop->last)
                 ,
             @endif

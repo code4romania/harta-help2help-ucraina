@@ -34,13 +34,15 @@
 
             </p>
             <p class="font-bold">{{ __('txt.ngo_card.intervention_domains') }}
-                @foreach($ngo->intervention_domains as $key=>$value)
-                    <span class="text-orange1">
-                    {{ $value }}
+                @foreach($ngo->services as $service)
+                    @foreach($service->interventionDomain as $domain)
+                        <span class="text-orange1">
+                    {{ $domain->name }}
+                </span>
+                    @endforeach
                         @if(!$loop->last)
                             ,
                         @endif
-                </span>
                 @endforeach
 
             </p>
@@ -69,7 +71,8 @@
                 </div>
                 <div class="w-full md:w-1/2 flex flex-col">
                     <p class="font-medium">{{__('txt.placeholders.social_media')}}  </p>
-                    <a href="{{isset($ngo->social_icons['url'])?$ngo->social_icons['url']:'#'}}" target="_blank"> <p class="font-medium"> @svg('icon-facebook','w-50 h-50')</p></a>
+                    <a href="{{isset($ngo->social_icons['url'])?$ngo->social_icons['url']:'#'}}" target="_blank"><p
+                            class="font-medium"> @svg('icon-facebook','w-50 h-50')</p></a>
                 </div>
             </div>
         </div>

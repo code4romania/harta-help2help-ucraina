@@ -6,7 +6,7 @@
     </p>
     <div> {{ __('txt.service_card.access_email_description') }}</div>
     @if($method['application_email'])
-        <p class="font-bold"> Email <span class="font-normal"> {{$method['application_email']}}</span></p>
+        <p class="font-bold">{{__('txt.service_card.access_email')}}  <span class="font-normal"> {{$method['application_email']}}</span></p>
     @endif
     @if($method['application_phone'])
         <p class="font-bold"> {{ __('txt.service_card.phone') }} <span

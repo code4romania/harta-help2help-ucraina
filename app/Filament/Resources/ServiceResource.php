@@ -91,8 +91,8 @@ class ServiceResource extends Resource
                             ->minValue(-180)
                             ->maxValue(180)
                             ->required(),
-                        Select::make('intervention_domains')->options($interventionDomains)->multiple()->required(),
-                        Select::make('beneficiary_groups')->options($beneficiaryGroup)->multiple()->required(),
+                        Select::make('intervention_domains')->relationship('interventionDomain','name')->multiple()->required(),
+                        Select::make('beneficiary_groups')->relationship('beneficiaryGroup','name')->multiple()->required(),
 
                     ]),
                 Card::make()->columns(2)->schema([

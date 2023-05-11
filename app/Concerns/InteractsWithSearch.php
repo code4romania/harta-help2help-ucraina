@@ -25,8 +25,12 @@ trait InteractsWithSearch
                     };
                 } else {
                     match ($key) {
-                        'intervention_domain' => $query->whereJsonContains('intervention_domains', $value),
-                        'beneficiary' => $query->whereJsonContains('beneficiary_groups', $value),
+                        'intervention_domain' => $query->whereHas('interventionDomain', function ($query) use ($value) {
+                            $query->where('intervention_domains.id', $value);
+                        }),
+                        'beneficiary' => $query->whereHas('beneficiaryGroup', function ($query) use ($value) {
+                            $query->where('beneficiary_groups.id', $value);
+                        }),
                         'status' => $query->where('status', $value),
                         'search' => $query->where(function ($query) use ($value) {
                             $query->orWhere('name', 'LIKE', '%' . $value . '%');

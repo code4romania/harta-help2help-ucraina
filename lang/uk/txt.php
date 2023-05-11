@@ -130,7 +130,7 @@ return [
         'project_period' => 'Тривалість',
         'service_access' => 'Як отримати доступ до послуги?',
         'online' => 'Онлайн',
-        'access_email' => 'Електронною поштою або телефоном',
+        'access_email' => 'Електронною поштою',
         'physical' => 'На місці',
         'services' => 'Послуги',
         'access_location' => 'Дивіться історію організації',

@@ -48,10 +48,9 @@ class Ngo extends Model implements HasMedia
         'name',
         'description',
     ];
+    protected $with = ['city', 'county'];
 
     protected $hidden = ['description'];
-
-    protected $appends = ['intervention_domains'];
 
     public function registerMediaConversions(Media $media = null): void
     {
@@ -66,14 +65,9 @@ class Ngo extends Model implements HasMedia
         return $this->hasMany(Service::class);
     }
 
-    public function getInterventionDomainsAttribute(): \Illuminate\Support\Collection
+    public function interventionDomain(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        $interventionDomains = [];
-        foreach ($this->services as $service) {
-            $interventionDomains = array_merge($interventionDomains, $service->intervention_domains);
-        }
-
-        return InterventionDomains::whereIn('id', $interventionDomains)->pluck('name', 'id');
+        return $this->belongsToMany(InterventionDomains::class);
     }
 
     public function getActivityDomainsNameAttribute(): \Illuminate\Support\Collection
