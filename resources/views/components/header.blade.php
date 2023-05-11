@@ -59,7 +59,7 @@
             </select>
         </div>
 
-        <div class="hidden absolute inset-x-0 z-50 transition origin-top transform bg-white shadow-lg top-full lg:hidden" id="mobile-menu">
+        <div class="hidden bg-header absolute inset-x-0 z-50 transition origin-top transform  shadow-lg top-full lg:hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pb-3 pt-2">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <a class=" flex flex-wrap border-r-2 px-1 lg:px-3 text-center "
