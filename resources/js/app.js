@@ -75,3 +75,7 @@ window.copyToClipboard = function (el) {
     navigator.clipboard.writeText( el.dataset.url);
     alert("Copied: " + el.dataset.url);
 }
+window.toggleMenu = function () {
+    let menu = document.getElementById('mobile-menu')
+    menu.classList.toggle('hidden')
+}
