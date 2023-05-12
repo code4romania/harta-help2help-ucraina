@@ -18,7 +18,7 @@
             </span>
                     <input
                         class="my-1 w-full rounded-sm border border-slate-300 bg-white p-3 pl-10 pr-4 focus:outline-none lg:my-0 lg:h-20 lg:text-lg"
-                        type="text" name="search" value="{{request()->get('search')}}" placeholder="{{ __('txt.placeholders.search_services') }}"/>
+                        type="text" name="search" value="{{request()->get('search')}}" placeholder="{{ __('txt.search_ngo.search_text_span') }}"/>
                 </label>
 
                 <label class="relative block w-full lg:w-1/4">

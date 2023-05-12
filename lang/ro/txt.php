@@ -133,6 +133,11 @@ return [
         'text5' => 'Federația Organizațiilor Neguvernamentale pentru Copil (FONPC) este principalul interlocutor specializat al statului în vederea elaborării şi redefinirii politicilor publice pentru asigurarea bunăstării copilului din perspectiva drepturilor copilului. Înființată în anul 1997, FONPC există cu și pentru membrii săi, aproximativ 100 de ONG-uri, și lucrează în strâns parteneriat cu donatorii, finanţatorii, cu autorităţile locale şi naţionale şi organizaţii neguvernamentale, organizaţii internaţionale, instituţii europene, societatea civilă, comunitatea şi cu alţi actori implicaţi în promovarea respectării Drepturilor Copilului.',
         'text6' => 'Organizațiile și proiectele susținute prin CARE și implementate la nivel național de Fundația SERA România cu sprijinul CARE France și FONPC sunt: YouHub Association, Fundația FARA, Fundația ESTUAR, Asociația CARUSEL, Asociația ESPERANDO, Fundația Parada, Asociația de Ajutor AMURTEL România, Asoc Autism Baia Mare, Create Yourself Association, ECLER, The International Foundation for Child and Family, Asociația Q-ARTS, Asociația The Social Incubator, Asociația Buna Ziua Copii, Asociația ANAIS, Asociația Profesorii de Asistență Socială ASSOC, Asociația Civica Radauti, Asociația Hand across Romania, Fundația Inimă de Copil, Organizația Natională Cercetașii României, ALIAT, Society for Children and Parents, Federația Organizațiilor Neguvernamentale pentru Servicii Sociale, Federația Organizatiilor Neguvernamentale pentru Copii, Asociația Club Sportiv Olimpic Snagov, Fundația Serviciilor Sociale Bethany, Fundația de Ajutor Medical Profilaxis, Fundația Star of Hope Romania, Fundația ELIBERARE, DGASPC Sector 1, DGASMB, DGASPC Sector 3, DGASPC Tulcea, DGASPC Suceava, DGASPC Maramureș, DGASPC Brașov.',
     ],
+    'search_ngo' => [
+        'search_title' => 'Caută un ONG care te poate ajuta',
+        'search_text' => 'Caută o organizație care oferă un serviciu specific în funcție de nevoile tale, sau Descoperă toate organizațiile.',
+        'search_text_span' => 'Cauta un ONG',
+    ],
 
     'service_card' => [
         'project_active' => 'Proiect în desfășurare',

@@ -167,6 +167,11 @@ return [
         'page_title' => ' організації',
         'beneficiaries_nr' => 'Кількість бенефіціарів',
     ],
+    'search_ngo' => [
+        'search_title' => 'Шукайте НКО, яке може вам допомогти',
+        'search_text' => 'Шукайте НКО, яке може вам допомогти',
+        'search_text_span' => 'Шукайте НКО',
+    ],
 
     'contact' => [
         'page_title' => 'Контакт',
