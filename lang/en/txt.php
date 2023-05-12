@@ -111,7 +111,7 @@ return [
         'domains' => 'Intervention domains',
     ],
     'search_ngo' => [
-        'search_title' => 'Search an ngo',
+        'search_title' => 'Search for ngos',
         'search_text' => 'Caută o organizație care oferă un serviciu specific în funcție de nevoile tale, sau Descoperă toate organizațiile.',
         'search_text_span' => ' Search for ngos...',
     ],

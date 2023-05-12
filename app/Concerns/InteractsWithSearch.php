@@ -13,7 +13,7 @@ trait InteractsWithSearch
     public function scopeFilter(Builder $query, Collection $filters): Builder
     {
         foreach ($filters as $key => $value) {
-            if (! empty($value)) {
+            if (!empty($value)) {
                 if ($this->getModel() === Ngo::getModel()) {
                     $query->with('services');
                     match ($key) {
@@ -21,6 +21,19 @@ trait InteractsWithSearch
                             $query->orWhere('name', 'LIKE', '%' . $value . '%');
                         }),
                         'county' => $query->where('county_id', $value),
+                        'intervention_domain' => $query->whereHas('services', function ($query) use ($value) {
+                            $query->whereHas('interventionDomain', function ($query) use ($value) {
+                                $query->where('intervention_domains.id', $value);
+                            });
+                        }),
+                        'beneficiary' => $query->whereHas('services', function ($query) use ($value) {
+                            $query->whereHas('beneficiaryGroup', function ($query) use ($value) {
+                                $query->where('beneficiary_groups.id', $value);
+                            });
+                        }),
+                        'status' => $query->whereHas('services', function ($query) use ($value) {
+                            $query->where('status', $value);
+                        }),
                         default => $query,
                     };
                 } else {
