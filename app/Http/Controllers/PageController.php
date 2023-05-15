@@ -39,7 +39,7 @@ class PageController extends Controller
 
     public function services(Request $request)
     {
-        $query = Service::query()->filter(collect($request->all()))->with(['city', 'county']);
+        $query = Service::query()->filter(collect($request->all()));
         $servicesJson = $query->get();
         $services = $query->paginate();
 

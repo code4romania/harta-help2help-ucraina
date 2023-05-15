@@ -48,7 +48,7 @@ class Ngo extends Model implements HasMedia
         'name',
         'description',
     ];
-    protected $with = ['city', 'county'];
+    protected $with = ['city', 'county', 'media'];
 
     protected $hidden = ['description'];
 

@@ -111,7 +111,7 @@ return [
         'domains' => 'Intervention domains',
     ],
     'search_ngo' => [
-        'search_title' => 'Look for an NGO that could help you',
+        'search_title' => 'NGOs',
         'search_text' => 'Look for an NGO that could help you',
         'search_text_span' => ' Search for ngos...',
     ],
@@ -155,7 +155,7 @@ return [
         'project_name' => 'Project name: ',
         'provided_by' => 'Provided by: ',
         'intervention_domains' => 'Intervention domains: ',
-        'beneficiary_type' => 'Tip beneficiar: ',
+        'beneficiary_type' => 'Beneficiary type: ',
         'by_phone' => 'By phone or email: ',
         'access_online_explain' => 'To benefit from this service, you just need to access the link below.',
         'budget' => 'Budget: ',

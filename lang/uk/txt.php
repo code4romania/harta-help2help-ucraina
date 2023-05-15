@@ -168,7 +168,7 @@ return [
         'beneficiaries_nr' => 'Кількість бенефіціарів',
     ],
     'search_ngo' => [
-        'search_title' => 'Шукайте НКО, яке може вам допомогти',
+        'search_title' => 'НКО',
         'search_text' => 'Шукайте НКО, яке може вам допомогти',
         'search_text_span' => 'Шукайте НКО',
     ],

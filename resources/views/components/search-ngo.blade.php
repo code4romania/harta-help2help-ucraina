@@ -2,7 +2,7 @@
     class="py-32 search"
     id="search-container"
 >
-    <div class="pb-64 flex flex-col items-center justify-center">
+    <div class="pb-24 flex flex-col items-center justify-center">
         <h2 class="text-center text-xl lg:text-3xl"> {{ __('txt.search_ngo.search_title') }}</h2>
         <p class="text-base lg:text-2xl"> {{ __('txt.search_ngo.search_text') }} <span class="font-bold underline"> <a
                 >{{ __('txt.search_ngo.search_text_span') }} </a>
@@ -21,7 +21,7 @@
                         type="text" name="search" value="{{request()->get('search')}}" placeholder="{{ __('txt.search_ngo.search_text_span') }}"/>
                 </label>
 
-                <label class="relative block w-full lg:w-1/4">
+                <label class="relative block w-full lg:w-1/4  lg:pr-1">
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                 <x-heroicon-o-location-marker class="h-6 w-6 text-gray1"/>
             </span>
@@ -37,13 +37,13 @@
             </div>
 
             <div class="my-5 flex flex-col justify-between lg:h-20 lg:flex-row">
-                <label class="relative my-1 block w-full lg:mx-1 lg:my-0 lg:w-1/4 ">
+                <label class="relative my-1 block w-full lg:my-0 lg:w-1/4">
 
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                 <x-heroicon-o-presentation-chart-bar class="h-6 w-6 text-gray1"/>
             </span>
                     <select
-                        class="w-full rounded-sm border border-slate-300 bg-white p-3 pl-10 pr-4 text-gray1 focus:outline-none lg:mx-1 lg:my-0 lg:h-20 lg:text-lg"
+                        class="w-full rounded-sm border border-slate-300 bg-white p-3 pl-10 text-gray1 focus:outline-none lg:mr-1 lg:my-0 lg:h-20 lg:text-lg"
                         id="county-select" name="intervention_domain" onchange="getDomains(@js(__('txt.placeholders.domain')))">
                         <option value="" > {{ __('txt.placeholders.any_domain') }} </option>
                         @foreach ($interventionsDomains as $domain)
@@ -84,4 +84,5 @@
             </div>
         </form>
     </div>
+
 </section>
