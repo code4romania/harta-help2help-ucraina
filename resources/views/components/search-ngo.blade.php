@@ -4,10 +4,7 @@
 >
     <div class="pb-24 flex flex-col items-center justify-center">
         <h2 class="text-center text-xl lg:text-3xl"> {{ __('txt.search_ngo.search_title') }}</h2>
-        <p class="text-base lg:text-2xl"> {{ __('txt.search_ngo.search_text') }} <span class="font-bold underline"> <a
-                >{{ __('txt.search_ngo.search_text_span') }} </a>
-        </span>
-        </p>
+        <p class="text-base lg:text-2xl"> {{ __('txt.search_ngo.search_text') }}        </p>
     </div>
     <div class="container flex flex-col items-center justify-center">
         <form class=" w-4/5   mx-auto" action="{{ route('ngos', ['local'=>app()->getLocale()]) }}">

@@ -4,8 +4,9 @@
 >
     <div class="pb-24 flex flex-col items-center justify-center">
         <h2 class="text-center text-xl lg:text-3xl"> {{ __('txt.home.search_title') }}</h2>
-        <p class="text-base lg:text-2xl"> {{ __('txt.home.search_text') }} <span class="font-bold underline"> <a
-                >{{ __('txt.home.search_text_span') }} </a>
+        <p class="text-base lg:text-2xl"> {{ __('txt.home.search_text') }}
+            @if (\Request::route()->getName() =='home')<span class="font-bold underline"> <a href="{{route('services')}}"
+                >{{ __('txt.home.search_text_span') }} </a>@endif
         </span>
         </p>
     </div>

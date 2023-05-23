@@ -94,7 +94,7 @@ return [
 
     'home' => [
         'search_title' => 'Map of services provided by the NGO sector',
-        'search_text' => 'Search for a specific service, depending on your needs or Explore all the services',
+        'search_text' => 'Search for a specific service, depending on your needs',
         'search_text_span' => ' Search for services...',
         'any_domain' => 'Any intervention domain',
         'any_beneficiary' => 'Any beneficiary type',

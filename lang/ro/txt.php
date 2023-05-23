@@ -104,7 +104,7 @@ return [
 
     'home' => [
         'search_title' => 'Harta serviciilor oferite de sectorul ONG',
-        'search_text' => 'Caută un serviciu specific în funcție de nevoile tale, sau ',
+        'search_text' => 'Caută un serviciu specific în funcție de nevoile tale',
         'search_text_span' => ' Descoperă toate serviciile.',
         'any_domain' => 'Orice domeniu de intervenție',
         'any_beneficiary' => 'Orice beneficiar',
