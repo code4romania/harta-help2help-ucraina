@@ -16,5 +16,15 @@
 </body>
 @vite('resources/js/app.js')
 {{$js ?? ''}}
+@if(App::environment('production'))
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R0RSRB4PSE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-R0RSRB4PSE');
+    </script>
+@endif
 </html>
