@@ -22,6 +22,9 @@ class PageController extends Controller
     public function ngoPage(string $local, string $slug)
     {
         $ngo = Ngo::query()->where('slug', $slug)->with(['city', 'county'])->firstOrFail();
+
+
+
         $breadcrumbs =
             [
                 [
