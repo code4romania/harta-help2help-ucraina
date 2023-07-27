@@ -35,20 +35,15 @@
             </p>
             <p class="font-bold">{{ __('txt.ngo_card.intervention_domains') }}
                 @php $tmpDomains = []; @endphp
-                @foreach($ngo->services as $service)
-                    @foreach($service->interventionDomain as $domain)
-                        @if(!in_array($domain->id,$tmpDomains))
-                            @php $tmpDomains[] = $domain->id;
-                            @endphp
+                @foreach($ngo->intervention_domains_name as $domain)
                             <span class="text-orange1">
-                    {{ $domain->name }}
-                </span>
-                        @endif
-                    @endforeach
+                    {{$domain}}
+                            </span>
                     @if(!$loop->last)
                         ,
                     @endif
-                @endforeach
+                    @endforeach
+
 
             </p>
             <p class="font-bold">{{ __('txt.ngo_card.beneficiaries_nr') }} <span

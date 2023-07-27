@@ -74,4 +74,9 @@ class Ngo extends Model implements HasMedia
     {
         return ActivityDomain::whereIn('id', $this->activity_domains)->pluck('name', 'id');
     }
+    public function getInterventionDomainsNameAttribute(): \Illuminate\Support\Collection
+    {
+
+        return $this->services()->with('interventionDomain')->get()->pluck('interventionDomain')->flatten()->pluck('name', 'id');
+    }
 }
