@@ -82,7 +82,7 @@
                 </select>
             </label>
 
-            <button class="button w-full bg-orange1 p-4 font-bold hover:bg-blue1 sm:col-span-2" type="submit">
+            <button class="button sm:col-span-2 bg-orange1 p-4 font-bold hover:bg-blue1" type="submit">
                 {{ __('txt.buttons.search') }}
             </button>
         </form>
