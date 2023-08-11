@@ -134,8 +134,8 @@ return [
         'text6' => 'Organizațiile și proiectele susținute prin CARE și implementate la nivel național de Fundația SERA România cu sprijinul CARE France și FONPC sunt: YouHub Association, Fundația FARA, Fundația ESTUAR, Asociația CARUSEL, Asociația ESPERANDO, Fundația Parada, Asociația de Ajutor AMURTEL România, Asoc Autism Baia Mare, Create Yourself Association, ECLER, The International Foundation for Child and Family, Asociația Q-ARTS, Asociația The Social Incubator, Asociația Buna Ziua Copii, Asociația ANAIS, Asociația Profesorii de Asistență Socială ASSOC, Asociația Civica Radauti, Asociația Hand across Romania, Fundația Inimă de Copil, Organizația Natională Cercetașii României, ALIAT, Society for Children and Parents, Federația Organizațiilor Neguvernamentale pentru Servicii Sociale, Federația Organizatiilor Neguvernamentale pentru Copii, Asociația Club Sportiv Olimpic Snagov, Fundația Serviciilor Sociale Bethany, Fundația de Ajutor Medical Profilaxis, Fundația Star of Hope Romania, Fundația ELIBERARE, DGASPC Sector 1, DGASMB, DGASPC Sector 3, DGASPC Tulcea, DGASPC Suceava, DGASPC Maramureș, DGASPC Brașov.',
     ],
     'search_ngo' => [
-        'search_title' => 'ONG',
-        'search_text' => 'Caută un ONG care te poate ajuta',
+        'search_title' => 'ONG-uri (organizații)',
+        'search_text' => 'Caută o organizație care te poate ajuta cu un serviciu pentru nevoile tale',
         'search_text_span' => 'Caută un ONG...',
     ],
 

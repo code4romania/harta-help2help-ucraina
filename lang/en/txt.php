@@ -110,8 +110,8 @@ return [
         'domains' => 'Intervention domains',
     ],
     'search_ngo' => [
-        'search_title' => 'NGOs',
-        'search_text' => 'Look for an NGO that could help you',
+        'search_title' => 'NGOs (organisations)',
+        'search_text' => 'Look for an NGO that could help you, depending on your needs',
         'search_text_span' => ' Search for NGOs...',
     ],
     'about' => [
