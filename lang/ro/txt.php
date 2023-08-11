@@ -41,10 +41,10 @@ return [
 
     'buttons' => [
         'search' => 'Caută',
-        'services_map' => 'Hartă servicii',
-        'services_list' => 'Listă servicii',
+        'services_map' => 'Vezi hartă servicii',
+        'services_list' => 'Vezi listă servicii',
         'see_more' => 'Vezi mai mult',
-        'see_story' => 'Vezi povestea',
+        'see_story' => ' Vezi povestea organizației',
         'access_online' => 'Accesează online',
         'access_site' => 'Accesează website',
 
@@ -136,7 +136,7 @@ return [
     'search_ngo' => [
         'search_title' => 'ONG',
         'search_text' => 'Caută un ONG care te poate ajuta',
-        'search_text_span' => 'Cauta un ONG',
+        'search_text_span' => 'Caută un ONG...',
     ],
 
     'service_card' => [
