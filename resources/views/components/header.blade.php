@@ -1,95 +1,79 @@
-<header class="flex relative h-28 min-h-fit w-full items-center bg-header">
-    <div class="container mx-auto flex h-16 items-center justify-between px-2 md:h-24">
-        <div class="mr-5 w-16 md:w-24 lg:mr-10">
-            <a class="logo-box" href="https://helptohelpukraine.ro">
-                <img src="{{ Vite::asset('resources/images/design/help.png') }}" alt="Logo">
-            </a>
-        </div>
-        <div class="block w-24 md:hidden md:w-40">
-            <a class="logo-box" href="https://helptohelpukraine.ro">
-                <img src="{{ Vite::asset('resources/images/design/fonpc.png') }}" alt="Logo">
-            </a>
-        </div>
+<header class="relative flex items-center w-full h-28 min-h-fit bg-header">
+    <div class="container flex items-center justify-between h-16 gap-5 px-2 mx-auto md:h-24 lg:gap-6">
+        <a class="order-1 block w-16 logo-box md:w-24 shrink-0" href="https://helptohelpukraine.ro">
+            <img src="{{ Vite::asset('resources/images/design/help-big.png') }}" alt="HELP TO HELP UKRAINE">
+        </a>
 
-        <div class="block cursor-pointer text-3xl md:hidden">
-            <svg class="burger-btn" id="menuTrigger" width="60" onclick="toggleMenu()" data-collapse-toggle="sideNav"
-                 aria-controls="sideNav" aria-expanded="false" height="32" viewBox="0 0 40 26"
-                 xmlns="http://www.w3.org/2000/svg" fill="#7CC1DF">
-                <rect class="burger-btn--1" width="40" height="6" rx="3" ry="3"/>
-                <rect class="burger-btn--2" width="40" height="6" y="10" rx="3"
-                      ry="3"/>
-                <rect class="burger-btn--3" width="40" height="6" y="20" rx="3"
-                      ry="3"/>
-            </svg>
+        <div class="order-3 block text-3xl cursor-pointer lg:hidden">
+            <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onclick="toggleMenu()">
+                <span class="sr-only">Toggle main menu</span>
+                <svg class="w-8 h-8 menu-button-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg class="hidden w-8 h-8 menu-button-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
         </div>
 
-        <div class="hidden w-full flex-wrap items-center justify-center md:flex" id="sideNav">
-            <nav class=" w-11/12 items-center justify-between text-base font-bold md:flex lg:text-lg ">
+        <div class="flex-wrap items-center justify-center flex-1 order-2 hidden w-full lg:flex">
+            <nav class="flex items-center font-bold divide-x divide-y-0 divide-gray-300 md:flex whitespace-nowrap">
+                <a class="block px-3 text-center" href="{{ route('home', ['local' => app()->getLocale()]) }}">
+                    {{ __('txt.header.home') }} </a>
 
-                <a class="mr-auto md:text-sm hover:border-b-transparent hover:text-inherit"
-                   href="https://helptohelpukraine.ro/">
-                    <span class="text-[#20ACEA]">HELP</span>
-                    <span class="text-[#EFE900]">TO HELP</span>
-                    <span class="font-light">UKRAINE</span>
+                <a class="block px-3 text-center"
+                    href="{{ route('about', ['local' => app()->getLocale()]) }}">{{ __('txt.header.about_project') }}
                 </a>
 
-                <a class=" block py-2 pl-3 pr-4 border-r-2 px-1 lg:px-3 text-center "
-                   href="{{ route('home',['local'=>app()->getLocale()]) }}"> {{ __('txt.header.home') }} </a>
+                <a class="block px-3 text-center"
+                    href="{{ route('services', ['local' => app()->getLocale()]) }}">{{ __('txt.header.services_map') }}</a>
 
-                <a class=" block py-2 pl-3 pr-4 border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ route('about', ['local'=>app()->getLocale()]) }}">{{ __('txt.header.about_project') }} </a>
+                <a class="block px-3 text-center"
+                    href="{{ route('ngos', ['local' => app()->getLocale()]) }}">{{ __('txt.header.ngos') }}</a>
 
-                <a class="border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ route('services', ['local'=>app()->getLocale()]) }}">{{ __('txt.header.services_map') }}</a>
+                <a class="block px-3 text-center" href="{{ route('contact', ['local' => app()->getLocale()]) }}">
+                    {{ __('txt.header.contact') }} </a>
 
-                <a class="border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ route('ngos',['local'=>app()->getLocale()]) }}">{{ __('txt.header.ngos') }}</a>
-
-                <a class="border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ route('contact', ['local'=>app()->getLocale()]) }}"> {{ __('txt.header.contact') }} </a>
-
-
-            </nav>
-
-            <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher"
+                <select class="py-0 pl-3 border-0 bg-header" id="langSwitcher"
                     onchange="switchLang(this.value)">
-                <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
-                <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
-                <option value="uk" lang="uk" @if(app()->getLocale() == 'uk') selected @endif >UK</option>
-            </select>
+                    <option value="ro" @selected(app()->getLocale() === 'ro')>Română</option>
+                    <option value="en" @selected(app()->getLocale() === 'en')>English</option>
+                    <option value="uk" @selected(app()->getLocale() === 'uk')>Українська</option>
+                </select>
+            </nav>
         </div>
 
-        <div class="hidden bg-header absolute inset-x-0 z-50 transition origin-top transform  shadow-lg top-full lg:hidden" id="mobile-menu">
-            <div class="space-y-1 px-2 pb-3 pt-2">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a class=" flex flex-wrap border-r-2 px-1 lg:px-3 text-center "
-                   href="{{ route('home',['local'=>app()->getLocale()]) }}"> {{ __('txt.header.home') }} </a>
+        <div class="absolute inset-x-0 z-50 order-9 hidden p-6 transition origin-top transform shadow-lg top-full bg-header lg:hidden"
+            id="mobile-menu">
+            <div class="container flex flex-col gap-2">
+                <a class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg hover:bg-"
+                    href="{{ route('home', ['local' => app()->getLocale()]) }}"> {{ __('txt.header.home') }} </a>
 
-                <a class=" flex flex-wrap  border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ route('about', ['local'=>app()->getLocale()]) }}">{{ __('txt.header.about_project') }} </a>
+                <a class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg hover:bg-"
+                    href="{{ route('about', ['local' => app()->getLocale()]) }}">{{ __('txt.header.about_project') }}
+                </a>
 
-                <a class="flex flex-wrap  border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ route('services', ['local'=>app()->getLocale()]) }}">{{ __('txt.header.services_map') }}</a>
+                <a class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg hover:bg-"
+                    href="{{ route('services', ['local' => app()->getLocale()]) }}">{{ __('txt.header.services_map') }}</a>
 
-                <a class="flex flex-wrap  border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ route('ngos',['local'=>app()->getLocale()]) }}">{{ __('txt.header.ngos') }}</a>
+                <a class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg hover:bg-"
+                    href="{{ route('ngos', ['local' => app()->getLocale()]) }}">{{ __('txt.header.ngos') }}</a>
 
-                <a class="flex flex-wrap border-r-2 px-1 lg:px-3 text-center"
-                   href="{{ route('contact', ['local'=>app()->getLocale()]) }}"> {{ __('txt.header.contact') }} </a>
-                <select class="flex flex-wrap border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher"
-                        onchange="switchLang(this.value)">
-                    <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
-                    <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
-                    <option value="uk" lang="uk" @if(app()->getLocale() == 'uk') selected @endif >UK</option>
+                <a class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg hover:bg-"
+                    href="{{ route('contact', ['local' => app()->getLocale()]) }}"> {{ __('txt.header.contact') }}
+                </a>
+
+                <select class="flex flex-wrap pl-0 text-base font-bold border-0 bg-header lg:text-lg" id="langSwitcher"
+                    onchange="switchLang(this.value)">
+                    <option value="ro" @selected(app()->getLocale() === 'ro')>Română</option>
+                    <option value="en" @selected(app()->getLocale() === 'en')>English</option>
+                    <option value="uk" @selected(app()->getLocale() === 'uk')>Українська</option>
                 </select>
             </div>
         </div>
 
-        <div class="ml-5 hidden w-24 md:block md:w-40 lg:ml-10">
-            <a class="logo-box" href="{{ url('contact') }}">
-                <img src="{{ Vite::asset('resources/images/design/fonpc.png') }}" alt="Logo">
-            </a>
-        </div>
+        <a class="order-2 block w-24 logo-box md:w-32 lg:order-3 shrink-0" href="{{ url('contact') }}">
+            <img src="{{ Vite::asset('resources/images/design/fonpc.png') }}" alt="Logo">
+        </a>
     </div>
-
 </header>

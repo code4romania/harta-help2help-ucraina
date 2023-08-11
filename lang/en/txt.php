@@ -42,10 +42,10 @@ return [
 
     'buttons' => [
         'search' => 'Search',
-        'services_map' => 'Services map',
-        'services_list' => 'List of services',
+        'services_map' => 'See services map',
+        'services_list' => 'See list of services',
         'see_more' => 'See more',
-        'see_story' => 'See story',
+        'see_story' => 'See the story of the organization',
         'access_online' => 'Access online',
         'access_site' => 'Access the website',
         'ngos_map' => 'NGOs map',
@@ -54,7 +54,6 @@ return [
         'details' => 'Details',
         'send' => 'Send',
         'continue' => 'Continue',
-
     ],
 
     'placeholders' => [
@@ -63,7 +62,7 @@ return [
         'find_address' => 'Search address',
         'course_type' => 'Course type',
         'date_start' => 'Start date',
-        'search_services' => 'Search services',
+        'search_services' => 'Search for services...',
         'anywhere_country' => 'Anywhere in the country',
         'any_domain' => 'Any intervention domain',
         'any_beneficiary' => 'Any beneficiary',
@@ -111,9 +110,9 @@ return [
         'domains' => 'Intervention domains',
     ],
     'search_ngo' => [
-        'search_title' => 'NGOs',
-        'search_text' => 'Look for an NGO that could help you',
-        'search_text_span' => ' Search for ngos...',
+        'search_title' => 'NGOs (organisations)',
+        'search_text' => 'Look for an NGO that could help you, depending on your needs',
+        'search_text_span' => ' Search for NGOs...',
     ],
     'about' => [
         'about_project' => 'About the project',
