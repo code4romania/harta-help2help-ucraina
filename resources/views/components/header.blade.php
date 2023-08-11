@@ -48,15 +48,14 @@
                 <a class="border-r-2 px-1 lg:px-3 text-center"
                    href="{{ route('contact', ['local'=>app()->getLocale()]) }}"> {{ __('txt.header.contact') }} </a>
 
-
+                   <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher"
+                           onchange="switchLang(this.value)">
+                       <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
+                       <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
+                       <option value="uk" lang="uk" @if(app()->getLocale() == 'uk') selected @endif >UK</option>
+                   </select>
             </nav>
 
-            <select class="ml-5 border-0 bg-header text-base font-bold lg:text-lg" id="langSwitcher"
-                    onchange="switchLang(this.value)">
-                <option value="ro" lang="ro" @if(app()->getLocale() == 'ro') selected @endif>RO</option>
-                <option value="en" lang="en" @if(app()->getLocale() == 'en') selected @endif >EN</option>
-                <option value="uk" lang="uk" @if(app()->getLocale() == 'uk') selected @endif >UK</option>
-            </select>
         </div>
 
         <div class="hidden bg-header absolute inset-x-0 z-50 transition origin-top transform  shadow-lg top-full lg:hidden" id="mobile-menu">
