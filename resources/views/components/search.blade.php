@@ -11,8 +11,7 @@
     </div>
 
     <div class="container">
-        <form class="grid items-stretch mx-auto lg:w-4/5 sm:grid-cols-12 gap-y-4"
-            action="{{ route('services', ['local' => app()->getLocale()]) }}">
+        <form class="grid items-stretch mx-auto lg:w-4/5 sm:grid-cols-12 gap-y-4" action="{{ $action }}">
             <label class="relative block sm:col-span-9">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                     <x-heroicon-o-search class="w-6 h-6 text-gray1" />
@@ -29,11 +28,12 @@
                 </span>
                 <select
                     class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
-                    id="county-select" name="county" onchange="">
+                    name="filter[county]" onchange="">
                     <option value=""> {{ __('txt.placeholders.anywhere_country') }} </option>
                     @foreach ($counties as $county)
-                        <option value="{{ $county->id }}" @if (request()->get('county') == $county->id) selected @endif>
-                            {{ $county->name }} </option>
+                        <option value="{{ $county->id }}" @selected(request()->get('filter.county') === $county->id)>
+                            {{ $county->name }}
+                        </option>
                     @endforeach
                 </select>
             </label>
@@ -44,11 +44,12 @@
                 </span>
                 <select
                     class="w-full h-full p-3 pl-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:my-0 lg:mr-1 lg:h-20 lg:text-lg text-ellipsis"
-                    id="county-select" name="intervention_domain" onchange="getDomains(@js(__('txt.placeholders.domain')))">
+                    name="filter[intervention_domain]" onchange="getDomains(@js(__('txt.placeholders.domain')))">
                     <option value=""> {{ __('txt.placeholders.any_domain') }} </option>
-                    @foreach ($interventionsDomains as $domain)
-                        <option value="{{ $domain->id }}" @if (request()->get('intervention_domain') == $domain->id) selected @endif>
-                            {{ $domain->name }} </option>
+                    @foreach ($interventionDomains as $domain)
+                        <option value="{{ $domain->id }}" @selected(request()->get('filter.intervention_domain') === $domain->id)>
+                            {{ $domain->name }}
+                        </option>
                     @endforeach
                 </select>
             </label>
@@ -59,11 +60,12 @@
                 </span>
                 <select
                     class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
-                    id="county-select" name="beneficiary">
+                    name="filter[beneficiary]">
                     <option value=""> {{ __('txt.placeholders.any_beneficiary') }} </option>
                     @foreach ($beneficiaries as $beneficiary)
-                        <option value="{{ $beneficiary->id }}" @if (request()->get('beneficiary') == $beneficiary->id) selected @endif>
-                            {{ $beneficiary->name }} </option>
+                        <option value="{{ $beneficiary->id }}" @selected(request()->get('filter.beneficiary') === $beneficiary->id)>
+                            {{ $beneficiary->name }}
+                        </option>
                     @endforeach
                 </select>
             </label>
@@ -74,11 +76,11 @@
                 </span>
                 <select
                     class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
-                    id="county-select" name="status">
+                    name="filter[status]">
                     <option value=""> {{ __('txt.placeholders.project_status') }} </option>
-                    <option value="active" @if (request()->get('status') == 'active') selected @endif>
+                    <option value="active" @selected(request()->get('filter.beneficiary') === 'active')>
                         {{ __('txt.service_card.project_active') }}</option>
-                    <option value="finished" @if (request()->get('status') == 'finished') selected @endif>
+                    <option value="finished" @selected(request()->get('filter.beneficiary') === 'finished')>
                         {{ __('txt.service_card.project_finished') }}</option>
                 </select>
             </label>

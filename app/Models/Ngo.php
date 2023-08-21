@@ -6,7 +6,10 @@ namespace App\Models;
 
 use App\Concerns\ClearsResponseCache;
 use App\Concerns\HasLocation;
-use App\Concerns\InteractsWithSearch;
+use App\Concerns\Searchable;
+use App\Concerns\Translatable;
+use App\Helpers\Normalize;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,16 +17,15 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\Translatable\HasTranslations;
 
 class Ngo extends Model implements HasMedia
 {
     use ClearsResponseCache;
     use HasFactory;
     use InteractsWithMedia;
-    use HasTranslations;
     use HasLocation;
-    use InteractsWithSearch;
+    use Searchable;
+    use Translatable;
 
     protected $fillable = [
         'name',
@@ -48,9 +50,54 @@ class Ngo extends Model implements HasMedia
         'name',
         'description',
     ];
+
     protected $with = ['city', 'county', 'media'];
 
     protected $hidden = ['description'];
+
+    protected function makeAllSearchableUsing(Builder $query): Builder
+    {
+        return $query->with('services');
+    }
+
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => Normalize::string($this->name),
+            'county' => Normalize::string($this->county?->name),
+            'beneficiary' => Normalize::collection(
+                $this->services
+                    ->pluck('beneficiaryGroup')
+                    ->flatMap
+                    ->pluck('name')
+                    ->unique()
+                    ->collect()
+            ),
+            'interventionDomain' => Normalize::collection(
+                $this->services
+                    ->pluck('interventionDomain')
+                    ->flatMap
+                    ->pluck('name')
+                    ->unique()
+                    ->collect()
+            ),
+        ];
+    }
+
+    public function scopeFilterQuery(Builder $query, array $filters): Builder
+    {
+        return $query
+            ->when(data_get($filters, 'county'), function (Builder $query, $county) {
+                $query->where('county_id', $county);
+            })
+            ->when(data_get($filters, 'intervention_domain'), function (Builder $query, $interventionDomain) {
+                $query->whereRelation('services.interventionDomain', 'intervention_domains.id', $interventionDomain);
+            })
+            ->when(data_get($filters, 'beneficiary'), function (Builder $query, $beneficiary) {
+                $query->whereRelation('services.beneficiaryGroup', 'beneficiary_groups.id', $beneficiary);
+            });
+    }
 
     public function registerMediaConversions(Media $media = null): void
     {
@@ -74,9 +121,9 @@ class Ngo extends Model implements HasMedia
     {
         return ActivityDomain::whereIn('id', $this->activity_domains)->pluck('name', 'id');
     }
+
     public function getInterventionDomainsNameAttribute(): \Illuminate\Support\Collection
     {
-
         return $this->services()->with('interventionDomain')->get()->pluck('interventionDomain')->flatten()->pluck('name', 'id');
     }
 }
