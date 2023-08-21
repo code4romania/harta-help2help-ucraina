@@ -9,17 +9,17 @@
         />
     </div>
 
-    <div class="container card flex-col md:flex-row my-2 p-5 sm:p-10  ">
+    <div class="container flex-col p-5 my-2 card md:flex-row sm:p-10">
 
-        <div class=" w-4/5 sm:w-2/3 md:w-1/3 flex flex-col p-5 self-center items-center">
+        <div class="flex flex-col items-center self-center w-4/5 p-5 sm:w-2/3 md:w-1/3">
             <img class="w-full"
                  src="{{$ngo->getFirstMediaUrl()? $ngo->getFirstMediaUrl(): Vite::asset('resources/images/design/placeholder.png') }}"
                  alt="{{$ngo->name}}">
             <a href="{{$ngo->story?: '#'}}" target="_blank"
-               class="my-2 mt-3 h-12 flex justify-center  text-center items-center  w-full bg-orange1  text-black rounded-md hover:bg-blue1">{{ __('txt.buttons.see_story') }}</a>
+               class="flex items-center justify-center w-full h-12 my-2 mt-3 text-center text-black rounded-md bg-orange1 hover:bg-blue1">{{ __('txt.buttons.see_story') }}</a>
         </div>
-        <div class="w-full md:w-2/3 flex flex-col p-5">
-            <h2 class="my-2  font-bold">{{$ngo->name}}</h2>
+        <div class="flex flex-col w-full p-5 md:w-2/3">
+            <h2 class="my-2 font-bold">{{$ngo->name}}</h2>
             <div>{!! $ngo->description !!}</div>
             <p class="font-bold">{{ __('txt.ngo_card.activity_domains') }}
 
@@ -50,27 +50,33 @@
                     class="text-orange1">{{$ngo->number_of_beneficiaries ?:'N/A'}}</span></p>
 
             <div class="flex flex-col sm:flex-row">
-                <div class="w-full md:w-1/2 flex flex-col">
-                    <p class="font-medium"> {{__('txt.placeholders.contact')}} </p>
+                <div class="flex flex-col w-full md:w-1/2 gap-2">
+                    <p class="font-bold"> {{__('txt.placeholders.contact')}} </p>
                     <div class="flex items-center">
                         @svg('icon-Phone','w-50 h-50 mr-2')
-                        <p class="font-medium flex self-center"> {{$ngo->phone}} </p>
+                        <span class="flex self-center font-medium"> {{$ngo->phone}} </span>
                     </div>
                     <div class="flex items-center">
                         @svg('icon-Mail','w-50 h-50 mr-2')
-                        <p class="font-medium flex self-center"> {{$ngo->contact_email}} </p>
+                        <a href="mailto:{{ $ngo->contact_email }}" class="flex self-center font-medium hover:underline">
+                            {{ $ngo->contact_email }}
+                        </a>
                     </div>
                     <div class="flex items-center">
                         @svg('icon-Home','w-50 h-50 mr-2')
-                        <p class="font-medium flex self-center"> {{$ngo->address}} {{$ngo->city?->name}} {{$ngo->county?->name}} </p>
+                        <address class="flex self-center font-medium not-italic">
+                            {{$ngo->address}} {{$ngo->city?->name}} {{$ngo->county?->name}}
+                        </address>
                     </div>
                     <div class="flex items-center">
                         @svg('icon-Globe','w-50 h-50 mr-2')
-                        <p class="font-medium flex self-center"> {{$ngo->website}} </p>
+                        <a href="{{ $ngo->website }}" class="flex self-center font-medium hover:underline" target="_blank" rel="noopener">
+                            {{ $ngo->website }}
+                        </a>
                     </div>
                 </div>
-                <div class="w-full md:w-1/2 flex flex-col">
-                    <p class="font-medium">{{__('txt.placeholders.social_media')}}  </p>
+                <div class="flex flex-col w-full md:w-1/2">
+                    <p class="font-bold">{{__('txt.placeholders.social_media')}}  </p>
                     @foreach ($ngo->social_icons as $platform => $url)
                         @continue(blank($url))
                         <a href="{{ $url }}" target="_blank" rel="noopener">
@@ -81,8 +87,8 @@
             </div>
         </div>
     </div>
-    <div class="container justify-start mx-auto flex-col md:flex-row my-2 p-5 sm:p-10  ">
-        <h2 class="my-2  font-bold">{{ __('txt.placeholders.ong_services') }}</h2>
+    <div class="container flex-col justify-start p-5 mx-auto my-2 md:flex-row sm:p-10 ">
+        <h2 class="my-2 font-bold">{{ __('txt.placeholders.ong_services') }}</h2>
     </div>
     @foreach($ngo->services as $service)
         <x-cards.service_lg :service="$service"/>
