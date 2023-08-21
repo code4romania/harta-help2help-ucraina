@@ -71,8 +71,12 @@
                 </div>
                 <div class="w-full md:w-1/2 flex flex-col">
                     <p class="font-medium">{{__('txt.placeholders.social_media')}}  </p>
-                    <a href="{{isset($ngo->social_icons['url'])?$ngo->social_icons['url']:'#'}}" target="_blank"><p
-                            class="font-medium"> @svg('icon-facebook','w-50 h-50')</p></a>
+                    @foreach ($ngo->social_icons as $platform => $url)
+                        @continue(blank($url))
+                        <a href="{{ $url }}" target="_blank" rel="noopener">
+                            @svg("icon-{$platform}", 'w-50 h-50')
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>

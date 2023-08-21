@@ -38,7 +38,7 @@ class NgoSeeder extends Seeder
                 $tmpArr['address'] = '';
                 $tmpArr['contact_email'] = $ngo[2];
                 $tmpArr['website'] = $ngo[3];
-                $tmpArr['social_icons'] = json_encode(['name' => 'facebook', 'url' => $ngo[4]]);
+                $tmpArr['social_icons'] = json_encode(['facebook' => $ngo[4]]);
                 $tmpArr['story'] = $ngo[5];
                 $insertArr[] = $tmpArr;
             }
