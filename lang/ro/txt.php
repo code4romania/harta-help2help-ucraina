@@ -72,7 +72,7 @@ return [
         'phone_opt' => 'Telefon (opțional):',
         'message' => 'Mesajul tău:',
         'social_media' => 'Social media:',
-        'contact'=>'Contact:',
+        'contact' => 'Contact:',
         'ong_services' => 'Serviciile organizației:',
     ],
 
@@ -265,5 +265,17 @@ return [
         'workshops' => 'Activități sociale și workshopuri',
         'hiring' => 'Asistență și sprijin pentru obținerea unui loc de muncă',
 
+    ],
+
+    'filters' => [
+        'active' => 'Filtre active',
+        'clear' => 'Resetează filtre',
+        'label' => [
+            'search' => 'Căutare după',
+            'county' => 'Județ',
+            'intervention_domain' => 'Domeniu de intervenție',
+            'beneficiary' => 'Beneficiar',
+            'status' => 'Statusul proiectului',
+        ],
     ],
 ];
