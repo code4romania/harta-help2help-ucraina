@@ -13,16 +13,10 @@ class NgoFactory extends Factory
     public function definition(): array
     {
         $socialIcons = [
-            [
-                'name' => 'facebook',
-                'url' => '#',
-            ],
-            [
-                'name' => 'instagram',
-                'url' => '#',
-            ],
-
+            'facebook' => '#',
+            'instagram' => '#',
         ];
+
         $activityDomains = ActivityDomain::inRandomOrder()->limit(4)->pluck('id');
         $name = fake()->name;
 

@@ -69,16 +69,19 @@ class NgoResource extends Resource
                             SpatieMediaLibraryFileUpload::make('logo')->conversion('thumb'),
                             Forms\Components\RichEditor::make('description')->columnSpan(2)->required(),
                         ]),
-                    Card::make()->columns(2)->schema([
-                        Forms\Components\TextInput::make('phone'),
-                        Forms\Components\TextInput::make('contact_email'),
-                        Forms\Components\TextInput::make('address'),
-                        Forms\Components\TextInput::make('website'),
-                        Forms\Components\Repeater::make('social_icons')->columnSpan(2)->schema([
-                            Forms\Components\TextInput::make('name')->disabled(),
-                            Forms\Components\TextInput::make('url')->url(),
-                        ])->disableItemCreation(),
-                    ]),
+                    Card::make()
+                        ->columns(2)
+                        ->schema([
+                            Forms\Components\TextInput::make('phone'),
+                            Forms\Components\TextInput::make('contact_email')
+                                ->email(),
+                            Forms\Components\TextInput::make('address'),
+                            Forms\Components\TextInput::make('website')
+                                ->url(),
+                            Forms\Components\TextInput::make('social_icons.facebook')
+                                ->label('Facebook')
+                                ->url(),
+                        ]),
                 ]),
 
             ]);
