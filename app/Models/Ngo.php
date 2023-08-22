@@ -65,6 +65,7 @@ class Ngo extends Model implements HasMedia
         return [
             'id' => $this->id,
             'name' => Normalize::string($this->name),
+            'description' => Normalize::string($this->description),
             'county' => Normalize::string($this->county?->name),
             'beneficiary' => Normalize::collection(
                 $this->services
