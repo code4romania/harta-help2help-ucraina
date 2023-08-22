@@ -12,18 +12,18 @@ class PageController extends Controller
 {
     public function ngosPage(Request $request)
     {
-        $filters = $request->validate([
+        $attributes = $request->validate([
             'search' => ['nullable', 'string'],
-            'county' => ['nullable', 'exists:counties,id'],
-            'intervention_domain' => ['nullable', 'exists:intervention_domains,id'],
-            'beneficiary' => ['nullable', 'exists:beneficiary_groups,id'],
+            'filter.county' => ['nullable', 'exists:counties,id'],
+            'filter.intervention_domain' => ['nullable', 'exists:intervention_domains,id'],
+            'filter.beneficiary' => ['nullable', 'exists:beneficiary_groups,id'],
         ]);
 
         return view('ngos', [
-            'ngos' => Ngo::query()
-                ->with(['media', 'services'])
-                ->filter($filters)
-                ->paginate(6),
+            'ngos' => Ngo::searchAndFilter(
+                data_get($attributes, 'search'),
+                data_get($attributes, 'filter'),
+            )->paginate(6),
         ]);
     }
 

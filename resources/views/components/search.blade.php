@@ -28,10 +28,10 @@
                 </span>
                 <select
                     class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
-                    name="filter[county]" onchange="">
+                    name="filter[county]">
                     <option value=""> {{ __('txt.placeholders.anywhere_country') }} </option>
                     @foreach ($counties as $county)
-                        <option value="{{ $county->id }}" @selected(request()->get('filter.county') === $county->id)>
+                        <option value="{{ $county->id }}" @selected(request()->integer('filter.county') === $county->id)>
                             {{ $county->name }}
                         </option>
                     @endforeach
@@ -47,7 +47,7 @@
                     name="filter[intervention_domain]" onchange="getDomains(@js(__('txt.placeholders.domain')))">
                     <option value=""> {{ __('txt.placeholders.any_domain') }} </option>
                     @foreach ($interventionDomains as $domain)
-                        <option value="{{ $domain->id }}" @selected(request()->get('filter.intervention_domain') === $domain->id)>
+                        <option value="{{ $domain->id }}" @selected(request()->integer('filter.intervention_domain') === $domain->id)>
                             {{ $domain->name }}
                         </option>
                     @endforeach
@@ -63,7 +63,7 @@
                     name="filter[beneficiary]">
                     <option value=""> {{ __('txt.placeholders.any_beneficiary') }} </option>
                     @foreach ($beneficiaries as $beneficiary)
-                        <option value="{{ $beneficiary->id }}" @selected(request()->get('filter.beneficiary') === $beneficiary->id)>
+                        <option value="{{ $beneficiary->id }}" @selected(request()->integer('filter.beneficiary') === $beneficiary->id)>
                             {{ $beneficiary->name }}
                         </option>
                     @endforeach
@@ -77,11 +77,15 @@
                 <select
                     class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
                     name="filter[status]">
-                    <option value=""> {{ __('txt.placeholders.project_status') }} </option>
-                    <option value="active" @selected(request()->get('filter.beneficiary') === 'active')>
-                        {{ __('txt.service_card.project_active') }}</option>
-                    <option value="finished" @selected(request()->get('filter.beneficiary') === 'finished')>
-                        {{ __('txt.service_card.project_finished') }}</option>
+                    <option value="">
+                        {{ __('txt.placeholders.project_status') }}
+                    </option>
+                    <option value="active" @selected(request()->input('filter.status') === 'active')>
+                        {{ __('txt.service_card.project_active') }}
+                    </option>
+                    <option value="finished" @selected(request()->input('filter.status') === 'finished')>
+                        {{ __('txt.service_card.project_finished') }}
+                    </option>
                 </select>
             </label>
 

@@ -7,33 +7,35 @@ namespace App\View\Components;
 use App\Models\BeneficiaryGroup;
 use App\Models\County;
 use App\Models\InterventionDomains;
-use App\Models\Ngo;
-use App\Models\Service;
-use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
 class SearchNgo extends Component
 {
+    public Collection $counties;
+
+    public Collection $interventionDomains;
+
+    public Collection $beneficiaries;
+
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        //
+        $this->counties = County::all();
+
+        $this->interventionDomains = InterventionDomains::all();
+
+        $this->beneficiaries = BeneficiaryGroup::all();
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render(): View
     {
-        $totalServices = Service::count();
-        $totalNgos = Ngo::count();
-        $counties = County::all();
-        $interventionsDomains = InterventionDomains::all();
-        $beneficiaries = BeneficiaryGroup::all();
-
-        return view('components.search-ngo', compact('totalNgos', 'totalServices', 'counties', 'interventionsDomains', 'beneficiaries'));
+        return view('components.search-ngo');
     }
 }
