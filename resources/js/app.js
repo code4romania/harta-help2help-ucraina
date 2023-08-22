@@ -5,29 +5,7 @@ import.meta.glob([
     '../fonts/**',
 ]);
 
-window.showList = function () {
-    let showListButton = document.getElementById('show-services-list');
-    let showMapButton = document.getElementById('show-services-map');
-    let mapEl = document.getElementById('services-map')
-    let el = document.getElementById('services-list')
-    el.classList.remove('hidden')
-    mapEl.classList.add('hidden');
-    showMapButton.classList.remove('bg-orange1')
-    showListButton.classList.remove('bg-white')
-    showListButton.classList.add('bg-orange1')
-}
 
-window.showMap = function () {
-    let showListButton = document.getElementById('show-services-list');
-    let showMapButton = document.getElementById('show-services-map');
-    let mapEl = document.getElementById('services-map')
-    let el = document.getElementById('services-list')
-    el.classList.add('hidden')
-    mapEl.classList.remove('hidden');
-    showMapButton.classList.add('bg-orange1')
-    showListButton.classList.add('bg-white')
-    showListButton.classList.remove('bg-orange1')
-}
 
 window.hideAllPoints = function () {
     let pointElements = [...document.getElementsByClassName('point-services')]

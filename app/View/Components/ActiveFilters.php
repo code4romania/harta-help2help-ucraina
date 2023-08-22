@@ -13,7 +13,6 @@ use Illuminate\View\Component;
 class ActiveFilters extends Component
 {
     public array $filters = [
-        'search',
         'county',
         'intervention_domain',
         'beneficiary',
@@ -27,19 +26,25 @@ class ActiveFilters extends Component
      */
     public function __construct()
     {
-        $this->activeFilters = collect($this->filters)
-            ->reject(fn (string $filter) => ! request()->query($filter))
-            ->mapWithKeys(fn (string $filter) => [
-                __("txt.filters.label.{$filter}") => match ($filter) {
-                    'county' => $this->getCountyFilter(),
-                    'intervention_domain' => $this->getInterventionDomainFilter(),
-                    'beneficiary' => $this->getBeneficiaryFilter(),
-                    'status' => $this->getStatusFilter(),
-                    default => request()->query($filter),
-                },
-            ])
-            ->filter()
-            ->all();
+        if (request()->get('search')) {
+            $this->activeFilters['search'] = request()->get('search');
+        }
+
+        $this->activeFilters = array_merge(
+            $this->activeFilters,
+            collect($this->filters)
+                ->mapWithKeys(fn (string $filter) => [
+                    __("txt.filters.label.{$filter}") => match ($filter) {
+                        'county' => $this->getCountyFilter(),
+                        'intervention_domain' => $this->getInterventionDomainFilter(),
+                        'beneficiary' => $this->getBeneficiaryFilter(),
+                        'status' => $this->getStatusFilter(),
+                        default => request()->query($filter),
+                    },
+                ])
+                ->filter()
+                ->all()
+        );
     }
 
     /**
@@ -52,28 +57,32 @@ class ActiveFilters extends Component
 
     public function shouldRender(): bool
     {
-        return collect(request()->query())
-            ->hasAny($this->filters);
+        return collect([
+            request()->get('search'),
+            ...request()->get('filter', []),
+        ])
+            ->filter()
+            ->isNotEmpty();
     }
 
     protected function getCountyFilter(): ?string
     {
-        return County::where('id', request()->query('county'))->first()?->name;
+        return County::where('id', request()->integer('filter.county'))->first()?->name;
     }
 
     protected function getInterventionDomainFilter(): ?string
     {
-        return InterventionDomains::where('id', request()->query('intervention_domain'))->first()?->name;
+        return InterventionDomains::where('id', request()->integer('filter.intervention_domain'))->first()?->name;
     }
 
     protected function getBeneficiaryFilter(): ?string
     {
-        return BeneficiaryGroup::where('id', request()->query('beneficiary'))->first()?->name;
+        return BeneficiaryGroup::where('id', request()->integer('filter.beneficiary'))->first()?->name;
     }
 
     protected function getStatusFilter(): ?string
     {
-        return match (request()->query('status')) {
+        return match (request()->input('filter.status')) {
             'active' => __('txt.service_card.project_active'),
             'finished' => __('txt.service_card.project_finished'),
             default => null,

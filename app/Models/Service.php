@@ -6,20 +6,22 @@ namespace App\Models;
 
 use App\Concerns\ClearsResponseCache;
 use App\Concerns\HasLocation;
-use App\Concerns\InteractsWithSearch;
+use App\Concerns\Searchable;
+use App\Concerns\Translatable;
+use App\Helpers\Normalize;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
     use ClearsResponseCache;
     use HasFactory;
-    use HasTranslations;
     use HasLocation;
-    use InteractsWithSearch;
+    use Searchable;
+    use Translatable;
 
     protected $casts = [
         'intervention_domains' => 'array',
@@ -53,6 +55,44 @@ class Service extends Model
 
     protected $with = ['interventionDomain', 'beneficiaryGroup', 'ngo', 'city', 'county'];
 
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => Normalize::string($this->name),
+            'project_name' => Normalize::string($this->project_name),
+            'county' => Normalize::string($this->county?->name),
+            'beneficiary' => Normalize::collection(
+                $this->beneficiaryGroup
+                    ->pluck('name')
+                    ->unique()
+                    ->collect()
+            ),
+            'interventionDomain' => Normalize::collection(
+                $this->interventionDomain
+                    ->pluck('name')
+                    ->unique()
+                    ->collect()
+            ),
+        ];
+    }
+
+    public function scopeFilterQuery(Builder $query, array $filters): Builder
+    {
+        return $query
+            ->when(data_get($filters, 'county'), function (Builder $query, $county) {
+                $query->where('county_id', $county);
+            })
+            ->when(data_get($filters, 'intervention_domain'), function (Builder $query, $interventionDomain) {
+                $query->whereRelation('interventionDomain', 'intervention_domains.id', $interventionDomain);
+            })
+            ->when(data_get($filters, 'beneficiary'), function (Builder $query, $beneficiary) {
+                $query->whereRelation('beneficiaryGroup', 'beneficiary_groups.id', $beneficiary);
+            })
+            ->when(data_get($filters, 'status'), function (Builder $query, $status) {
+                $query->where('status', $status);
+            });
+    }
 
     public function ngo(): BelongsTo
     {

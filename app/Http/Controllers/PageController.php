@@ -12,21 +12,26 @@ class PageController extends Controller
 {
     public function ngosPage(Request $request)
     {
-        $ngos = Ngo::query()
-            ->with('media')
-            ->filter(collect($request->all()))->paginate(6);
+        $attributes = $request->validate([
+            'search' => ['nullable', 'string'],
+            'filter.county' => ['nullable', 'exists:counties,id'],
+            'filter.intervention_domain' => ['nullable', 'exists:intervention_domains,id'],
+            'filter.beneficiary' => ['nullable', 'exists:beneficiary_groups,id'],
+        ]);
 
-        return view('ngos', compact('ngos'));
+        return view('ngos', [
+            'ngos' => Ngo::searchAndFilter(
+                data_get($attributes, 'search'),
+                data_get($attributes, 'filter'),
+            )->paginate(6),
+        ]);
     }
 
-    public function ngoPage(string $local, string $slug)
+    public function ngoPage(string $local, Ngo $ngo)
     {
-        $ngo = Ngo::query()->where('slug', $slug)->with(['city', 'county'])->firstOrFail();
-
-
-
-        $breadcrumbs =
-            [
+        return view('ngos_index', [
+            'ngo' => $ngo,
+            'breadcrumbs' => [
                 [
                     'name' => __('txt.header.ngos'),
                     'url' => route('ngos', app()->getLocale()),
@@ -34,28 +39,54 @@ class PageController extends Controller
                 [
                     'name' => $ngo->name,
                 ],
-
-            ];
-
-        return view('ngos_index', compact('ngo', 'breadcrumbs'));
+            ],
+        ]);
     }
 
     public function services(Request $request)
     {
-        $query = Service::query()->filter(collect($request->all()));
-        $servicesJson = $query->get();
-        $services = $query->paginate();
+        $attributes = $request->validate([
+            'search' => ['nullable', 'string'],
+            'filter.county' => ['nullable', 'exists:counties,id'],
+            'filter.intervention_domain' => ['nullable', 'exists:intervention_domains,id'],
+            'filter.beneficiary' => ['nullable', 'exists:beneficiary_groups,id'],
+            'filter.status' => ['nullable', 'string', 'in:active,finished'],
+        ]);
 
+        return view('services', [
+            'view' => 'map',
+            'services' => Service::searchAndFilter(
+                data_get($attributes, 'search'),
+                data_get($attributes, 'filter'),
+            )->get(),
+        ]);
+    }
 
-        return view('services', compact('services', 'servicesJson'));
+    public function servicesList(Request $request)
+    {
+        $attributes = $request->validate([
+            'search' => ['nullable', 'string'],
+            'filter.county' => ['nullable', 'exists:counties,id'],
+            'filter.intervention_domain' => ['nullable', 'exists:intervention_domains,id'],
+            'filter.beneficiary' => ['nullable', 'exists:beneficiary_groups,id'],
+            'filter.status' => ['nullable', 'string', 'in:active,finished'],
+        ]);
+
+        return view('services', [
+            'view' => 'list',
+            'services' => Service::searchAndFilter(
+                data_get($attributes, 'search'),
+                data_get($attributes, 'filter'),
+            )->paginate(),
+        ]);
     }
 
     public function home()
     {
-        $totalServices = Service::count();
-        $totalNgos = Ngo::count();
-        $totalBeneficiaries = Ngo::sum('number_of_beneficiaries');
-
-        return view('home', compact('totalNgos', 'totalServices', 'totalBeneficiaries'));
+        return view('home', [
+            'totalServices' => Service::count(),
+            'totalNgos' => Ngo::count(),
+            'totalBeneficiaries' => Ngo::sum('number_of_beneficiaries'),
+        ]);
     }
 }

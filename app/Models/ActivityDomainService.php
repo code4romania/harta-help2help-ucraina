@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Concerns\ClearsResponseCache;
+use App\Concerns\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Spatie\Translatable\HasTranslations;
 
 class ActivityDomainService extends Model
 {
     use ClearsResponseCache;
     use HasFactory;
-    use HasTranslations;
+    use Translatable;
+
+    protected $translatable = [];
 
     public function service(): BelongsTo
     {
