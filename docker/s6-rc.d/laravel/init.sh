@@ -11,6 +11,7 @@ php artisan route:cache
 php artisan view:cache
 php artisan storage:link
 php artisan migrate --force
+php artisan search:rebuild
 
 echo "Laravel init done"
 php artisan up
