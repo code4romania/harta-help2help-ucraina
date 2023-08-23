@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\PageController;
-use App\Http\Middleware\LanguageManager;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 use Spatie\ResponseCache\Middlewares\CacheResponse;
 
@@ -21,7 +21,7 @@ use Spatie\ResponseCache\Middlewares\CacheResponse;
 Route::group([
     'prefix' => '{local?}',
     'middleware' => [
-        LanguageManager::class,
+        SetLocale::class,
         CacheResponse::class,
         'throttle:web',
     ],
