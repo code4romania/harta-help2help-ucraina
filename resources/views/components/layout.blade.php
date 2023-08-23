@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? 'Help2Help' }}</title>
     <!-- Styles -->
-    @vite(['resources/scss/app.scss'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="relative min-h-screen p-0 m-0 pb-60 md:pb-72 lg:pb-80">
     <x-header />
+
     {{ $slot }}
+
     <x-footer />
 </body>
-@vite('resources/js/app.js')
+
 {{$js ?? ''}}
 @if(App::environment('production'))
     <!-- Google tag (gtag.js) -->

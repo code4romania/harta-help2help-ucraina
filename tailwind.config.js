@@ -2,17 +2,24 @@
 
 module.exports = {
     content: [
-        "app/**/*.php",
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./vendor/filament/**/*.blade.php",
+        'app/**/*.php',
+        'resources/**/*.blade.php',
+        'resources/**/*.js',
+        'vendor/filament/**/*.blade.php',
     ],
-    darkMode: "class",
+    darkMode: 'class',
     theme: {
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1.5rem',
+                lg: '2rem',
+            },
+        },
         extend: {
-            container: {
-                center: true,
-                padding: '0.75rem',
+            fontFamily: {
+                sans: ['Source Sans Pro', 'sans-serif'],
             },
             colors: {
                 'blue1': '#7CC1DF',
@@ -22,10 +29,9 @@ module.exports = {
                 'orange2': '#EDC96C',
                 'orange3': '#F0D89A',
                 'yellow1': '#E9D758',
-                'white': '#FFFFFF',
                 'header': '#FBF9F4',
                 'gray1': '#6B7280',
-                'gray2': '#fbf9f4b3',
+                'gray2': '#FBF9F4',
             },
         },
     },
