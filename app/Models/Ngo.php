@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Collection;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -45,7 +44,7 @@ class Ngo extends Model implements HasMedia
     ];
 
     protected $casts = [
-        'social_icons' => 'array',
+        'social_icons' => 'collection',
         'activity_domains' => 'array',
     ];
 
@@ -116,9 +115,11 @@ class Ngo extends Model implements HasMedia
         return $this->hasMany(Service::class);
     }
 
-    public function getActivityDomainsNameAttribute(): Collection
+    public function getActivityDomainsListAttribute(): string
     {
-        return ActivityDomain::whereIn('id', $this->activity_domains)->pluck('name', 'id');
+        return ActivityDomain::whereIn('id', $this->activity_domains)
+            ->pluck('name')
+            ->join(', ');
     }
 
     public function getInterventionDomainsListAttribute(): string
@@ -126,7 +127,7 @@ class Ngo extends Model implements HasMedia
         return $this->services
             ->pluck('interventionDomains')
             ->flatten()
-            ->pluck('name', 'id')
+            ->pluck('name')
             ->join(', ');
     }
 }

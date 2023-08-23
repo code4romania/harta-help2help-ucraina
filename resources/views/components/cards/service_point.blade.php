@@ -41,6 +41,6 @@
             @endforeach
         </div>
     @endif
-    <a href="{{ localized_route('ngo.index', ['ngo' => $point->ngo]) . '#' . $point->slug }}"
+    <a href="{{ localized_route('ngos.show', ['ngo' => $point->ngo]) . '#' . $point->slug }}"
         class="flex items-center justify-center w-full h-12 text-center text-black rounded-md bg-orange-1 hover:bg-blue-1">{{ __('txt.buttons.see_more') }}</a>
 </div>

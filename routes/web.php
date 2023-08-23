@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NgoController;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,6 @@ Route::group([
     Route::get('/services', [PageController::class, 'services'])->name('services')->middleware('throttle:services');
     Route::get('/services/list', [PageController::class, 'servicesList'])->name('services.list')->middleware('throttle:services');
 
-    Route::get('/ngos', [PageController::class, 'ngosPage'])->name('ngos');
-    Route::get('/ngos/{ngo:slug}', [PageController::class, 'ngoPage'])->name('ngo.index');
+    Route::get('/ngo', [NgoController::class, 'index'])->name('ngos.index');
+    Route::get('/ngo/{ngo:slug}', [NgoController::class, 'show'])->name('ngos.show');
 });
