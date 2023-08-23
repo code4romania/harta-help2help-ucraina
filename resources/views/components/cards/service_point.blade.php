@@ -1,12 +1,12 @@
 @props(['point'])
 
 <div class="flex hidden w-full mx-2 card md:w-1/2 point-services" id="point-id-{{ $point->id }}">
-    <x-heroicon-o-x class="self-end w-10 h-10 text-gray1" onclick="hideAllPoints()" />
+    <x-heroicon-o-x class="self-end w-10 h-10 text-gray-1" onclick="hideAllPoints()" />
     <img class="w-64 mx-auto"
         src="{{ $point->ngo->getFirstMediaUrl() ? $point->ngo->getFirstMediaUrl() : Vite::asset('resources/images/design/placeholder.png') }}"
         alt="{{ $point->ngo->name }}">
     <p class="flex my-2">
-        <x-heroicon-o-location-marker class="w-5 h-5 mr-3 text-gray1" />
+        <x-heroicon-o-location-marker class="w-5 h-5 mr-3 text-gray-1" />
         {{ $point->city->name }}, {{ $point->county->name }}
     </p>
     <h4 class="my-2 text-xl font-bold">{{ Str::limit($point->name, 220, '...') }}</h4>
@@ -35,12 +35,12 @@
         <div class="flex flex-wrap justify-between w-full">
             @foreach ($point->application_methods as $method)
                 <p class="flex">
-                    <x-heroicon-o-check-circle class="w-5 h-5 mr-1 text-gray1 fill-green-300" />
+                    <x-heroicon-o-check-circle class="w-5 h-5 mr-1 text-gray-1 fill-green-300" />
                     {{ __('txt.service_card.' . $method['type']) }}
                 </p>
             @endforeach
         </div>
     @endif
     <a href="{{ localized_route('ngo.index', ['ngo' => $point->ngo]) . '#' . $point->slug }}"
-        class="flex items-center justify-center w-full h-12 text-center text-black rounded-md bg-orange1 hover:bg-blue1">{{ __('txt.buttons.see_more') }}</a>
+        class="flex items-center justify-center w-full h-12 text-center text-black rounded-md bg-orange-1 hover:bg-blue-1">{{ __('txt.buttons.see_more') }}</a>
 </div>

@@ -5,5 +5,5 @@
     <h4 class="my-2 text-xl font-bold">{{ $ngo->name }}</h4>
     <p>{{ Str::limit($ngo->description, 520, '...') }}</p>
     <a href="{{ localized_route('ngo.index', ['ngo' => $ngo]) }}"
-        class="flex items-center justify-center w-full h-12 text-center text-black rounded-md bg-orange1 hover:bg-blue1">{{ __('txt.buttons.see_more') }}</a>
+        class="flex items-center justify-center w-full h-12 text-center text-black rounded-md bg-orange-1 hover:bg-blue-1">{{ __('txt.buttons.see_more') }}</a>
 </div>

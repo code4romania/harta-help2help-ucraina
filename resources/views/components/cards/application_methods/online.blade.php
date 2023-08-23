@@ -1,10 +1,10 @@
 @props(['method'])
-<div class="flex w-full flex-col md:w-1/4">
+<div class="flex flex-col w-full md:w-1/4">
     <p class="flex font-bold">
-        <x-heroicon-o-check-circle class="mr-1 h-5 w-5 fill-green-300 text-gray1"/>
+        <x-heroicon-o-check-circle class="w-5 h-5 mr-1 fill-green-300 text-gray-1" />
         {{ __('txt.service_card.online') }}
     </p>
-    <a href="{{$method['application_url']}}" target="_blank"
-       class="my-2 mt-3 h-12 w-1/2 rounded-sm flex justify-center  text-center items-center  bg-orange1 font-bold text-black hover:bg-blue1 md:mt-auto md:w-full">{{ __('txt.buttons.access_online') }}</a>
+    <a href="{{ $method['application_url'] }}" target="_blank"
+        class="flex items-center justify-center w-1/2 h-12 my-2 mt-3 font-bold text-center text-black rounded-sm bg-orange-1 hover:bg-blue-1 md:mt-auto md:w-full">{{ __('txt.buttons.access_online') }}</a>
 
 </div>

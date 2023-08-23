@@ -4,7 +4,7 @@
         src="{{ $service->ngo->getFirstMediaUrl() ? $service->ngo->getFirstMediaUrl() : Vite::asset('resources/images/design/placeholder.png') }}"
         alt="{{ $service->ngo->name }}">
     <p class="flex my-2">
-        <x-heroicon-o-location-marker class="w-5 h-5 mr-3 text-gray1" />
+        <x-heroicon-o-location-marker class="w-5 h-5 mr-3 text-gray-1" />
         {{ $service->city->name }}, {{ $service->county->name }}
     </p>
     <h4 class="my-2 text-xl font-bold">{{ Str::limit($service->name, 60, '...') }}</h4>
@@ -31,12 +31,12 @@
         <div class="flex flex-wrap justify-between w-full">
             @foreach ($service->application_methods as $method)
                 <p class="flex">
-                    <x-heroicon-o-check-circle class="w-5 h-5 mr-1 text-gray1 fill-green-300" />
+                    <x-heroicon-o-check-circle class="w-5 h-5 mr-1 text-gray-1 fill-green-300" />
                     {{ __('txt.service_card.' . $method['type']) }}
                 </p>
             @endforeach
         </div>
     @endif
     <a href="{{ localized_route('ngo.index', ['ngo' => $service->ngo]) . '#' . $service->slug }}"
-        class="flex items-center justify-center w-full h-12 text-center text-black rounded-md bg-orange1 hover:bg-blue1">{{ __('txt.buttons.see_more') }}</a>
+        class="flex items-center justify-center w-full h-12 text-center text-black rounded-md bg-orange-1 hover:bg-blue-1">{{ __('txt.buttons.see_more') }}</a>
 </div>

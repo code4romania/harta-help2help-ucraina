@@ -19,15 +19,15 @@
                 </h2>
                 <div class="grid grid-cols-2 gap-6">
                     <a href="{{ localized_route('services', request()->query()) }}" id="show-services-map"
-                        class="px-6 py-3 flex items-center justify-center border border-slate-300  @if (empty(request()->get('page'))) bg-orange1 @endif text-black hover:bg-blue1">
-                        <x-heroicon-o-map class="w-6 h-6 p-1 text-gray1" />
+                        class="px-6 py-3 flex items-center justify-center border border-slate-300  @if (empty(request()->get('page'))) bg-orange-1 @endif text-black hover:bg-blue-1">
+                        <x-heroicon-o-map class="w-6 h-6 p-1 text-gray-1" />
                         {{ __('txt.buttons.services_map') }}
                     </a>
 
                     <a href="{{ localized_route('services.list', request()->query()) }}" id="show-services-list"
-                        class="px-6 py-3 flex items-center justify-center border border-slate-300 @if (!empty(request()->get('page'))) bg-orange1 @endif text-black hover:bg-blue1 active:bg-orange1">
+                        class="px-6 py-3 flex items-center justify-center border border-slate-300 @if (!empty(request()->get('page'))) bg-orange-1 @endif text-black hover:bg-blue-1 active:bg-orange-1">
 
-                        <x-heroicon-o-menu-alt-1 class="w-6 h-6 p-1 text-gray1" />
+                        <x-heroicon-o-menu-alt-1 class="w-6 h-6 p-1 text-gray-1" />
                         {{ __('txt.buttons.services_list') }}
                     </a>
                 </div>
