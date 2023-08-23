@@ -21,20 +21,29 @@
         </div>
 
         <div class="flex-wrap items-center justify-center flex-1 order-2 hidden w-full lg:flex">
-            <nav class="flex items-center font-bold divide-x divide-y-0 divide-gray-300 md:flex whitespace-nowrap">
-                @foreach ($menu as $item)
-                    <a class="block px-3 text-center" href="{{ $item['url'] }}">
-                        {{ $item['name'] }}
-                    </a>
-                @endforeach
+            <nav>
+                <ul class="flex items-center font-bold divide-x divide-y-0 divide-gray-300 whitespace-nowrap">
+                    @foreach ($menu as $item)
+                        <li>
+                            <a class="block px-3 text-center hover:text-blue-1 active:text-orange-1"
+                                href="{{ $item['url'] }}">
+                                {{ $item['name'] }}
+                            </a>
 
-                <select class="py-0 pl-3 border-0 bg-gray-2" id="langSwitcher" onchange="switchLang(this.value)">
-                    @foreach ($languages as $code => $name)
-                        <option value="{{ $code }}" @selected(app()->getLocale() === $code)>
-                            {{ $name }}
-                        </option>
+                        </li>
                     @endforeach
-                </select>
+
+                    <li>
+                        <select class="py-0 pl-3 border-0 bg-gray-2" id="langSwitcher"
+                            onchange="switchLang(this.value)">
+                            @foreach ($languages as $code => $name)
+                                <option value="{{ $code }}" @selected(app()->getLocale() === $code)>
+                                    {{ $name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </li>
+                </ul>
             </nav>
         </div>
 

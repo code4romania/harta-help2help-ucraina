@@ -57,7 +57,7 @@ class Service extends Model
 
     protected $with = [
         'interventionDomains',
-        'beneficiaryGroup',
+        'beneficiaryGroups',
         'ngo',
         'city',
         'county',
@@ -70,8 +70,8 @@ class Service extends Model
             'name' => Normalize::string($this->name),
             'project_name' => Normalize::string($this->project_name),
             'county' => Normalize::string($this->county?->name),
-            'beneficiary' => Normalize::collection(
-                $this->beneficiaryGroup
+            'beneficiaries' => Normalize::collection(
+                $this->beneficiaryGroups
                     ->pluck('name')
                     ->unique()
                     ->collect()
@@ -95,7 +95,7 @@ class Service extends Model
                 $query->whereRelation('interventionDomains', 'intervention_domains.id', $interventionDomain);
             })
             ->when(data_get($filters, 'beneficiary'), function (Builder $query, $beneficiary) {
-                $query->whereRelation('beneficiaryGroup', 'beneficiary_groups.id', $beneficiary);
+                $query->whereRelation('beneficiaryGroups', 'beneficiary_groups.id', $beneficiary);
             })
             ->when(data_get($filters, 'status'), function (Builder $query, $status) {
                 $query->where('status', $status);
@@ -112,7 +112,7 @@ class Service extends Model
         return $this->hasManyThrough(ActivityDomain::class, ActivityDomainService::class);
     }
 
-    public function beneficiaryGroup(): BelongsToMany
+    public function beneficiaryGroups(): BelongsToMany
     {
         return $this->belongsToMany(BeneficiaryGroup::class);
     }
@@ -125,5 +125,24 @@ class Service extends Model
     public function getNgoImageAttribute()
     {
         return $this->ngo->getFirstMediaUrl() ?: null;
+    }
+
+    public function getBeneficiaryGroupsListAttribute(): string
+    {
+        return $this->beneficiaryGroups
+            ->pluck('name')
+            ->join(', ');
+    }
+
+    public function getInterventionDomainsListAttribute(): string
+    {
+        return $this->interventionDomains
+            ->pluck('name')
+            ->join(', ');
+    }
+
+    public function isActive(): bool
+    {
+        return $this->status === 'active';
     }
 }

@@ -71,7 +71,7 @@ class Ngo extends Model implements HasMedia
             'county' => Normalize::string($this->county?->name),
             'beneficiary' => Normalize::collection(
                 $this->services
-                    ->pluck('beneficiaryGroup')
+                    ->pluck('beneficiaryGroups')
                     ->flatMap
                     ->pluck('name')
                     ->unique()

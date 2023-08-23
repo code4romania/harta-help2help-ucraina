@@ -20,8 +20,7 @@ class ServiceController extends Controller
             'filter.status' => ['nullable', 'string', 'in:active,finished'],
         ]);
 
-        return view('services', [
-            'view' => 'map',
+        return view('services.map', [
             'services' => Service::searchAndFilter(
                 data_get($attributes, 'search'),
                 data_get($attributes, 'filter'),
@@ -39,12 +38,11 @@ class ServiceController extends Controller
             'filter.status' => ['nullable', 'string', 'in:active,finished'],
         ]);
 
-        return view('services', [
-            'view' => 'list',
+        return view('services.list', [
             'services' => Service::searchAndFilter(
                 data_get($attributes, 'search'),
                 data_get($attributes, 'filter'),
-            )->paginate(),
+            )->paginate(12),
         ]);
     }
 }

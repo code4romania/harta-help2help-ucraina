@@ -8,7 +8,7 @@ import.meta.glob([
 
 
 window.hideAllPoints = function () {
-    let pointElements = [...document.getElementsByClassName('point-services')]
+    let pointElements = [...document.getElementsByClassName('service-point')];
     pointElements.forEach(el => {
         el.classList.add('hidden')
     })
@@ -39,7 +39,6 @@ window.initMap = () => {
         });
         marker.addListener("click", () => {
             hideAllPoints()
-            console.log('point-id-' + point.id)
             let elementToShow = document.getElementById('point-id-' + point.id)
 
             elementToShow.classList.remove('hidden')

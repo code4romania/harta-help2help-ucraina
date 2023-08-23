@@ -12,9 +12,9 @@
 
         <x-active-filters />
 
-        <div class="flex flex-wrap">
-            @foreach ($ngos->items() as $item)
-                <x-cards.ngo_sm :ngo="$item" />
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 ">
+            @foreach ($ngos as $ngo)
+                <x-cards.ngo :ngo="$ngo" />
             @endforeach
         </div>
         {{ $ngos->withQueryString()->links() }}
