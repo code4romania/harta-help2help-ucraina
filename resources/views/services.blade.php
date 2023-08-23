@@ -43,7 +43,7 @@
                     @endforeach
                 </div>
 
-                <x-slot:js>
+                @pushOnce('js')
                     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
                     <script>
                         let points = @json($services);
@@ -57,9 +57,9 @@
                         const markDisabledPath = "{{ Vite::asset('resources/images/icons/map-pin-disabled.png') }}";
                     </script>
                     <script
-                        src="https://maps.googleapis.com/maps/api/js?key={{ config('app.gmaps_api_key') }}&libraries=places&callback=initMap"
+                        src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initMap"
                         defer></script>
-                </x-slot:js>
+                @endPushOnce
             @else
                 <div class="flex flex-wrap" id="services-list">
                     @foreach ($services->items() as $service)
