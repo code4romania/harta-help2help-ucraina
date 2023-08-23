@@ -33,8 +33,8 @@ Route::group([
     Route::view('/about', 'about')->name('about');
     Route::view('/contact', 'contact')->name('contact');
 
-    Route::get('/services', [PageController::class, 'services'])->name('services')->middleware('throttle:services');
-    Route::get('/services/list', [PageController::class, 'servicesList'])->name('services.list')->middleware('throttle:services');
+    Route::get('/services', [ServiceController::class, 'map'])->name('services');
+    Route::get('/services/list', [ServiceController::class, 'list'])->name('services.list');
 
     Route::get('/ngo', [NgoController::class, 'index'])->name('ngos.index');
     Route::get('/ngo/{ngo:slug}', [NgoController::class, 'show'])->name('ngos.show');
