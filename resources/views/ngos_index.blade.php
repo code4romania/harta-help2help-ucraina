@@ -31,17 +31,9 @@
 
             </p>
             <p class="font-bold">{{ __('txt.ngo_card.intervention_domains') }}
-                @php $tmpDomains = []; @endphp
-                @foreach ($ngo->intervention_domains_name as $domain)
-                    <span class="text-orange-1">
-                        {{ $domain }}
-                    </span>
-                    @if (!$loop->last)
-                        ,
-                    @endif
-                @endforeach
-
+                <span class="text-orange-1">{{ $ngo->intervention_domains_list }}</span>
             </p>
+
             <p class="font-bold">{{ __('txt.ngo_card.beneficiaries_nr') }} <span
                     class="text-orange-1">{{ $ngo->number_of_beneficiaries ?: 'N/A' }}</span></p>
 

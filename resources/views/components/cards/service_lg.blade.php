@@ -29,7 +29,7 @@
             @endforeach
         </p>
         <p class="w-full mt-5 font-bold md:w-1/4">{{ __('txt.service_card.intervention_domains') }}
-            @foreach ($service->interventionDomain as $id => $domain)
+            @foreach ($service->interventionDomains as $id => $domain)
                 <span class="font-normal">{{ $domain->name }}</span>
                 @if (!$loop->last)
                     ,

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Concerns\BelongsToInterventionDomains;
 use App\Concerns\ClearsResponseCache;
 use App\Concerns\HasLocation;
 use App\Concerns\Searchable;
@@ -13,10 +14,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Service extends Model
 {
+    use BelongsToInterventionDomains;
     use ClearsResponseCache;
     use HasFactory;
     use HasLocation;
@@ -24,7 +27,6 @@ class Service extends Model
     use Translatable;
 
     protected $casts = [
-        'intervention_domains' => 'array',
         'activity_domains' => 'array',
         'beneficiary_groups' => 'array',
         'application_methods' => 'array',
@@ -53,7 +55,13 @@ class Service extends Model
         'project_name',
     ];
 
-    protected $with = ['interventionDomain', 'beneficiaryGroup', 'ngo', 'city', 'county'];
+    protected $with = [
+        'interventionDomains',
+        'beneficiaryGroup',
+        'ngo',
+        'city',
+        'county',
+    ];
 
     public function toSearchableArray(): array
     {
@@ -68,8 +76,8 @@ class Service extends Model
                     ->unique()
                     ->collect()
             ),
-            'interventionDomain' => Normalize::collection(
-                $this->interventionDomain
+            'interventionDomains' => Normalize::collection(
+                $this->interventionDomains
                     ->pluck('name')
                     ->unique()
                     ->collect()
@@ -84,7 +92,7 @@ class Service extends Model
                 $query->where('county_id', $county);
             })
             ->when(data_get($filters, 'intervention_domain'), function (Builder $query, $interventionDomain) {
-                $query->whereRelation('interventionDomain', 'intervention_domains.id', $interventionDomain);
+                $query->whereRelation('interventionDomains', 'intervention_domains.id', $interventionDomain);
             })
             ->when(data_get($filters, 'beneficiary'), function (Builder $query, $beneficiary) {
                 $query->whereRelation('beneficiaryGroup', 'beneficiary_groups.id', $beneficiary);
@@ -104,14 +112,9 @@ class Service extends Model
         return $this->hasManyThrough(ActivityDomain::class, ActivityDomainService::class);
     }
 
-    public function beneficiaryGroup(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function beneficiaryGroup(): BelongsToMany
     {
         return $this->belongsToMany(BeneficiaryGroup::class);
-    }
-
-    public function interventionDomain(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(InterventionDomains::class);
     }
 
     public function getNgoNameAttribute()

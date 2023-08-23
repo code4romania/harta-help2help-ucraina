@@ -7,7 +7,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class InterventionDomainsFactory extends Factory
+class InterventionDomainFactory extends Factory
 {
     public function definition(): array
     {

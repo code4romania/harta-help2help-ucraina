@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\InterventionDomainsResource\Pages;
-use App\Models\InterventionDomains;
-use Closure;
+use App\Filament\Resources\InterventionDomainResource\Pages;
+use App\Models\InterventionDomain;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
@@ -14,13 +14,12 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Support\Str;
 
-class InterventionDomainsResource extends Resource
+class InterventionDomainResource extends Resource
 {
     use Translatable;
 
-    protected static ?string $model = InterventionDomains::class;
+    protected static ?string $model = InterventionDomain::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -28,10 +27,20 @@ class InterventionDomainsResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')->afterStateUpdated(function (Closure $set, $state) {
-                    $set('slug', Str::slug($state));
-                })->reactive(),
-                TextInput::make('slug')->disabled(),
+                TextInput::make('name'),
+
+                Select::make('icon')
+                    ->options([
+                        'health' => 'health',
+                        'food' => 'food',
+                        'house' => 'house',
+                        'hygiene' => 'hygiene',
+                        'finance_support' => 'finance_support',
+                        'protection' => 'protection',
+                        'education' => 'education',
+                        'management' => 'management',
+                        'integration' => 'integration',
+                    ]),
             ]);
     }
 
@@ -40,7 +49,7 @@ class InterventionDomainsResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name'),
-
+                TextColumn::make('icon'),
             ])
             ->filters([
                 //
@@ -64,8 +73,8 @@ class InterventionDomainsResource extends Resource
     {
         return [
             'index' => Pages\ListInterventionDomains::route('/'),
-            'create' => Pages\CreateInterventionDomains::route('/create'),
-            'edit' => Pages\EditInterventionDomains::route('/{record}/edit'),
+            'create' => Pages\CreateInterventionDomain::route('/create'),
+            'edit' => Pages\EditInterventionDomain::route('/{record}/edit'),
         ];
     }
 

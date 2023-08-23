@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\InterventionDomainsResource\Pages;
+namespace App\Filament\Resources\InterventionDomainResource\Pages;
 
-use App\Filament\Resources\InterventionDomainsResource;
+use App\Filament\Resources\InterventionDomainResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListInterventionDomains extends ListRecords
 {
-    protected static string $resource = InterventionDomainsResource::class;
+    protected static string $resource = InterventionDomainResource::class;
 
     protected function getActions(): array
     {

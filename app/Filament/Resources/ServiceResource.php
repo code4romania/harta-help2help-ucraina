@@ -8,7 +8,7 @@ use App\Enums\ServiceApplicationType;
 use App\Filament\Resources\ServiceResource\Pages;
 use App\Models\BeneficiaryGroup;
 use App\Models\County;
-use App\Models\InterventionDomains;
+use App\Models\InterventionDomain;
 use App\Models\Service;
 use Closure;
 use Filament\Forms;
@@ -36,7 +36,7 @@ class ServiceResource extends Resource
     {
         $beneficiaryGroup = BeneficiaryGroup::pluck('name', 'id');
 
-        $interventionDomains = InterventionDomains::pluck('name', 'id');
+        $interventionDomains = InterventionDomain::pluck('name', 'id');
 
         return $form
             ->schema([
@@ -91,8 +91,8 @@ class ServiceResource extends Resource
                             ->minValue(-180)
                             ->maxValue(180)
                             ->required(),
-                        Select::make('intervention_domains')->relationship('interventionDomain','name')->multiple()->required(),
-                        Select::make('beneficiary_groups')->relationship('beneficiaryGroup','name')->multiple()->required(),
+                        Select::make('intervention_domains')->relationship('interventionDomain', 'name')->multiple()->required(),
+                        Select::make('beneficiary_groups')->relationship('beneficiaryGroup', 'name')->multiple()->required(),
 
                     ]),
                 Card::make()->columns(2)->schema([

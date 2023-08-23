@@ -12,7 +12,7 @@
     <h4 class="my-2 text-xl font-bold">{{ Str::limit($point->name, 220, '...') }}</h4>
     <p><span class="font-bold">{{ __('txt.service_card.provided_by') }} </span>{{ $point->ngo->name }}</p>
     <p><span class="font-bold">{{ __('txt.service_card.intervention_domains') }}</span>
-        @foreach ($point->interventionDomain as $id => $domain)
+        @foreach ($point->interventionDomains as $id => $domain)
             <span class="font-normal">{{ $domain->name }}</span>
             @if (!$loop->last)
                 ,

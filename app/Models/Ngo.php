@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Concerns\BelongsToInterventionDomains;
 use App\Concerns\ClearsResponseCache;
 use App\Concerns\HasLocation;
 use App\Concerns\Searchable;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -21,6 +23,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Ngo extends Model implements HasMedia
 {
     use ClearsResponseCache;
+    use BelongsToInterventionDomains;
     use HasFactory;
     use InteractsWithMedia;
     use HasLocation;
@@ -75,9 +78,9 @@ class Ngo extends Model implements HasMedia
                     ->unique()
                     ->collect()
             ),
-            'interventionDomain' => Normalize::collection(
+            'interventionDomains' => Normalize::collection(
                 $this->services
-                    ->pluck('interventionDomain')
+                    ->pluck('interventionDomains')
                     ->flatMap
                     ->pluck('name')
                     ->unique()
@@ -93,7 +96,7 @@ class Ngo extends Model implements HasMedia
                 $query->where('county_id', $county);
             })
             ->when(data_get($filters, 'intervention_domain'), function (Builder $query, $interventionDomain) {
-                $query->whereRelation('services.interventionDomain', 'intervention_domains.id', $interventionDomain);
+                $query->whereRelation('services.interventionDomains', 'intervention_domains.id', $interventionDomain);
             })
             ->when(data_get($filters, 'beneficiary'), function (Builder $query, $beneficiary) {
                 $query->whereRelation('services.beneficiaryGroup', 'beneficiary_groups.id', $beneficiary);
@@ -113,18 +116,17 @@ class Ngo extends Model implements HasMedia
         return $this->hasMany(Service::class);
     }
 
-    public function interventionDomain(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(InterventionDomains::class);
-    }
-
-    public function getActivityDomainsNameAttribute(): \Illuminate\Support\Collection
+    public function getActivityDomainsNameAttribute(): Collection
     {
         return ActivityDomain::whereIn('id', $this->activity_domains)->pluck('name', 'id');
     }
 
-    public function getInterventionDomainsNameAttribute(): \Illuminate\Support\Collection
+    public function getInterventionDomainsListAttribute(): string
     {
-        return $this->services()->with('interventionDomain')->get()->pluck('interventionDomain')->flatten()->pluck('name', 'id');
+        return $this->services
+            ->pluck('interventionDomains')
+            ->flatten()
+            ->pluck('name', 'id')
+            ->join(', ');
     }
 }

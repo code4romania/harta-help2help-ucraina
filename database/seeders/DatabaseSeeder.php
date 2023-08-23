@@ -7,7 +7,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\ActivityDomain;
 use App\Models\BeneficiaryGroup;
-use App\Models\InterventionDomains;
+use App\Models\InterventionDomain;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\App;
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
         foreach ($domains as $domain) {
             $insertArr[] = ['name' => collect($domain['name'])->toJson(), 'slug' => Str::slug($domain['name']['ro'])];
         }
-        InterventionDomains::insert($insertArr);
+        InterventionDomain::insert($insertArr);
     }
 
     private function seedActivityDomains()

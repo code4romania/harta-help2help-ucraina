@@ -9,7 +9,7 @@ use App\Concerns\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InterventionDomains extends Model
+class InterventionDomain extends Model
 {
     use ClearsResponseCache;
     use HasFactory;
@@ -17,8 +17,10 @@ class InterventionDomains extends Model
 
     protected $fillable = [
         'name',
-        'slug',
+        'icon',
     ];
 
-    protected array $translatable = ['name'];
+    protected array $translatable = [
+        'name',
+    ];
 }
