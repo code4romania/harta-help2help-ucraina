@@ -80,13 +80,4 @@ class PageController extends Controller
             )->paginate(),
         ]);
     }
-
-    public function home()
-    {
-        return view('home', [
-            'totalServices' => Service::count(),
-            'totalNgos' => Ngo::count(),
-            'totalBeneficiaries' => Ngo::sum('number_of_beneficiaries'),
-        ]);
-    }
 }

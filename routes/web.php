@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,7 @@ Route::group([
         'throttle:web',
     ],
 ], function () {
-    Route::get('/', [PageController::class, 'home'])->name('home');
+    Route::get('/', HomeController::class)->name('home');
 
     Route::view('/about', 'about')->name('about');
     Route::view('/contact', 'contact')->name('contact');
