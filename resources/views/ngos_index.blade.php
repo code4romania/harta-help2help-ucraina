@@ -2,6 +2,7 @@
     <x-slot:title>
         {{ $ngo->name }}
     </x-slot:title>
+
     <div class=" md:ml-32 md:my-4">
         <x-breadcrumbs :items="$breadcrumbs" class="container md:col-span-2" />
     </div>
@@ -41,24 +42,24 @@
                 <div class="flex flex-col w-full gap-2 md:w-1/2">
                     <p class="font-bold"> {{ __('txt.placeholders.contact') }} </p>
                     <div class="flex items-center">
-                        @svg('icon-Phone', 'w-50 h-50 mr-2')
+                        <x-icon-phone class="w-4 h-4 mr-2" />
                         <span class="flex self-center font-medium"> {{ $ngo->phone }} </span>
                     </div>
                     <div class="flex items-center">
-                        @svg('icon-Mail', 'w-50 h-50 mr-2')
+                        <x-icon-mail class="w-4 h-4 mr-2" />
                         <a href="mailto:{{ $ngo->contact_email }}"
                             class="flex self-center font-medium hover:underline">
                             {{ $ngo->contact_email }}
                         </a>
                     </div>
                     <div class="flex items-center">
-                        @svg('icon-Home', 'w-50 h-50 mr-2')
+                        <x-icon-home class="w-4 h-4 mr-2" />
                         <address class="flex self-center not-italic font-medium">
                             {{ $ngo->address }} {{ $ngo->city?->name }} {{ $ngo->county?->name }}
                         </address>
                     </div>
                     <div class="flex items-center">
-                        @svg('icon-Globe', 'w-50 h-50 mr-2')
+                        <x-icon-globe class="w-4 h-4 mr-2" />
                         <a href="{{ $ngo->website }}" class="flex self-center font-medium hover:underline"
                             target="_blank" rel="noopener">
                             {{ $ngo->website }}
@@ -70,7 +71,7 @@
                     @foreach ($ngo->social_icons as $platform => $url)
                         @continue(blank($url))
                         <a href="{{ $url }}" target="_blank" rel="noopener">
-                            @svg("icon-{$platform}", 'w-50 h-50')
+                            @svg("icon-{$platform}", 'w-6 h-6')
                         </a>
                     @endforeach
                 </div>
