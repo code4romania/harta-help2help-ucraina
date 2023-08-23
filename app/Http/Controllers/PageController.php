@@ -27,14 +27,14 @@ class PageController extends Controller
         ]);
     }
 
-    public function ngoPage(string $local, Ngo $ngo)
+    public function ngoPage(string $locale, Ngo $ngo)
     {
         return view('ngos_index', [
             'ngo' => $ngo,
             'breadcrumbs' => [
                 [
                     'name' => __('txt.header.ngos'),
-                    'url' => route('ngos', app()->getLocale()),
+                    'url' => localized_route('ngos'),
                 ],
                 [
                     'name' => $ngo->name,

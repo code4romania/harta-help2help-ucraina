@@ -5,8 +5,7 @@
     </div>
 
     <div class="container">
-        <form class="grid items-stretch mx-auto lg:w-4/5 sm:grid-cols-12 gap-y-4"
-            action="{{ route('ngos', ['local' => app()->getLocale()]) }}">
+        <form class="grid items-stretch mx-auto lg:w-4/5 sm:grid-cols-12 gap-y-4" action="{{ localized_route('ngos') }}">
             <label class="relative block sm:col-span-9">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                     <x-heroicon-o-search class="w-6 h-6 text-gray-1" />

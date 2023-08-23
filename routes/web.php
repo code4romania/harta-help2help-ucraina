@@ -20,7 +20,7 @@ use Spatie\ResponseCache\Middlewares\CacheResponse;
 */
 
 Route::group([
-    'prefix' => '{local?}',
+    'prefix' => '{locale?}',
     'middleware' => [
         SetLocale::class,
         CacheResponse::class,

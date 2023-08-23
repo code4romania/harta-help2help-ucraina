@@ -4,10 +4,7 @@
         class="flex items-center max-w-full space-x-2"
     >
         <li class="flex items-center">
-            <a
-                href="{{ route('home') }}"
-                class="text-gray-400 hover:text-gray-500"
-            >
+            <a href="{{ localized_route('home') }}" class="text-gray-400 hover:text-gray-500">
                 <x-heroicon-o-home class="w-5 h-5 shrink-0" />
 
                 <span class="sr-only">Acasă</span>
