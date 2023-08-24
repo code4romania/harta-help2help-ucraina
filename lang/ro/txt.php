@@ -73,7 +73,7 @@ return [
         'message' => 'Mesajul tău:',
         'social_media' => 'Social media:',
         'contact' => 'Contact:',
-        'ong_services' => 'Serviciile organizației:',
+        'ong_services' => 'Serviciile organizației',
     ],
 
     'header' => [
@@ -178,6 +178,7 @@ return [
         Spatiu pentru socializare in comunitate, ce pune la dispozitie gustari, ceai, cafea.',
         'budget' => 'Buget alocat',
         'phone' => 'Telefon',
+        'email' => 'Email',
         'address' => 'Adresa',
 
     ],

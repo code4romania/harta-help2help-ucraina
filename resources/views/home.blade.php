@@ -7,7 +7,7 @@
 
     <x-search :action="localized_route('services')" />
 
-    <div class="about">
+    <div class="pb-16 about">
         <div class="container flex">
             <section class="flex-col items-center justify-start">
                 <div class="flex flex-col items-center justify-center md:flex-row">
@@ -72,13 +72,13 @@
                             'intervention_domain' => $domain->id,
                         ],
                     ]) }}"
-                        class="items-center justify-center p-10 group card bg-gray-2 text-gray-1 hover:bg-blue-3 hover:text-white hover:stroke:text-blue-1 aspect-square gap-4 !mb-0">
+                        class="items-center justify-center p-10 flex flex-col bg-gray-2 text-gray-1 hover:bg-blue-3 hover:text-white hover:stroke:text-blue-1 aspect-square gap-4 !mb-0">
 
                         @if ($domain->icon)
                             @svg("icon-{$domain->icon}", 'shrink-0 w-12 h-12 md:w-24 md:h-24')
                         @endif
 
-                        <h4 class="text-xl font-bold text-center md:text-xl lg:text-xl">
+                        <h4 class="text-xl font-bold text-center md:text-2xl">
                             {{ $domain->name }}
                         </h4>
                     </a>

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Concerns\BelongsToInterventionDomains;
-use App\Concerns\ClearsResponseCache;
 use App\Concerns\HasLocation;
 use App\Concerns\Searchable;
 use App\Concerns\Translatable;
@@ -20,7 +19,6 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 class Service extends Model
 {
     use BelongsToInterventionDomains;
-    use ClearsResponseCache;
     use HasFactory;
     use HasLocation;
     use Searchable;
@@ -28,8 +26,7 @@ class Service extends Model
 
     protected $casts = [
         'activity_domains' => 'array',
-        'beneficiary_groups' => 'array',
-        'application_methods' => 'array',
+        'application_methods' => 'collection',
     ];
 
     protected $fillable = [
@@ -42,7 +39,6 @@ class Service extends Model
         'activity_domains',
         'duration',
         'status',
-        'beneficiary_groups',
         'application_methods',
         'budget',
         'lat',

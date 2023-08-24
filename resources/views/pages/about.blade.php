@@ -4,7 +4,7 @@
     <x-slot:title>
         Help2Help About Page
         </x-slot>
-        <div class="about-page ">
+        <div class="about-page">
             <section class="container flex flex-col ">
 
                 <div class="flex flex-col items-center justify-center md:flex-row">

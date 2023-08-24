@@ -4,7 +4,7 @@
     <ol role="list" class="flex items-center max-w-full space-x-2">
         <li class="flex items-center">
             <a href="{{ localized_route('home') }}" class="text-gray-400 hover:text-gray-500">
-                <x-heroicon-o-home class="w-5 h-5 shrink-0" />
+                <x-heroicon-s-home class="w-5 h-5 shrink-0" />
 
                 <span class="sr-only">Acasă</span>
             </a>
@@ -12,7 +12,7 @@
 
         @foreach ($items as $item)
             <li class="flex items-center overflow-hidden ">
-                <x-icon-right-arrow class="w-5 h-5 text-gray-200 fill-current shrink-0" />
+                <x-heroicon-s-chevron-right class="w-5 h-5 text-gray-200 fill-current shrink-0" />
 
                 @if (array_key_exists('url', $item) && $item['url'])
                     <a href="{{ $item['url'] }}"

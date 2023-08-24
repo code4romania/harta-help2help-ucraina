@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Concerns\BelongsToInterventionDomains;
-use App\Concerns\ClearsResponseCache;
 use App\Concerns\HasLocation;
 use App\Concerns\Searchable;
 use App\Concerns\Translatable;
@@ -21,7 +20,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Ngo extends Model implements HasMedia
 {
-    use ClearsResponseCache;
     use BelongsToInterventionDomains;
     use HasFactory;
     use InteractsWithMedia;

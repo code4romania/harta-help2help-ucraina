@@ -1,4 +1,4 @@
-<footer class="absolute bottom-0 flex items-center w-full h-60 min-h-fit bg-gray-2 md:h-72 lg:h-80">
+<footer class="flex items-center w-full h-60 min-h-fit bg-gray-2 ">
     <div class="container flex flex-col w-4/5 mx-auto md:flex-row md:justify-between">
         <h4 class="self-center mb-0 text-2xl"> {{ __('txt.footer.partners') }}</h4>
         <div class="flex items-center my-6 justify-evenly lg:w-11/12">

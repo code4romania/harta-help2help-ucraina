@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-slate-50">
 
 <head>
     <meta charset="utf-8">
@@ -9,15 +9,17 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="relative min-h-screen p-0 m-0 pb-60 md:pb-72 lg:pb-80 bg-slate-50">
+<body class="flex flex-col min-h-screen antialiased">
     <x-header />
 
-    {{ $slot }}
+    <main class="flex-1">
+        {{ $slot }}
+    </main>
 
     <x-footer />
 </body>
 
-$@stack('js')
+@stack('js')
 
 @production
     <x-analytics :id="config('services.google.analytics')" />

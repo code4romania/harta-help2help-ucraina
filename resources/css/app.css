@@ -27,7 +27,7 @@ p {
 }
 
 .about {
-    background-image: linear-gradient(180deg, transparent 0%, rgba(theme('colors.yellow.1'), 0.375) 15%, theme('colors.blue.1') 30%, theme('colors.gray.2') 54%);
+    background-image: linear-gradient(180deg, transparent 0%, rgba(theme('colors.yellow.1'), 0.375) 15%, theme('colors.blue.1') 30%, theme('colors.gray.2') 50%, theme('colors.white') 60%);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: center;

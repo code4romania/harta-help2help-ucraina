@@ -44,14 +44,15 @@ window.initMap = () => {
             elementToShow.classList.remove('hidden')
             elementToShow.scrollIntoView()
         });
-        markers.push(marker)
 
+        markers.push(marker)
     })
+
     const markerCluster = new markerClusterer.MarkerClusterer({ map, markers });
 }
-window.copyToClipboard = function (el) {
-    navigator.clipboard.writeText(el.dataset.url);
-    alert("Copied: " + el.dataset.url);
+window.copyToClipboard = function (url) {
+    navigator.clipboard.writeText(url);
+    alert("Copied: " + url);
 }
 window.toggleMenu = function () {
     document.getElementById('mobile-menu').classList.toggle('hidden')
