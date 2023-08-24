@@ -1,5 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Models\BeneficiaryGroup;
+use App\Models\InterventionDomain;
+use App\Models\Ngo;
 use App\Models\Service;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,32 +19,28 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('intervention_domains_service', function (Blueprint $table) {
-
             $table->id();
-            $table->foreignIdFor(\App\Models\Service::class)->constrained();
-            $table->foreignIdFor(\App\Models\InterventionDomains::class)->constrained();
+            $table->foreignIdFor(Service::class)->constrained();
+            $table->foreignIdFor(InterventionDomain::class)->constrained();
         });
         Schema::create('beneficiary_group_service', function (Blueprint $table) {
-
             $table->id();
-            $table->foreignIdFor(\App\Models\Service::class)->constrained();
-            $table->foreignIdFor(\App\Models\BeneficiaryGroup::class)->constrained();
+            $table->foreignIdFor(Service::class)->constrained();
+            $table->foreignIdFor(BeneficiaryGroup::class)->constrained();
         });
         Schema::create('intervention_domains_ngo', function (Blueprint $table) {
-
             $table->id();
-            $table->foreignIdFor(\App\Models\Ngo::class)->constrained();
-            $table->foreignIdFor(\App\Models\InterventionDomains::class)->constrained();
+            $table->foreignIdFor(Ngo::class)->constrained();
+            $table->foreignIdFor(InterventionDomain::class)->constrained();
         });
         $services = Service::all();
         $interventionDomainsIds = [];
         $beneficiaryGroupsIds = [];
         foreach ($services as $service) {
-
             foreach ($service->intervention_domains as $id) {
                 $interventionDomainsIds[] = [
                     'service_id' => $service->id,
-                    'intervention_domains_id' => $id
+                    'intervention_domains_id' => $id,
                 ];
             }
             foreach ($service->beneficiary_groups as $beneficiaryGroupId) {
@@ -49,18 +50,13 @@ return new class extends Migration
             }
         }
 
-
         DB::table('intervention_domains_service')->insert($interventionDomainsIds);
         DB::table('beneficiary_group_service')->insert($beneficiaryGroupsIds);
 
-
-        Schema::table('services', function($table) {
+        Schema::table('services', function (Blueprint $table) {
             $table->dropColumn('beneficiary_groups');
             $table->dropColumn('intervention_domains');
         });
-
-
-
     }
 
     /**

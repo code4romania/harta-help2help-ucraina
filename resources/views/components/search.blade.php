@@ -14,7 +14,7 @@
         <form class="grid items-stretch mx-auto lg:w-4/5 sm:grid-cols-12 gap-y-4" action="{{ $action }}">
             <label class="relative block sm:col-span-9">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <x-heroicon-o-search class="w-6 h-6 text-gray1" />
+                    <x-heroicon-o-search class="w-6 h-6 text-gray-1" />
                 </span>
                 <input
                     class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
@@ -24,10 +24,10 @@
 
             <label class="relative block sm:col-span-3">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <x-heroicon-o-location-marker class="w-6 h-6 text-gray1" />
+                    <x-heroicon-o-location-marker class="w-6 h-6 text-gray-1" />
                 </span>
                 <select
-                    class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
+                    class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray-1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
                     name="filter[county]">
                     <option value=""> {{ __('txt.placeholders.anywhere_country') }} </option>
                     @foreach ($counties as $county)
@@ -40,10 +40,10 @@
 
             <label class="relative block sm:col-span-4">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <x-heroicon-o-presentation-chart-bar class="w-6 h-6 text-gray1" />
+                    <x-heroicon-o-presentation-chart-bar class="w-6 h-6 text-gray-1" />
                 </span>
                 <select
-                    class="w-full h-full p-3 pl-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:my-0 lg:mr-1 lg:h-20 lg:text-lg text-ellipsis"
+                    class="w-full h-full p-3 pl-10 text-sm bg-white border border-slate-300 text-gray-1 focus:outline-none lg:my-0 lg:mr-1 lg:h-20 lg:text-lg text-ellipsis"
                     name="filter[intervention_domain]" onchange="getDomains(@js(__('txt.placeholders.domain')))">
                     <option value=""> {{ __('txt.placeholders.any_domain') }} </option>
                     @foreach ($interventionDomains as $domain)
@@ -56,10 +56,10 @@
 
             <label class="relative block sm:col-span-3">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <x-heroicon-o-user-group class="w-6 h-6 text-gray1" />
+                    <x-heroicon-o-user-group class="w-6 h-6 text-gray-1" />
                 </span>
                 <select
-                    class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
+                    class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray-1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
                     name="filter[beneficiary]">
                     <option value=""> {{ __('txt.placeholders.any_beneficiary') }} </option>
                     @foreach ($beneficiaries as $beneficiary)
@@ -72,10 +72,10 @@
 
             <label class="relative block sm:col-span-3">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <x-heroicon-o-light-bulb class="w-6 h-6 text-gray1" />
+                    <x-heroicon-o-light-bulb class="w-6 h-6 text-gray-1" />
                 </span>
                 <select
-                    class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
+                    class="w-full h-full p-3 px-10 text-sm bg-white border border-slate-300 text-gray-1 focus:outline-none lg:h-20 lg:text-lg text-ellipsis"
                     name="filter[status]">
                     <option value="">
                         {{ __('txt.placeholders.project_status') }}
@@ -89,7 +89,7 @@
                 </select>
             </label>
 
-            <button class="p-4 font-bold button sm:col-span-2 bg-orange1 hover:bg-blue1" type="submit">
+            <button class="p-4 font-bold button sm:col-span-2 bg-orange-1 hover:bg-blue-1" type="submit">
                 {{ __('txt.buttons.search') }}
             </button>
         </form>

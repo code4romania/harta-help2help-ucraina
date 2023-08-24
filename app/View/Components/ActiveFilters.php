@@ -6,7 +6,7 @@ namespace App\View\Components;
 
 use App\Models\BeneficiaryGroup;
 use App\Models\County;
-use App\Models\InterventionDomains;
+use App\Models\InterventionDomain;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -72,7 +72,7 @@ class ActiveFilters extends Component
 
     protected function getInterventionDomainFilter(): ?string
     {
-        return InterventionDomains::where('id', request()->integer('filter.intervention_domain'))->first()?->name;
+        return InterventionDomain::where('id', request()->integer('filter.intervention_domain'))->first()?->name;
     }
 
     protected function getBeneficiaryFilter(): ?string

@@ -6,13 +6,12 @@ namespace App\Filament\Resources;
 
 use App\Enums\ServiceApplicationType;
 use App\Filament\Resources\ServiceResource\Pages;
-use App\Models\BeneficiaryGroup;
 use App\Models\County;
-use App\Models\InterventionDomains;
 use App\Models\Service;
 use Closure;
-use Filament\Forms;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Concerns\Translatable;
@@ -34,30 +33,29 @@ class ServiceResource extends Resource
 
     public static function form(Form $form): Form
     {
-        $beneficiaryGroup = BeneficiaryGroup::pluck('name', 'id');
-
-        $interventionDomains = InterventionDomains::pluck('name', 'id');
-
         return $form
             ->schema([
-
                 Card::make()
                     ->columnSpan(2)
                     ->columns(2)
                     ->schema([
-                        TextInput::make('name')->required()
-                            ->afterStateUpdated(function (Closure $set, $state) {
-                                $set('slug', Str::slug($state));
-                            })->reactive(),
-                        TextInput::make('slug')->disabled(),
+                        TextInput::make('name')
+                            ->required()
+                            ->afterStateUpdated(fn (Closure $set, $state) => $set('slug', Str::slug($state)))
+                            ->reactive(),
 
-                        TextInput::make('project_name')->required(),
+                        TextInput::make('slug')
+                            ->disabled(),
+
+                        TextInput::make('project_name')
+                            ->required(),
 
                         Select::make('ngo_id')->relationship('ngo', 'name')
                             ->searchable()
                             ->preload()
                             ->required(),
-                        Forms\Components\Select::make('county_id')
+
+                        Select::make('county_id')
                             ->label('County')
                             ->options(County::pluck('name', 'id'))
                             ->required()
@@ -65,7 +63,7 @@ class ServiceResource extends Resource
                             ->searchable()
                             ->afterStateUpdated(fn (callable $set) => $set('city_id', null)),
 
-                        Forms\Components\Select::make('city_id')
+                        Select::make('city_id')
                             ->label('City')
                             ->required()
                             ->options(
@@ -75,35 +73,76 @@ class ServiceResource extends Resource
                             )
                             ->searchable()
                             ->reactive(),
-                        Forms\Components\Grid::make()->schema([
-                            TextInput::make('duration')->required(),
-                            Select::make('status')->options(['active' => 'În derulare/Activ', 'finished' => 'Finalizat'])->required(),
-                            TextInput::make('budget')->required(),
-                        ])->columns(3),
 
-                        Forms\Components\TextInput::make('lat')
+                        Grid::make()
+                            ->columns(3)
+                            ->schema([
+                                TextInput::make('duration')
+                                    ->required(),
+
+                                Select::make('status')
+                                    ->options([
+                                        'active' => 'În derulare/Activ',
+                                        'finished' => 'Finalizat',
+                                    ])
+                                    ->required(),
+
+                                TextInput::make('budget')
+                                    ->required(),
+                            ]),
+
+                        TextInput::make('lat')
                             ->numeric()
                             ->minValue(-90)
                             ->maxValue(90)
                             ->required(),
-                        Forms\Components\TextInput::make('lng')
+
+                        TextInput::make('lng')
                             ->numeric()
                             ->minValue(-180)
                             ->maxValue(180)
                             ->required(),
-                        Select::make('intervention_domains')->relationship('interventionDomain','name')->multiple()->required(),
-                        Select::make('beneficiary_groups')->relationship('beneficiaryGroup','name')->multiple()->required(),
 
+                        Select::make('intervention_domains')
+                            ->relationship('interventionDomains', 'name')
+                            ->multiple()
+                            ->required(),
+
+                        Select::make('beneficiary_groups')
+                            ->relationship('beneficiaryGroups', 'name')
+                            ->multiple()
+                            ->required(),
                     ]),
-                Card::make()->columns(2)->schema([
-                    Forms\Components\Repeater::make('application_methods')->columnSpan(2)->schema([
-                        Select::make('type')->options(ServiceApplicationType::selectable())->reactive()->required(),
-                        TextInput::make('application_url')->url()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Online->value)->required(),
-                        TextInput::make('application_phone')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        TextInput::make('application_email')->email()->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)->required(),
-                        TextInput::make('application_address')->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)->required(),
-                    ])->defaultItems(0),
-                ]),
+                Card::make()
+                    ->columns(2)
+                    ->schema([
+                        Repeater::make('application_methods')
+                            ->columnSpan(2)
+                            ->schema([
+                                Select::make('type')
+                                    ->options(ServiceApplicationType::selectable())
+                                    ->reactive()
+                                    ->required(),
+
+                                TextInput::make('application_url')
+                                    ->url()
+                                    ->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Online->value)
+                                    ->required(),
+
+                                TextInput::make('application_phone')
+                                    ->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)
+                                    ->requiredWithout('application_email'),
+
+                                TextInput::make('application_email')
+                                    ->email()
+                                    ->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Phone->value)
+                                    ->requiredWithout('application_phone'),
+
+                                TextInput::make('application_address')
+                                    ->hidden(fn (Closure $get) => $get('type') !== ServiceApplicationType::Physical->value)
+                                    ->required(),
+                            ]),
+                    ]),
             ]);
     }
 

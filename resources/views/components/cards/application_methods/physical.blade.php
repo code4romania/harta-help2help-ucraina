@@ -1,12 +1,16 @@
 @props(['method'])
-<div class="flex w-full flex-col md:w-1/4">
-    <p class="flex font-bold">
-        <x-heroicon-o-check-circle class="mr-1 h-5 w-5 fill-green-300 text-gray1"/>
-        {{ __('txt.service_card.access_location') }}
-    </p>
-    <div> {{ __('txt.service_card.access_location_description') }}</div>
-    @if($method['application_address'])
-        <p class="font-bold"> {{ __('txt.service_card.address') }} <span class="font-normal">{{$method['application_address']}}</span></p>
-    @endif
 
+<div>
+    <div class="flex items-center gap-2">
+        <x-heroicon-s-check-circle class="w-4 h-4 text-green-500" />
+        <span class="font-semibold">{{ __('txt.service_card.access_location') }}</span>
+    </div>
+    <p class="text-gray-500">{{ __('txt.service_card.access_location_description') }}</p>
+
+    @if ($method['application_address'])
+        <span class="font-semibold">{{ __('txt.service_card.address') }}</span>
+        <address class="not-italic font-normal text-gray-500">
+            {{ $method['application_address'] }}
+        </address>
+    @endif
 </div>

@@ -41,8 +41,8 @@ return [
 
     'buttons' => [
         'search' => 'Caută',
-        'services_map' => 'Vezi hartă servicii',
-        'services_list' => 'Vezi listă servicii',
+        'services_map' => 'Hartă servicii',
+        'services_list' => 'Listă servicii',
         'see_more' => 'Vezi mai mult',
         'see_story' => ' Vezi povestea organizației',
         'access_online' => 'Accesează online',
@@ -73,7 +73,7 @@ return [
         'message' => 'Mesajul tău:',
         'social_media' => 'Social media:',
         'contact' => 'Contact:',
-        'ong_services' => 'Serviciile organizației:',
+        'ong_services' => 'Serviciile organizației',
     ],
 
     'header' => [
@@ -166,10 +166,10 @@ return [
         'ngos_services' => 'Serviciile organizației',
         'city_any' => 'Oriunde în România',
         'project_name' => 'Denumire proiect',
-        'provided_by' => 'Oferit de: ',
-        'intervention_domains' => 'Domenii de intervenție: ',
-        'beneficiary_type' => 'Tip beneficiar: ',
-        'by_phone' => 'Email sau telefon: ',
+        'provided_by' => 'Oferit de',
+        'intervention_domains' => 'Domenii de intervenție',
+        'beneficiary_type' => 'Tip beneficiar',
+        'by_phone' => 'Email sau telefon',
         'access_online_explain' => 'Lorem ipsum. Apasă butonul de mai jos și rezolvă problema.',
         'service_name' => 'Cercetașii pentru Ucraina',
         'services_provided1' => 'Centru educațional pentru tineri și copii, activități educaționale nonformale, soft skills si competente transversale.',
@@ -178,6 +178,7 @@ return [
         Spatiu pentru socializare in comunitate, ce pune la dispozitie gustari, ceai, cafea.',
         'budget' => 'Buget alocat',
         'phone' => 'Telefon',
+        'email' => 'Email',
         'address' => 'Adresa',
 
     ],

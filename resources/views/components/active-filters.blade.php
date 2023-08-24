@@ -8,7 +8,7 @@
     </div>
 
     <a href="{{ url()->current() }}" class="flex gap-2 font-bold">
-        <x-heroicon-o-x class="w-6 h-6 text-gray1" />
+        <x-heroicon-o-x class="w-6 h-6 text-gray-1" />
         {{ __('txt.filters.clear') }}
     </a>
 </div>

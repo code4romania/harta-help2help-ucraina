@@ -2,30 +2,42 @@
 
 module.exports = {
     content: [
-        "app/**/*.php",
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./vendor/filament/**/*.blade.php",
+        'app/**/*.php',
+        'resources/**/*.blade.php',
+        'resources/**/*.js',
     ],
-    darkMode: "class",
+    darkMode: 'class',
     theme: {
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1.5rem',
+                lg: '2rem',
+            },
+        },
         extend: {
-            container: {
-                center: true,
-                padding: '0.75rem',
+            fontFamily: {
+                sans: ['Source Sans Pro', 'sans-serif'],
             },
             colors: {
-                'blue1': '#7CC1DF',
-                'blue2': '#9ACEE4',
-                'blue3': '#B8DBEA',
-                'orange1': '#EBBB3F',
-                'orange2': '#EDC96C',
-                'orange3': '#F0D89A',
-                'yellow1': '#E9D758',
-                'white': '#FFFFFF',
-                'header': '#FBF9F4',
-                'gray1': '#6B7280',
-                'gray2': '#fbf9f4b3',
+                blue: {
+                    1: '#7CC1DF',
+                    2: '#9ACEE4',
+                    3: '#B8DBEA',
+                },
+                orange: {
+                    1: '#EBBB3F',
+                    2: '#EDC96C',
+                    3: '#F0D89A',
+                },
+                yellow: {
+                    1: '#E9D758',
+                },
+                gray: {
+                    1: '#6B7280',
+                    2: '#FBF9F4',
+                }
             },
         },
     },

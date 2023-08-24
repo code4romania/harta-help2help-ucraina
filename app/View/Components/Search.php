@@ -6,7 +6,7 @@ namespace App\View\Components;
 
 use App\Models\BeneficiaryGroup;
 use App\Models\County;
-use App\Models\InterventionDomains;
+use App\Models\InterventionDomain;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\View\Component;
@@ -30,7 +30,7 @@ class Search extends Component
 
         $this->counties = County::all();
 
-        $this->interventionDomains = InterventionDomains::all();
+        $this->interventionDomains = InterventionDomain::all();
 
         $this->beneficiaries = BeneficiaryGroup::all();
     }

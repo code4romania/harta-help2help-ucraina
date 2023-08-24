@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NgoController;
 use App\Http\Controllers\PageController;
-use App\Http\Middleware\LanguageManager;
+use App\Http\Controllers\ServiceController;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
-use Spatie\ResponseCache\Middlewares\CacheResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,21 +21,19 @@ use Spatie\ResponseCache\Middlewares\CacheResponse;
 */
 
 Route::group([
-    'prefix' => '{local?}',
+    'prefix' => '{locale?}',
     'middleware' => [
-        LanguageManager::class,
-        CacheResponse::class,
+        SetLocale::class,
         'throttle:web',
     ],
 ], function () {
-    Route::get('/', [PageController::class, 'home'])->name('home');
+    Route::get('/', HomeController::class)->name('home');
 
-    Route::view('/about', 'about')->name('about');
-    Route::view('/contact', 'contact')->name('contact');
+    Route::get('/services', [ServiceController::class, 'map'])->name('services');
+    Route::get('/services/list', [ServiceController::class, 'list'])->name('services.list');
 
-    Route::get('/services', [PageController::class, 'services'])->name('services')->middleware('throttle:services');
-    Route::get('/services/list', [PageController::class, 'servicesList'])->name('services.list')->middleware('throttle:services');
+    Route::get('/ngo', [NgoController::class, 'index'])->name('ngos.index');
+    Route::get('/ngo/{ngo:slug}', [NgoController::class, 'show'])->name('ngos.show');
 
-    Route::get('/ngos', [PageController::class, 'ngosPage'])->name('ngos');
-    Route::get('/ngos/{ngo:slug}', [PageController::class, 'ngoPage'])->name('ngo.index');
+    Route::get('/{page}', PageController::class)->name('page');
 });

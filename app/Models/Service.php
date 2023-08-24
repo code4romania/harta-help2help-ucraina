@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Concerns\ClearsResponseCache;
+use App\Concerns\BelongsToInterventionDomains;
 use App\Concerns\HasLocation;
 use App\Concerns\Searchable;
 use App\Concerns\Translatable;
@@ -13,21 +13,20 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Service extends Model
 {
-    use ClearsResponseCache;
+    use BelongsToInterventionDomains;
     use HasFactory;
     use HasLocation;
     use Searchable;
     use Translatable;
 
     protected $casts = [
-        'intervention_domains' => 'array',
         'activity_domains' => 'array',
-        'beneficiary_groups' => 'array',
-        'application_methods' => 'array',
+        'application_methods' => 'collection',
     ];
 
     protected $fillable = [
@@ -40,7 +39,6 @@ class Service extends Model
         'activity_domains',
         'duration',
         'status',
-        'beneficiary_groups',
         'application_methods',
         'budget',
         'lat',
@@ -53,7 +51,13 @@ class Service extends Model
         'project_name',
     ];
 
-    protected $with = ['interventionDomain', 'beneficiaryGroup', 'ngo', 'city', 'county'];
+    protected $with = [
+        'interventionDomains',
+        'beneficiaryGroups',
+        'ngo',
+        'city',
+        'county',
+    ];
 
     public function toSearchableArray(): array
     {
@@ -62,14 +66,14 @@ class Service extends Model
             'name' => Normalize::string($this->name),
             'project_name' => Normalize::string($this->project_name),
             'county' => Normalize::string($this->county?->name),
-            'beneficiary' => Normalize::collection(
-                $this->beneficiaryGroup
+            'beneficiaries' => Normalize::collection(
+                $this->beneficiaryGroups
                     ->pluck('name')
                     ->unique()
                     ->collect()
             ),
-            'interventionDomain' => Normalize::collection(
-                $this->interventionDomain
+            'interventionDomains' => Normalize::collection(
+                $this->interventionDomains
                     ->pluck('name')
                     ->unique()
                     ->collect()
@@ -84,10 +88,10 @@ class Service extends Model
                 $query->where('county_id', $county);
             })
             ->when(data_get($filters, 'intervention_domain'), function (Builder $query, $interventionDomain) {
-                $query->whereRelation('interventionDomain', 'intervention_domains.id', $interventionDomain);
+                $query->whereRelation('interventionDomains', 'intervention_domains.id', $interventionDomain);
             })
             ->when(data_get($filters, 'beneficiary'), function (Builder $query, $beneficiary) {
-                $query->whereRelation('beneficiaryGroup', 'beneficiary_groups.id', $beneficiary);
+                $query->whereRelation('beneficiaryGroups', 'beneficiary_groups.id', $beneficiary);
             })
             ->when(data_get($filters, 'status'), function (Builder $query, $status) {
                 $query->where('status', $status);
@@ -104,14 +108,9 @@ class Service extends Model
         return $this->hasManyThrough(ActivityDomain::class, ActivityDomainService::class);
     }
 
-    public function beneficiaryGroup(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function beneficiaryGroups(): BelongsToMany
     {
         return $this->belongsToMany(BeneficiaryGroup::class);
-    }
-
-    public function interventionDomain(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(InterventionDomains::class);
     }
 
     public function getNgoNameAttribute()
@@ -122,5 +121,24 @@ class Service extends Model
     public function getNgoImageAttribute()
     {
         return $this->ngo->getFirstMediaUrl() ?: null;
+    }
+
+    public function getBeneficiaryGroupsListAttribute(): string
+    {
+        return $this->beneficiaryGroups
+            ->pluck('name')
+            ->join(', ');
+    }
+
+    public function getInterventionDomainsListAttribute(): string
+    {
+        return $this->interventionDomains
+            ->pluck('name')
+            ->join(', ');
+    }
+
+    public function isActive(): bool
+    {
+        return $this->status === 'active';
     }
 }

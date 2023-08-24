@@ -1,0 +1,42 @@
+@import "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap";
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/v4-shims.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+h1 {
+    @apply mb-8 text-4xl font-bold;
+}
+
+h2 {
+    @apply mb-8 text-3xl font-bold;
+}
+
+p {
+    @apply my-2;
+}
+
+.search {
+    background-image: linear-gradient(180deg, theme('colors.blue.1'), rgba(theme('colors.yellow.1'), 0.375), transparent), url('../images/design/group.png');
+
+    @apply bg-bottom bg-no-repeat bg-cover;
+}
+
+.about {
+    background-image: linear-gradient(180deg, transparent 0%, rgba(theme('colors.yellow.1'), 0.375) 15%, theme('colors.blue.1') 30%, theme('colors.gray.2') 50%, theme('colors.white') 60%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+
+    &-page {
+        background-image: linear-gradient(180deg, transparent, rgba(theme('colors.yellow.1'), 0.375), theme('colors.blue.1'));
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-y: center;
+    }
+}
+
