@@ -127,7 +127,7 @@ class DatabaseSeeder extends Seeder
         ];
         $insertArr = [];
         foreach ($domains as $domain) {
-            $insertArr[] = ['name' => collect($domain['name'])->toJson(), 'slug' => Str::slug($domain['name']['ro'])];
+            $insertArr[] = ['name' => collect($domain['name'])->toJson()];
         }
         InterventionDomain::insert($insertArr);
     }
